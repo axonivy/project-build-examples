@@ -4,15 +4,19 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
   <artifactId>crm</artifactId>
-  <version>6.0.0-SNAPSHOT</version>
+  <version>6.1.0-SNAPSHOT</version>
   <packaging>iar</packaging>
   <build>
     <plugins>
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
-        <version>6.0.3-SNAPSHOT</version>
+        <version>6.1.0-SNAPSHOT</version>
         <extensions>true</extensions>
+        <configuration>
+        	<!-- use the latest available engine. may be the sprint release is also sufficient and you can remove this line! -->
+        	<engineListPageUrl>http://zugprobldmas/job/Trunk_All/lastSuccessfulBuild/</engineListPageUrl>
+        </configuration>
       </plugin>
     </plugins>
   </build>
