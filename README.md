@@ -1,5 +1,5 @@
 # project-build-examples
-example use cases for the latest unofficial `com.axonivy.ivy.ci:project-build-plugin:6.1.0-SNAPSHOT`
+example use cases for the latest unofficial [`com.axonivy.ivy.ci:project-build-plugin:6.1.0-SNAPSHOT`](https://github.com/axonivy/project-build-plugin)
 
 ## compile-test
 Simple multi module build with an ivy project and extra project to test it. To build the ivy project and run its tests proceed as follows:
