@@ -66,7 +66,7 @@
 								<parallel> 
 							        <daemons>
 										<java jar="${project.build.directory}/ivy.engine.classpath.jar" 
-											dir="${engineDirectory}" output="${test.engine.log}"
+											dir="${ivy.engine.directory}" output="${test.engine.log}"
 											newenvironment="true" fork="true" maxmemory="2048m" />
 									</daemons>
 									<sequential>
