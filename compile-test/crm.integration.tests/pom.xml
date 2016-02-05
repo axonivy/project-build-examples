@@ -111,6 +111,7 @@
 		        		<phase>pre-integration-test</phase>
 		        		<configuration>
 		        			<deployIarFile>${ch.ivyteam.ivy.project.demo.ci:crm:iar}</deployIarFile>
+		        			<deployToEngineApplication>Portal</deployToEngineApplication>
 		        		</configuration>
 		        	</execution>
 		        </executions>
