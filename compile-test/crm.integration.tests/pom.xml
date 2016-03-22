@@ -13,7 +13,7 @@
 		<version>6.1.0-SNAPSHOT</version>
 		<relativePath>../crm.maven/config</relativePath>
 	</parent>
-	
+
 	<dependencies>
 		<dependency>
 			<!-- the project under test -->
@@ -23,7 +23,8 @@
 			<type>iar</type>
 		</dependency>
 		<dependency>
-			<!-- required: test framework used by the maven-surefire-plugin to run tests -->
+			<!-- required: test framework used by the maven-surefire-plugin to run
+				tests -->
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
@@ -43,80 +44,50 @@
 			<version>3.2.0</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 	</dependencies>
-	
+
 	<build>
 		<!-- required: project-build-plugin must know where tests to build reside -->
 		<testSourceDirectory>src_test</testSourceDirectory>
-		
+
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.8</version>
-				<executions>
-					<execution>
-						<id>start.test.engine</id>
-						<phase>pre-integration-test</phase>
-						<configuration>
-							<target>
-								<echo>Starting AXON.IVY test engine</echo>
-								<property name="test.engine.log" value="${project.build.directory}/testEngineOut.log"/>
-								<parallel> 
-							        <daemons>
-										<java jar="${project.build.directory}/ivy.engine.classpath.jar" 
-											dir="${ivy.engine.directory}" output="${test.engine.log}"
-											newenvironment="true" fork="true" maxmemory="2048m" />
-									</daemons>
-									<sequential>
-										<waitfor maxwait="2" maxwaitunit="minute" 
-											     checkevery="5" checkeveryunit="second" 
-											     timeoutproperty="server.not.started">
-											<resourcecontains resource="${test.engine.log}" 
-												substring="is running and ready to serve"/>
-										</waitfor>
-									</sequential>
-								</parallel>
-								<echo>boot operation finished!</echo>
-								
-								<loadfile srcFile="${test.engine.log}" property="test.engine.url">
-									<filterchain>
-										<linecontainsregexp>
-											<regexp id="port" pattern="http[s]?://(\S+)"/>
-								        </linecontainsregexp>
-										<tokenfilter>
-										    <replaceregex pattern="(.*)(http[\S]+)(.*)" replace="\2" />
-										</tokenfilter>
-									</filterchain>
-								</loadfile>
-								
-								<echo>engine started on: ${test.engine.url}!</echo>
-							</target>
-							<exportAntProperties>true</exportAntProperties>
-						</configuration>
-						<goals><goal>run</goal></goals>
-					</execution>
-				</executions>
-			</plugin>
-		
+
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
 				<extensions>true</extensions>
 				<executions>
-		        	<execution>
-		        		<id>deploy.crm.under.test.to.memory.engine</id>
-		        		<goals><goal>deploy-iar</goal></goals>
-		        		<phase>pre-integration-test</phase>
-		        		<configuration>
-		        			<deployIarFile>${ch.ivyteam.ivy.project.demo.ci:crm:iar}</deployIarFile>
-		        			<deployToEngineApplication>Portal</deployToEngineApplication>
-		        		</configuration>
-		        	</execution>
-		        </executions>
+					<execution>
+						<id>start.test.engine</id>
+						<goals>
+							<goal>start-engine</goal>
+						</goals>
+						<phase>pre-integration-test</phase>
+					</execution>
+
+					<execution>
+						<id>deploy.crm.under.test.to.memory.engine</id>
+						<goals>
+							<goal>deploy-iar</goal>
+						</goals>
+						<phase>pre-integration-test</phase>
+						<configuration>
+							<deployIarFile>${ch.ivyteam.ivy.project.demo.ci:crm:iar}</deployIarFile>
+							<deployToEngineApplication>Portal</deployToEngineApplication>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>stop.test.engine</id>
+						<goals>
+							<goal>stop-engine</goal>
+						</goals>
+						<phase>post-integration-test</phase>
+					</execution>
+				</executions>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -125,7 +96,9 @@
 					<execution>
 						<id>selenium.web.tests</id>
 						<phase>integration-test</phase>
-						<goals><goal>test</goal></goals>
+						<goals>
+							<goal>test</goal>
+						</goals>
 						<configuration>
 							<includes>
 								<include>**/WebTest*.java</include>
@@ -135,6 +108,7 @@
 					</execution>
 				</executions>
 			</plugin>
+
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

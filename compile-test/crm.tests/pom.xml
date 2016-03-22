@@ -13,7 +13,7 @@
 		<version>6.1.0-SNAPSHOT</version>
 		<relativePath>../crm.maven/config</relativePath>
 	</parent>
-	
+
 	<dependencies>
 		<dependency>
 			<!-- the project under test -->
@@ -40,12 +40,12 @@
 	<build>
 		<!-- required: project-build-plugin must know where tests to build reside -->
 		<testSourceDirectory>src_test</testSourceDirectory>
-		
+
 		<plugins>
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
-				<version>6.1.0-SNAPSHOT</version>
+				<version>6.1.1-SNAPSHOT</version>
 				<extensions>true</extensions>
 			</plugin>
 		</plugins>
