@@ -1,0 +1,4 @@
+CustomerRegistrationFormData #class
+crm.CustomerRegistrationForm #namespace
+customer crm.Customer #field
+customer PERSISTENT #fieldModifier
