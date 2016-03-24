@@ -61,7 +61,7 @@
 					<execution>
 						<id>start.test.engine</id>
 						<goals>
-							<goal>start-engine</goal>
+							<goal>start-test-engine</goal>
 						</goals>
 						<phase>pre-integration-test</phase>
 					</execution>
@@ -81,7 +81,7 @@
 					<execution>
 						<id>stop.test.engine</id>
 						<goals>
-							<goal>stop-engine</goal>
+							<goal>stop-test-engine</goal>
 						</goals>
 						<phase>post-integration-test</phase>
 					</execution>
