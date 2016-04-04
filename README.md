@@ -1,4 +1,4 @@
-# project-build-examples
+# project-build-examples 6.1
 sample projects to demonstrate project CI/CD features of the [`project-build-plugin`](http://axonivy.github.io/project-build-plugin/snapshot).
 
 ## compile-test
