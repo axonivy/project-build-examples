@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
+	<artifactId>crm</artifactId>
+	<version>6.5.0-SNAPSHOT</version>
+	<packaging>iar</packaging>
+
+	<properties>
+		<!-- Skip maven artifact deployment -->
+		<maven.deploy.skip>true</maven.deploy.skip>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>env-dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<engine.deploy.directory>C:\dev-engines\AxonIvyEngine</engine.deploy.directory>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>env-prd</id>
+			<properties>
+				<engine.deploy.directory>C:\engines\AxonIvyEngine</engine.deploy.directory>
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.axonivy.ivy.ci</groupId>
+				<artifactId>project-build-plugin</artifactId>
+				<version>6.5.0</version>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<id>deploy.to.development.server</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy-iar</goal>
+						</goals>
+						<configuration>
+							<!-- Name of the application where this application will be deployed to -->
+							<!-- Application must already exist on the engine -->
+							<deployToEngineApplication>Portal</deployToEngineApplication>
+
+							<!-- Root directory of the engine -->
+							<!-- Point here to an existing engine installation. During the deployment the engine must running. -->
+							<deployEngineDirectory>${engine.deploy.directory}</deployEngineDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
