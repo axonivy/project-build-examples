@@ -29,7 +29,7 @@
 					<groupId>com.axonivy.ivy.ci</groupId>
 					<artifactId>project-build-plugin</artifactId>
 					<!-- pre-configure the exact version to use for child projects -->
-					<version>6.7.0</version>
+					<version>6.7.1</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
