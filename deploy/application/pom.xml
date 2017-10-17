@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ch.ivyteam.ivy.project.demos.ci</groupId>
+	<artifactId>deploy.application</artifactId>
+	<version>7.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<scm>
+		<connection>scm:git:git@github.com:axonivy/project-build-examples.git</connection>
+	</scm>
+
+	<modules>
+		<module>base</module>
+		<module>solution</module>
+		<module>customer</module>
+	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<descriptors>
+						<descriptor>assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>create.app</id>
+						<goals><goal>single</goal></goals>
+						<phase>generate-resources</phase>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>com.axonivy.ivy.ci</groupId>
+				<artifactId>project-build-plugin</artifactId>
+				<version>7.1.0-SNAPSHOT</version>
+				<executions>
+					<execution>
+						<id>test.engine.starter</id>
+						<phase>pre-integration-test</phase>
+						<goals><goal>start-test-engine</goal></goals>
+					</execution>
+					<execution>
+						<id>test.app.deploy</id>
+						<phase>pre-integration-test</phase>
+						<goals><goal>deploy-to-engine</goal></goals>
+						<configuration>
+							<deployFile>${project.build.directory}/${project.artifactId}-${project.version}-app.zip</deployFile>
+							<deployToEngineApplication>Portal</deployToEngineApplication>
+						</configuration>
+					</execution>
+					<execution>
+						<id>test.engine.stopper</id>
+						<phase>post-integration-test</phase>
+						<goals><goal>stop-test-engine</goal></goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

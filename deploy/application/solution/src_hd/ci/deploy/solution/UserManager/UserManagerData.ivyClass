@@ -1,0 +1,4 @@
+UserManagerData #class
+ci.deploy.solution.UserManager #namespace
+user ci.deploy.base.User #field
+user PERSISTENT #fieldModifier
