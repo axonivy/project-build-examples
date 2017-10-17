@@ -16,7 +16,8 @@ The root [pom.xml](pom.xml) within this directory is module that references all 
 </modules>`
 
 It packs all sub-projects (archived as IAR) into a single application zip by using the maven-assembly plugin. 
-`<plugin>
+```xml
+<plugin>
   <artifactId>maven-assembly-plugin</artifactId>
   <version>3.1.0</version>
   <configuration>
@@ -29,10 +30,12 @@ It packs all sub-projects (archived as IAR) into a single application zip by usi
       <phase>generate-resources</phase>
     </execution>
   </executions>
-</plugin>`
+</plugin>
+```
 
 The content of the application zip is defined in the [assembly.xml](assembly.xml).
-`<id>app</id>
+```xml
+<id>app</id>
 <formats><format>zip</format></formats>
 <includeBaseDirectory>false</includeBaseDirectory>
 
@@ -41,10 +44,12 @@ The content of the application zip is defined in the [assembly.xml](assembly.xml
     <includeSubModules>true</includeSubModules>
     <binaries><unpack>false</unpack></binaries>
   </moduleSet>
-</moduleSets>`
+</moduleSets>
+```
 
 Via the deploy-to-engine goal it deploys this zip with all projects to a running Axon.ivy engine.
-`<plugin>
+```xml
+<plugin>
   <groupId>com.axonivy.ivy.ci</groupId>
   <artifactId>project-build-plugin</artifactId>
   <version>7.1.0-SNAPSHOT</version>
@@ -59,4 +64,5 @@ Via the deploy-to-engine goal it deploys this zip with all projects to a running
       </configuration>
     </execution>
   </executions>
-</plugin>`
+</plugin>
+```
