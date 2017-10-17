@@ -64,12 +64,13 @@ Via the deploy-to-engine goal it deploys this zip with all projects to a running
   <version>7.1.0-SNAPSHOT</version>
   <executions>
     <execution>
-      <id>test.app.deploy</id>
+      <id>deploy.to.staging</id>
       <phase>pre-integration-test</phase>
       <goals><goal>deploy-to-engine</goal></goals>
       <configuration>
         <deployFile>${project.build.directory}/${project.artifactId}-${project.version}-app.zip</deployFile>
         <deployToEngineApplication>Portal</deployToEngineApplication>
+        <deployEngineDirectory>\\myStagingSrv\ivyEngine71\deploy</deployEngineDirectory>
       </configuration>
     </execution>
   </executions>
