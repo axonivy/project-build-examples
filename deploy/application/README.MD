@@ -1,4 +1,6 @@
 # Deploy a full Application ZIP
+`requires project-build-plugin 7.1.0-SNAPSHOT and Axon.ivy Engine 7.1.0 RC or newer` 
+
 This build example demonstrates how a full ivy application (based on multiple sub-projects) can be built and deployed to a running Axon.ivy Engine.
 
 By running `mvn clean install` you will see how:
