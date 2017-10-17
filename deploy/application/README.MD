@@ -1,10 +1,10 @@
-# Deploys a full Application
+# Deploy a full Application ZIP
 This build example demonstrates how a full ivy application (based on multiple sub-projects) can be built and deployed to a running Axon.ivy Engine.
 
 By running `mvn clean install` you will see how:
 1. three ivy projects are built as ivy archive (IAR).
 1. the module build packs these three projects into a single (ZIP) archive.
-1. the module build deploy the full application (ZIP) to a running engine.
+1. the module build deploys the full application (ZIP) to a running engine.
 
 ## About the sample app
 The sample application is divided into three sub projects:
