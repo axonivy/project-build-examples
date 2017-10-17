@@ -5,7 +5,7 @@ This build example demonstrates how a full ivy application (based on multiple su
 The sample application is divided into three sub projects:
 - [base](base/pom.xml): the domain model plus its database integration layer
 - [solution](solution/pom.xml): the user dialogs that provide a solution
-- [customer](customer/pom.xml): customizations for a specific customer
+- [customer](customer/pom.xml): customizes the solution for a specific customer
 
 ## Module to define the app
 The root [pom.xml](pom.xml) within this directory is module that references all sub-projects that belong the ivy application.
