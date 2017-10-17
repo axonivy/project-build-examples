@@ -9,11 +9,13 @@ The sample application is divided into three sub projects:
 
 ## Module to define the app
 The root [pom.xml](pom.xml) within this directory is module that references all sub-projects that belong the ivy application.
-`<modules>
-	<module>base</module>
-	<module>solution</module>
-	<module>customer</module>
-</modules>`
+```xml
+<modules>
+  <module>base</module>
+  <module>solution</module>
+  <module>customer</module>
+</modules>
+```
 
 It packs all sub-projects (archived as IAR) into a single application zip by using the maven-assembly plugin. 
 ```xml
