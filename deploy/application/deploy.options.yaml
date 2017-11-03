@@ -1,0 +1,35 @@
+#
+# Example of a deployment options file using YAML format. 
+# Deployment options can also be provided in java properties or JSON format.
+# See Engine Guide for more information about deployment options. 
+# 
+# This example is for testing only!
+# Do not use for productive systems
+#
+
+#
+# Test users that are defined in the project are also deployed to the engine.
+#
+deployTestUsers: true
+
+#
+# All configurations (Global Variables, External Database, Web Service Calls and REST Clients) 
+# on the engine are overwritten with the configuration in the projects. 
+# Any configuration done on the AdminUI is overwritten and lost.
+# 
+# After the deployment any configurations that are not used by at least one PMV on the engine are removed 
+#
+configuration:
+  overwrite: true
+  cleanup: REMOVE_UNUSED
+  
+#
+# Projects are redeployed to the released PMVs if exist. 
+# PMV and project versions do not matter.
+# If no released PMV exists a new PMV is created.
+#
+# After the deployment the PMVs are activated and released 
+#  
+target:
+  version: RELEASED
+  state: ACTIVE_AND_RELEASED

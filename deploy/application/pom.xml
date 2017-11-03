@@ -52,6 +52,7 @@
 						<configuration>
 							<deployFile>${project.build.directory}/${project.artifactId}-${project.version}-app.zip</deployFile>
 							<deployToEngineApplication>Portal</deployToEngineApplication>
+							<optionsFile>${basedir}/deploy.options.yaml</optionsFile>
 						</configuration>
 					</execution>
 					<execution>
