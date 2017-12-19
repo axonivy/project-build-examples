@@ -7,8 +7,9 @@
 
 	<modules>
 		<module>crm</module>
-		<module>crm.integration.tests</module>
 		<module>crm.tests</module>
+		<module>crm.integration.tests</module>
+		<module>crm.maven/config</module>
 	</modules>
 	
 </project>
