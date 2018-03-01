@@ -1,6 +1,5 @@
 #
 # Example of a deployment options file using YAML format. 
-# Deployment options can also be provided in java properties or JSON format.
 # See Engine Guide for more information about deployment options. 
 # 
 # This example options are for testing only!
