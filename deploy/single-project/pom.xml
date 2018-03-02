@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
 	<artifactId>crm</artifactId>
-	<version>7.0.0-SNAPSHOT</version>
+	<version>7.1.0-SNAPSHOT</version>
 	<packaging>iar</packaging>
 
 	<properties>
@@ -37,24 +37,29 @@
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
-				<version>7.0.0</version>
+				<version>7.1.0</version>
 				<extensions>true</extensions>
 				<executions>
 					<execution>
+						<id>test.engine.starter</id>
+						<phase>pre-integration-test</phase>
+						<goals><goal>start-test-engine</goal></goals>
+					</execution>
+					<execution>
 						<id>deploy.to.development.server</id>
-						<phase>deploy</phase>
+						<phase>pre-integration-test</phase>
 						<goals>
-							<goal>deploy-iar</goal>
+							<goal>deploy-to-engine</goal>
 						</goals>
 						<configuration>
-							<!-- Name of the application where this application will be deployed to -->
-							<!-- Application must already exist on the engine -->
+							<deployFile>${project.build.directory}/${project.artifactId}-${project.version}.iar</deployFile>
 							<deployToEngineApplication>Portal</deployToEngineApplication>
-
-							<!-- Root directory of the engine -->
-							<!-- Point here to an existing engine installation. During the deployment the engine must running. -->
-							<deployEngineDirectory>${engine.deploy.directory}</deployEngineDirectory>
 						</configuration>
+					</execution>
+					<execution>
+						<id>test.engine.stopper</id>
+						<phase>post-integration-test</phase>
+						<goals><goal>stop-test-engine</goal></goals>
 					</execution>
 				</executions>
 			</plugin>
