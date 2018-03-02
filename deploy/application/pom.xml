@@ -52,7 +52,16 @@
 						<configuration>
 							<deployFile>${project.build.directory}/${project.artifactId}-${project.version}-app.zip</deployFile>
 							<deployToEngineApplication>Portal</deployToEngineApplication>
-							<optionsFile>${basedir}/deploy.options.yaml</optionsFile>
+
+							<!-- <deployOptionsFile>${basedir}/deploy.options.yaml</deployOptionsFile> -->
+							<!-- The following parameters can instead be configured in a yaml file like above.
+							     Comment out the below parameters and uncomment the deployOptionsFile parameter
+							     if you want to use the yaml file instead. -->
+							<deployTestUsers>false</deployTestUsers>
+							<deployConfigOverwrite>false</deployConfigOverwrite>
+							<deployConfigCleanup>DISABLED</deployConfigCleanup>
+							<deployTargetVersion>AUTO</deployTargetVersion>
+							<deployTargetState>ACTIVE_AND_RELEASED</deployTargetState>
 						</configuration>
 					</execution>
 					<execution>
@@ -64,5 +73,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

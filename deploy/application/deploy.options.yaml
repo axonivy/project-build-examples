@@ -1,34 +1,18 @@
-#
-# Example of a deployment options file using YAML format. 
-# See Engine Guide for more information about deployment options. 
-# 
-# This example options are for testing only!
-# Do not use for productive systems
-#
+# deploy.option.yaml
+# Example of a deployment options file using YAML format.
+# See http://axonivy.github.io/project-build-plugin/release/deploy-to-engine-mojo.html for
+# more information about deployment options parameters.
+# All parameters are set to their default values and listed in [brackets].
 
-#
-# Test users that are defined in the project are also deployed to the engine.
-#
-deployTestUsers: true
+# Flag indicating if project test users should be deployed to the engine.
+deployTestUsers: false           # [false], true
 
-#
-# All configurations (Global Variables, External Database, Web Service Calls and REST Clients) 
-# on the engine are overwritten with the configuration in the projects. 
-# Any configuration done on the AdminUI is overwritten and lost.
-# 
-# After the deployment any configurations that are not used by at least one PMV on the engine are removed 
-#
+# Defines how project deployment should affect engine configuration.
 configuration:
-  overwrite: true
-  cleanup: REMOVE_UNUSED
-  
-#
-# Projects are redeployed to the released PMVs if exist. 
-# PMV and project versions do not matter.
-# If no released PMV exists a new PMV is created.
-#
-# After the deployment the PMVs are activated and released 
-#  
+  overwrite: false               # [false], true
+  cleanup: DISABLED              # [DISABLED], REMOVE_UNUSED, REMOVE_ALL
+
+# Deployment target settings.
 target:
-  version: RELEASED
-  state: ACTIVE_AND_RELEASED
+  version: AUTO                  # [AUTO], RELEASED, (version values, e.g. 2.5 or (2.0,3.0])
+  state: ACTIVE_AND_RELEASED     # [ACTIVE_AND_RELEASED], ACTIVE, INACTIVE
