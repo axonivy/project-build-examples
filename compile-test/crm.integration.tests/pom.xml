@@ -1,126 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
-	<artifactId>crm.integration.tests</artifactId>
-	<version>7.0.0-SNAPSHOT</version>
-	<packaging>iar</packaging>
-	<parent>
-		<groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
-		<artifactId>crm.maven.config</artifactId>
-		<version>7.0.0-SNAPSHOT</version>
-		<relativePath>../crm.maven/config</relativePath>
-	</parent>
+<project
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
+    <artifactId>crm.maven.config</artifactId>
+    <version>7.1.0-SNAPSHOT</version>
+    <relativePath>../crm.maven/config</relativePath>
+  </parent>
 
-	<dependencies>
-		<dependency>
-			<!-- the project under test -->
-			<groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
-			<artifactId>crm.tests</artifactId>
-			<version>[7.0.0-SNAPSHOT,)</version>
-			<type>iar</type>
-		</dependency>
-		<dependency>
-			<!-- required: test framework used by the maven-surefire-plugin to run
-				tests -->
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<!-- required: for web browser based testing -->
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>2.48.1</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<!-- optional: fluent testing API -->
-			<groupId>org.assertj</groupId>
-			<artifactId>assertj-core</artifactId>
-			<version>3.2.0</version>
-			<scope>test</scope>
-		</dependency>
+  <groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
+  <artifactId>crm.integration.tests</artifactId>
+  <packaging>iar</packaging>
 
-	</dependencies>
+  <dependencies>
+    <dependency>
+      <groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
+      <artifactId>crm.tests</artifactId>
+      <version>${project.version}</version>
+      <type>iar</type>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>2.48.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.2.0</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 
-	<build>
-		<!-- required: project-build-plugin must know where tests to build reside -->
-		<testSourceDirectory>src_test</testSourceDirectory>
-
-		<plugins>
-
-			<plugin>
-				<groupId>com.axonivy.ivy.ci</groupId>
-				<artifactId>project-build-plugin</artifactId>
-				<extensions>true</extensions>
-				<executions>
-					<execution>
-						<id>start.test.engine</id>
-						<goals>
-							<goal>start-test-engine</goal>
-						</goals>
-						<phase>pre-integration-test</phase>
-					</execution>
-
-					<execution>
-						<id>deploy.crm.under.test.to.memory.engine</id>
-						<goals>
-							<goal>deploy-iar</goal>
-						</goals>
-						<phase>pre-integration-test</phase>
-						<configuration>
-							<deployIarFile>${ch.ivyteam.ivy.project.demo.ci:crm:iar}</deployIarFile>
-							<deployToEngineApplication>Portal</deployToEngineApplication>
-						</configuration>
-					</execution>
-
-					<execution>
-						<id>stop.test.engine</id>
-						<goals>
-							<goal>stop-test-engine</goal>
-						</goals>
-						<phase>post-integration-test</phase>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.19.1</version>
-				<executions>
-					<execution>
-						<id>selenium.web.tests</id>
-						<phase>integration-test</phase>
-						<goals>
-							<goal>test</goal>
-						</goals>
-						<configuration>
-							<includes>
-								<include>**/WebTest*.java</include>
-							</includes>
-							<argLine>-DengineUrl=${test.engine.url}</argLine>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.10</version>
-				<executions>
-					<execution>
-						<id>share.dependencies.as.property.for.iar.deployment</id>
-						<goals>
-							<goal>properties</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+  <build>
+    <testSourceDirectory>src_test</testSourceDirectory>
+    <plugins>
+      <plugin>
+        <groupId>com.axonivy.ivy.ci</groupId>
+        <artifactId>project-build-plugin</artifactId>
+        <extensions>true</extensions>
+        <executions>
+          <execution>
+            <id>start.test.engine</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>start-test-engine</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>deploy.crm.under.test.to.memory.engine</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>deploy-to-engine</goal>
+            </goals>
+            <configuration>
+              <deployFile>${ch.ivyteam.ivy.project.demo.ci:crm:iar}</deployFile>
+              <deployToEngineApplication>Portal</deployToEngineApplication>
+            </configuration>
+          </execution>
+          <execution>
+            <id>stop.test.engine</id>
+            <phase>post-integration-test</phase>
+            <goals>
+              <goal>stop-test-engine</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.19.1</version>
+        <executions>
+          <execution>
+            <id>selenium.web.tests</id>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>test</goal>
+            </goals>
+            <configuration>
+              <includes>
+                <include>**/WebTest*.java</include>
+              </includes>
+              <argLine>-DengineUrl=${test.engine.url}</argLine>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.10</version>
+        <executions>
+          <execution>
+            <id>share.dependencies.as.property.for.iar.deployment</id>
+            <goals>
+              <goal>properties</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
