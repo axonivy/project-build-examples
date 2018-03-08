@@ -16,3 +16,4 @@ configuration:
 target:
   version: AUTO                  # [AUTO], RELEASED, (version values, e.g. 2.5 or (2.0,3.0])
   state: ACTIVE_AND_RELEASED     # [ACTIVE_AND_RELEASED], ACTIVE, INACTIVE
+  fileFormat: AUTO               # [AUTO], EXPANDED
