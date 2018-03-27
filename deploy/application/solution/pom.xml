@@ -4,14 +4,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.ivyteam.ivy.project.demos.ci.deploy</groupId>
   <artifactId>solution</artifactId>
-  <version>7.1.0-SNAPSHOT</version>
+  <version>7.1.0</version>
   <packaging>iar</packaging>
   <description>implements a generic solution</description>
   <dependencies>
     <dependency>
       <groupId>ch.ivyteam.ivy.project.demos.ci.deploy</groupId>
       <artifactId>base</artifactId>
-      <version>[7.1.0-SNAPSHOT,)</version>
+      <version>[7.1.0,)</version>
       <type>iar</type>
     </dependency>
   </dependencies>
@@ -20,7 +20,7 @@
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
-        <version>7.1.0-SNAPSHOT</version>
+        <version>7.1.0</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

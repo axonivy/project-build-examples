@@ -1,5 +1,5 @@
 # Deploy a full Application ZIP
-`requires project-build-plugin 7.1.0-SNAPSHOT and Axon.ivy Engine 7.1.0 RC or newer` 
+`requires project-build-plugin 7.1.0 and Axon.ivy Engine 7.1.0 RC or newer` 
 
 This build example demonstrates how a full ivy application (based on multiple sub-projects) can be built and deployed to a running Axon.ivy Engine.
 
@@ -61,7 +61,7 @@ Via the deploy-to-engine goal it deploys this zip with all projects to a running
 <plugin>
   <groupId>com.axonivy.ivy.ci</groupId>
   <artifactId>project-build-plugin</artifactId>
-  <version>7.1.0-SNAPSHOT</version>
+  <version>7.1.0</version>
   <executions>
     <execution>
       <id>deploy.to.staging</id>
