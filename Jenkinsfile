@@ -22,7 +22,6 @@ pipeline {
             def workspace = pwd()
             maven cmd: "clean verify -Divy.engine.list.url=http://zugprobldmas/job/${params.engineSource}/lastSuccessfulBuild/ -Divy.engine.cache.directory=$workspace/target/ivyEngine -Divy.engine.version=[6.1.1,] -X"
           }
-        archiveArtifacts '**/**/target/*.jar'
       }
       post {
         always {
