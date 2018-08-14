@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ch.ivyteam.ivy.project.demos.ci</groupId>
 	<artifactId>crm.modules</artifactId>
-	<version>7.1.0</version>
+	<version>7.2.0</version>
 	<packaging>pom</packaging>
 
 	<modules>

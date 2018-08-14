@@ -6,7 +6,7 @@
   <parent>
     <groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
     <artifactId>crm.maven.config</artifactId>
-    <version>7.1.0</version>
+    <version>7.2.0</version>
     <relativePath>../crm.maven/config</relativePath>
   </parent>
 
@@ -17,7 +17,7 @@
     <dependency>
       <groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
       <artifactId>crm.tests</artifactId>
-      <version>[7.1.0,)</version>
+      <version>[7.2.0,)</version>
       <type>iar</type>
     </dependency>
     <dependency>
@@ -63,7 +63,7 @@
             </goals>
             <configuration>
               <deployFile>${ch.ivyteam.ivy.project.demo.ci:crm:iar}</deployFile>
-              <deployToEngineApplication>Portal</deployToEngineApplication>
+              <deployToEngineApplication>CrmApplication</deployToEngineApplication>
             </configuration>
           </execution>
           <execution>
