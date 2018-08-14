@@ -12,7 +12,7 @@ pipeline {
   }
 
   parameters {
-    choice(choices: 'Trunk_All\nTrunk_DesignerAndServer', description: 'Engine to use for build', name: 'engineSource')
+    choice(choices: 'Linux_Trunk_DesignerAndServer\nTrunk_All\nTrunk_DesignerAndServer', description: 'Engine to use for build', name: 'engineSource')
   }
 
   stages {
