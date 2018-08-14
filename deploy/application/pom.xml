@@ -51,7 +51,7 @@
 						<goals><goal>deploy-to-engine</goal></goals>
 						<configuration>
 							<deployFile>${project.build.directory}/${project.artifactId}-${project.version}-app.zip</deployFile>
-							<deployToEngineApplication>Portal</deployToEngineApplication>
+							<deployToEngineApplication>MyApplication</deployToEngineApplication>
 
 							<!-- <deployOptionsFile>${basedir}/deploy.options.yaml</deployOptionsFile> -->
 							<!-- The following parameters can instead be configured in a yaml file like above.

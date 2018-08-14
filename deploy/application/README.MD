@@ -69,8 +69,8 @@ Via the deploy-to-engine goal it deploys this zip with all projects to a running
       <goals><goal>deploy-to-engine</goal></goals>
       <configuration>
         <deployFile>${project.build.directory}/${project.artifactId}-${project.version}-app.zip</deployFile>
-        <deployToEngineApplication>Portal</deployToEngineApplication>
-        <deployEngineDirectory>\\myStagingSrv\ivyEngine71\deploy</deployEngineDirectory>
+        <deployToEngineApplication>MyApplication</deployToEngineApplication>
+        <deployEngineDirectory>\\myStagingSrv\ivyEngine72\deploy</deployEngineDirectory>
       </configuration>
     </execution>
   </executions>
