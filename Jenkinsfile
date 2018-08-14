@@ -20,10 +20,7 @@ pipeline {
       steps {
           script {
             def workspace = pwd()
-            def mvnCmd = "clean verify -Divy.engine.list.url=http://zugprobldmas/job/${params.engineSource}/lastSuccessfulBuild/ -Divy.engine.cache.directory=$workspace/target/ivyEngine -Divy.engine.version=[6.1.1,] -X"
-            
-            maven cmd: mvnCmd
-            maven cmd: "-f deploy/pom.xml " + mvnCmd 
+            maven cmd: "clean verify -Divy.engine.list.url=http://zugprobldmas/job/${params.engineSource}/lastSuccessfulBuild/ -Divy.engine.cache.directory=$workspace/target/ivyEngine -Divy.engine.version=[6.1.1,]"            
           }
       }
       post {
