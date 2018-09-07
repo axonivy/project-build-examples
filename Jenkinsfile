@@ -12,7 +12,11 @@ pipeline {
   }
 
   parameters {
-    choice(choices: 'Linux_Trunk_DesignerAndServer\nTrunk_All\nTrunk_DesignerAndServer', description: 'Engine to use for build', name: 'engineSource')
+    choice(
+      choices: 'Linux_Trunk_DesignerAndServer\nTrunk_All\nTrunk_DesignerAndServer',
+      description: 'Engine to use for build',
+      name: 'engineSource'
+    )
   }
 
   stages {
@@ -20,7 +24,11 @@ pipeline {
       steps {
           script {
             def workspace = pwd()
-            maven cmd: "clean verify -Divy.engine.list.url=http://zugprobldmas/job/${params.engineSource}/lastSuccessfulBuild/ -Divy.engine.cache.directory=$workspace/target/ivyEngine -Divy.engine.version=[6.1.1,]"            
+            maven cmd: '''clean verify 
+              -Divy.engine.list.url=http://zugprobldmas/job/${params.engineSource}/lastSuccessfulBuild/
+              -Divy.engine.cache.directory=$workspace/target/ivyEngine
+              -Divy.engine.version=[6.1.1,]
+            '''            
           }
       }
       post {
