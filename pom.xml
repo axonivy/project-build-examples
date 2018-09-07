@@ -9,14 +9,6 @@
 		<connection>scm:git:git@github.com:axonivy/project-build-examples.git</connection>
 	</scm>
 
-	<distributionManagement>
-        <snapshotRepository>
-          <id>repo.axonivy.com</id>
-          <name>AXON Ivy Artifactory</name>
-		  <url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
-        </snapshotRepository>
-	</distributionManagement>
-
 	<modules>
 		<module>compile-test</module>
 	</modules>
