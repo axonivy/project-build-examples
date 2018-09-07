@@ -29,7 +29,7 @@ pipeline {
               "-Divy.engine.version=[6.1.1,]"
 
             maven cmd: "clean install " + mavenParameters
-            maven cmd: "-f deploy/application.pom.xml clean deploy " + mavenParameters
+            maven cmd: "-f deploy/application/pom.xml clean deploy " + mavenParameters
           }
       }
       post {
