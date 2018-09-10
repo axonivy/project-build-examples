@@ -23,12 +23,11 @@ pipeline {
     stage('build') {
       steps {
           script {
-            def workspace = pwd()
-            def mavenParameters = "-Divy.engine.list.url=http://zugprobldmas/job/${params.engineSource}/lastSuccessfulBuild/ " +
-              "-Divy.engine.cache.directory=$workspace/target/ivyEngine " +
+            def mavenParameters = "-Divy.engine.list.url=http://zugprobldmas/job/${params.engineSource}/lastSuccessfulBuild/ " +              
               "-Divy.engine.version=[6.1.1,]"
 
             maven cmd: "clean install " + mavenParameters
+
             maven cmd: "-f deploy/application/pom.xml clean deploy " + mavenParameters
           }
       }

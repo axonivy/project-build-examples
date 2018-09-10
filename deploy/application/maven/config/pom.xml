@@ -11,13 +11,9 @@
 		<name>AXON Ivy AG</name>
 	</organization>
 
-	<distributionManagement>
-		<snapshotRepository>
-			<id>repo.axonivy.com</id>
-			<name>AXON Ivy Repository</name>
-			<url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
-		</snapshotRepository>
-  </distributionManagement>
+	<properties>
+    <maven.deploy.skip>true</maven.deploy.skip>
+  </properties>
 
 	<pluginRepositories>
 		<!-- Snapshot releases are not deployed to maven central. So the repo on 
