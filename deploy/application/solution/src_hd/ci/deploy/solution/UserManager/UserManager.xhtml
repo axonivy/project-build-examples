@@ -21,10 +21,11 @@
 					<p:outputLabel for="userFirstname" value="Firstname"/>
 					<p:inputText id="userFirstname" value="#{data.user.firstname}"></p:inputText>
 					
-					<!-- No 'form field [Integer]' template found for field 'user.id'. -->
-					
 					<p:outputLabel for="userLastname" value="Lastname"/>
 					<p:inputText id="userLastname" value="#{data.user.lastname}"></p:inputText>
+					
+					<p:outputLabel rendered="#{data.showDescription}" for="userDescription" value="Description"/>
+					<p:inputTextarea rendered="#{data.showDescription}" id="userDescription" value="#{data.user.description}"></p:inputTextarea>
 					
 					<br />
 					<p:commandButton actionListener="#{logic.close}" value="Create" update="form" icon="ui-icon-check" />
