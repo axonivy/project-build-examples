@@ -16,6 +16,14 @@
 		<module>customer</module>
 	</modules>
 
+	<distributionManagement>
+		<snapshotRepository>
+			<id>repo.axonivy.com</id>
+			<name>AXON Ivy Repository</name>
+			<url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
+		</snapshotRepository>
+    </distributionManagement>
+
 	<build>
 		<plugins>
 			<plugin>
