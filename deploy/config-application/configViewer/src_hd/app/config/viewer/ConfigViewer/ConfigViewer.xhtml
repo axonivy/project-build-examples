@@ -1,0 +1,85 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+<h:body>
+	<ui:composition template="/layouts/basic.xhtml">
+		<ui:define name="title">GlobalVariables</ui:define>
+		<ui:define name="content">
+			<h3>app.yaml Overview</h3>
+
+			<h:form id="form">
+				<h4>Environment</h4>
+				<h:panelGrid columns="2" columnClasses="first, second">
+					<p:outputLabel for="activeEnvironment" value="Active Environment: " />
+					<p:outputLabel id="activeEnvironment"
+						value="#{bean.actualEnvironment}" />
+				</h:panelGrid>
+
+				<h4>EMail Notification</h4>
+				<h:panelGrid columns="2" columnClasses="first, second">
+
+					<p:outputLabel for="emailNotification" value="Notification Disabled: " />
+					<p:outputLabel id="emailNotification"
+						value="#{bean.emailSettings.disabled}" />
+					<p:outputLabel for="emailDaily" value="Daily Task Summary: " />
+					<p:outputLabel id="emailDaily"
+						value="#{bean.emailSettings.dailyTask}" />
+					<p:outputLabel for="emailNewTask" value="On new Tasks: " />
+					<p:outputLabel id="emailNewTask"
+						value="#{bean.emailSettings.onNewTasks}" />
+					<p:outputLabel for="emailLanguage" value="Language: " />
+					<p:outputLabel id="emailLanguage"
+						value="#{bean.emailSettings.lang}" />
+				</h:panelGrid>
+
+				<h4>Standard Process</h4>
+				<p:dataTable var="process" value="#{bean.standardProcess}"
+					style="word-wrap: break-word">
+					<p:column headerText="Name">
+						<h:outputText value="#{process.name}" />
+					</p:column>
+
+					<p:column headerText="Description">
+						<h:outputText value="#{process.desc}" />
+					</p:column>
+				</p:dataTable>
+
+				<h4>Global Variables</h4>
+				<p:dataTable var="variable" value="#{bean.globalVariables}"
+					style="word-wrap: break-word">
+					<p:column headerText="Name">
+						<h:outputText value="#{variable.name}" />
+					</p:column>
+
+					<p:column headerText="Description">
+						<h:outputText value="#{variable.description}" />
+					</p:column>
+
+					<p:column headerText="Value">
+						<h:outputText value="#{variable.value}" />
+					</p:column>
+				</p:dataTable>
+
+				<h4>Properties</h4>
+				<p:dataTable var="property" value="#{bean.properties}"
+					style="word-wrap: break-word">
+					<p:column headerText="Name">
+						<h:outputText value="#{property.name}" />
+					</p:column>
+
+					<p:column headerText="Value">
+						<h:outputText value="#{property.value}" />
+					</p:column>
+				</p:dataTable>
+
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

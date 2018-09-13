@@ -1,0 +1,92 @@
+#
+# Axon.ivy Application Configuration
+#
+# The 'default.app.yaml' serves as template that can be copied into
+# an application directory as 'app.yaml' file.
+# 
+# ENVIRONMENT VARS:
+# It is also possible to overwrite any property by an operating system environment variable.
+# Be aware that environment variable names must be prefix with 'IVY_APPLICATIONS_MYAPP'. 
+# Names are all upper case and nested objects are reflected with underlines (_).
+# Example: The environment variable to set the active environment for the application  
+#  name 'mySolution' is as follows: IVY_APPLICATIONS_MYSOLUTION_SECURITYSYSTEM
+#
+# EMBEDDED USAGE:
+# Any configuration value provided here can alternatively be set in the global
+# 'ivy.yaml'. But then the entries must be defined as children of the applications node.
+# Example (ivy.yaml):
+# Applications:
+#   myAppName:
+#     SecuritySystem: mySecuritySystem
+# 
+# See https://dev.axonivy.com/doc/latest/EngineGuideHtml/configuration.html
+
+
+
+# == Main ==
+# 
+# References a security system by name, which is defined in the 'ivy.yaml'.
+# !! If you change the security system of an application then all users that are no longer defined by the new security system will be deleted. 
+# !! Tasks assigned to the deleted users are moved to the UNASSIGNED state and has to be manually reassigned later to a new user or role. 
+#SecuritySystem: mySecuritySystem
+
+# Environments can be defined in ivy projects. Here you can activate a specific environment.
+#ActiveEnvironment: 
+
+
+
+# == EMail Notification Settings ==
+# 
+# These email notification settings will be applied to all users of an application.
+# Users still have the option to customize their e-mail notification settings for themselves.
+EMailNotification:
+  # Whether users should receive a mail when a new task is assigned. Possible values are: true, false
+  #OnNewTasks: false
+
+  # On which days of the week the users should receive a daily task summary.
+  # Possible values are: never, always, monday, tuesday, wednesday, thursday, friday, saturday, sunday
+  # Any combination of weekdays is allowed.
+  # In ivy.yaml you can configure when the email is sent EMail:DailyTaskSummary:TriggerTime
+  #DailySummaryOn: never
+
+  # Language of the emails. You can specify a locale. e.g. de, de_CH, de_AT, de_DE, en, en_GB, en_US, fr, vi
+  #Language: en
+
+
+
+# == Standard Processes ==
+# 
+# Standard processes are a set of predefined processes, which you can customize in your ivy project.
+# To enable these custom processes, the library id of the ivy project must be specified here.
+# The library id is <group-id>:<project-id> from the ivy project deployment defintion.
+# e.g the library id of the portal template is "ch.ivyteam.ivy.project.portal:portalTemplate"
+StandardProcess: 
+ 
+  # See https://dev.axonivy.com/doc/latest/EngineGuideHtml/administration.html#administration-standardprocess-defaultpages
+  #DefaultPages: 
+
+  # See https://dev.axonivy.com/doc/latest/EngineGuideHtml/administration.html#administration-standardprocess-emailnotifications
+  #MailNotification: 
+
+
+
+# == Global Variables ==
+# 
+# Global variables are defined in ivy projects.
+# Here you can override global variables independently of the environment.
+GlobalVariables:
+  #myGlobalVariable: "value"
+
+
+
+# == Properties ==
+# 
+# Application properties can be queried by ivy projects and allows ivy developers to make their projects configurable.
+Properties:
+
+  # JSF Primeface Theme that is used by HTML Dialogs.
+  # Available themes:
+  #  ivy, modena-ivy, afterdark, afternoon, afterwork, aristo, black-tie blitzer, bluesky, bootstrap, casablanca, cupertino, cruze, dark-hive,
+  #  delta, dot-luv, ggplant, excite-bike, flick, glass-x, home, hot-sneaks, humanity, le-frog, midnight, mint-choc, overcast, pepper-grinder,
+  #  redmond, rocket, sam, smoothness, south-street, start, sunny, swanky-purse, trontastic, ui-darkness, ui-lightness, vader, modena
+  #jsf.primefaces.theme: modena-ivy
