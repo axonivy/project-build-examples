@@ -10,7 +10,7 @@
 **/target/
 
 # Eclipse
-**/.settings/
+#**/.settings/
 
 # Ivy
 **/src_dataClasses/
