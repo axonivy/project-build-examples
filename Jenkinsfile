@@ -12,18 +12,16 @@ pipeline {
   }
 
   parameters {
-    choice(
-      choices: 'Trunk_DesignerAndServer\nTrunk_All',
+    choice(name: 'engineListUrl',
       description: 'Engine to use for build',
-      name: 'engineSource'
-    )
+      choices: ['http://zugprojenkins/job/ivy-core_product/job/master/lastSuccessfulBuild/'])
   }
 
   stages {
     stage('build') {
       steps {
           script {
-            def mavenParameters = "-Divy.engine.list.url=http://zugprobldmas/job/${params.engineSource}/lastSuccessfulBuild/ " +              
+            def mavenParameters = "-Divy.engine.list.url=${params.engineListUrl} " +
               "-Divy.engine.version=[6.1.1,]"
 
             maven cmd: "clean install " + mavenParameters
