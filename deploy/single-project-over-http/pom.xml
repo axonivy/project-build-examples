@@ -37,8 +37,8 @@
 							<deployMethod>HTTP</deployMethod>
 							
 							<!-- 
-							References the server with id 'axonivy.engine' configured in the settings.xml.
-							This server configures the user name and password that is used to authenticate to the remote engine 
+							References the server with id 'axonivy.engine' configured in the file 'settings.xml'.
+							The user name and password that is used to authenticate to the remote engine are configured under that server configuration.
 							-->
 							<deployServerId>axonivy.engine</deployServerId> 
 							
