@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
+	<artifactId>deploy-single-over-http</artifactId>
+	<version>7.3.0-SNAPSHOT</version>
+	<packaging>iar</packaging>
+
+	<properties>
+		<!-- Skip maven artifact deployment -->
+		<maven.deploy.skip>true</maven.deploy.skip>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.axonivy.ivy.ci</groupId>
+				<artifactId>project-build-plugin</artifactId>
+				<version>7.4.0-SNAPSHOT</version>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<id>test.engine.starter</id>
+						<phase>pre-integration-test</phase>
+						<goals><goal>start-test-engine</goal></goals>
+					</execution>
+					<execution>
+						<id>deploy.to.development.server</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>deploy-to-engine</goal>
+						</goals>
+						<configuration>
+							<deployFile>${project.build.directory}/${project.artifactId}-${project.version}.iar</deployFile>
+							<deployMethod>HTTP</deployMethod>
+							
+							<!-- 
+							References the server with id 'axonivy.engine' configured in the settings.xml.
+							This server configures the user name and password that is used to authenticate to the remote engine 
+							-->
+							<deployServerId>axonivy.engine</deployServerId> 
+							
+							<!-- 
+							The url that is used to communicate with the remote Axon.ivy Engine. You can replace 'localhost' with the name of the machine 
+							your Axon.ivy Engine runs on
+							-->
+							<deployEngineUrl>http://localhost:8080/ivy</deployEngineUrl>
+							<deployToEngineApplication>MyApplication</deployToEngineApplication>
+						</configuration>
+					</execution>
+					<execution>
+						<id>test.engine.stopper</id>
+						<phase>post-integration-test</phase>
+						<goals><goal>stop-test-engine</goal></goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

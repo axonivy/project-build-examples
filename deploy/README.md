@@ -2,7 +2,9 @@
 Demonstrates various deployment scenarios to an Axon.ivy Engine.
 
 - [single-project](single-project) shows how to deploy a single ivy project to the engine.
+- [single-project-over-http](single-project-over-http) shows how to deploy a single ivy project to a remote engine using HTTP.
 - [application](application) shows how a full ivy application (based on multiple sub-projects) can be built and deployed to the engine.
+
 
 ## separating production and staging
 We recommend to work with maven profiles:
