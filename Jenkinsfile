@@ -12,9 +12,9 @@ pipeline {
   }
 
   parameters {
-    choice(name: 'engineListUrl',
+    string(name: 'engineListUrl',
       description: 'Engine to use for build',
-      choices: ['http://zugprojenkins/job/ivy-core_product/job/master/lastSuccessfulBuild/'])
+      defaultValue: 'https://jenkins.ivyteam.io/job/ivy-core_product/job/master/lastSuccessfulBuild/')
   }
 
   stages {
