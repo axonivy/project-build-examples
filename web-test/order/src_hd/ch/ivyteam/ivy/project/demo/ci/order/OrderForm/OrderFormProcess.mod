@@ -64,6 +64,7 @@ Os0 f5 109 224 211 224 #arcP
 Os0 f9 guid 16FECAA7D10597FE #txt
 Os0 f9 actionTable 'out=in;
 ' #txt
+Os0 f9 actionCode 'out.product.amount = 1;' #txt
 Os0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

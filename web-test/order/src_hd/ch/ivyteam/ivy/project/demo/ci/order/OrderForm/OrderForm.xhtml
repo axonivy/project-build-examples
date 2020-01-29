@@ -11,8 +11,8 @@
 		<ui:define name="content">
 
 			<h3>
-			This is an <a href="https://developer.axonivy.com/doc/latest/designer-guide/user-interface/user-dialogs.html#html-dialogs">Html Dialog</a> 
-			implemented with JSF and <a href="http://primefaces.org/">Primefaces</a> as widget library
+			This is an simple order form. 
+			Run the integration tests to see magic!
 			</h3>
 
 			<h:form id="form">
@@ -23,7 +23,7 @@
 						ui-g-12 ui-md-9 ui-lg-4">
 
 					<p:outputLabel for="product" value="Product"/>
-					<p:selectOneMenu id="product" value="#{data.product}" converter="ivy.ListItem" >
+					<p:selectOneMenu id="product" value="#{data.product}" converter="ivy.ListItem" style="width:100%;">
 					  <f:selectItems value="#{data.availableProducts}" var="product" itemValue="#{product}" itemLabel="#{product.name}" />
 					  <p:ajax event="valueChange" listener="#{logic.updatePrice}" update="@form" />
 					</p:selectOneMenu>
