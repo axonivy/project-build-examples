@@ -2,3 +2,5 @@ Data #class
 ch.ivyteam.ivy.project.demo.ci.order #namespace
 order java.util.List<ch.ivyteam.ivy.project.demo.ci.order.Product> #field
 order PERSISTENT #fieldModifier
+input String #field
+input PERSISTENT #fieldModifier
