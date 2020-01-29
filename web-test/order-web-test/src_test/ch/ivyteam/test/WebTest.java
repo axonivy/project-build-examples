@@ -10,7 +10,7 @@ import com.axonivy.ivy.supplements.IvySelenide;
 import com.axonivy.ivy.supplements.engine.EngineUrl;
 
 /**
- * Test class shows how to test a basic process.
+ * Test class shows how to test the Basic process of the order project.
  */
 @IvySelenide
 public class WebTest
