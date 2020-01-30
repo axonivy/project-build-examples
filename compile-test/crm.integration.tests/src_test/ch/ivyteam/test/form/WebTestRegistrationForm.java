@@ -1,32 +1,35 @@
 package ch.ivyteam.test.form;
 
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.title;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
-import ch.ivyteam.test.web.IvyEngine;
+import com.axonivy.ivy.supplements.IvySelenide;
+import com.axonivy.ivy.supplements.engine.EngineUrl;
 
 /**
  * Simple browser-based (selenium) integration test. <br/>
- * Tests the functionality of the Registration <code>crm.CustomerRegistrationForm</code>.
+ * Tests the functionality of the Registration
+ * <code>crm.CustomerRegistrationForm</code>.
  */
-public class WebTestRegistrationForm {
+@IvySelenide
+public class WebTestRegistrationForm
+{
 
-	@Test
-	public void registerNewCustomer()
-	{
-		WebDriver driver = new HtmlUnitDriver();
-		driver.get(IvyEngine.getBaseUrl());
-		System.out.println(driver.getCurrentUrl());
-		assertThat(driver.getTitle()).contains("ivy");
-		
-		driver.findElement(By.linkText("customer/register.ivp")).click();
-		driver.findElement(By.id("form:firstname")).sendKeys("Unit");
-		driver.findElement(By.id("form:lastname")).sendKeys("Test");
-		driver.findElement(By.id("form")).submit();
-	}
-	
+  @Test
+  public void registerNewCustomer()
+  {
+    open(EngineUrl.base());
+    assertThat(title()).contains("ivy");
+
+    $(By.linkText("customer/register.ivp")).click();
+    $(By.id("form:firstname")).sendKeys("Unit");
+    $(By.id("form:lastname")).sendKeys("Test");
+    $(By.id("form")).submit();
+  }
+
 }

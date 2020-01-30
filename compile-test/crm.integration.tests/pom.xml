@@ -4,7 +4,7 @@
   <parent>
     <groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
     <artifactId>crm.maven.config</artifactId>
-    <version>7.3.0-SNAPSHOT</version>
+    <version>9.1.0-SNAPSHOT</version>
     <relativePath>../crm.maven/config</relativePath>
   </parent>
 
@@ -15,28 +15,30 @@
     <dependency>
       <groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
       <artifactId>crm.tests</artifactId>
-      <version>[7.3.0-SNAPSHOT,)</version>
+      <version>9.1.0-SNAPSHOT</version>
       <type>iar</type>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <version>2.48.1</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <version>3.2.0</version>
+      <groupId>com.axonivy.ivy.supplements</groupId>
+      <artifactId>primeui-tester</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <repositories>
+    <repository>
+      <id>central.snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>
+  
+  <properties>
+    <test.application>CrmApplication</test.application>
+  </properties>
 
   <build>
     <testSourceDirectory>src_test</testSourceDirectory>
@@ -61,8 +63,9 @@
               <goal>deploy-to-engine</goal>
             </goals>
             <configuration>
-              <deployFile>${ch.ivyteam.ivy.project.demo.ci:crm:iar}</deployFile>
-              <deployToEngineApplication>CrmApplication</deployToEngineApplication>
+              <deployFile>../crm/target/crm-${project.version}.iar</deployFile>
+              <deployToEngineApplication>${test.application}</deployToEngineApplication>
+              <skipDeploy>${maven.test.skip}</skipDeploy>
             </configuration>
           </execution>
           <execution>
@@ -76,7 +79,7 @@
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.19.1</version>
+        <version>3.0.0-M4</version>
         <executions>
           <execution>
             <id>selenium.web.tests</id>
@@ -88,20 +91,11 @@
               <includes>
                 <include>**/WebTest*.java</include>
               </includes>
-              <argLine>-DengineUrl=${test.engine.url}</argLine>
+              <argLine>
+                -Dtest.engine.url=${test.engine.url}
+                -Dtest.engine.app=${test.application}
+              </argLine>
             </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.10</version>
-        <executions>
-          <execution>
-            <id>share.dependencies.as.property.for.iar.deployment</id>
-            <goals>
-              <goal>properties</goal>
-            </goals>
           </execution>
         </executions>
       </plugin>

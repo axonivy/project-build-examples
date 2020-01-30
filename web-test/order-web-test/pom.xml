@@ -77,7 +77,7 @@
             </configuration>
           </execution>
           <execution>
-            <id>web.tests</id>
+            <id>selenium.web.tests</id>
             <phase>integration-test</phase>
             <goals><goal>test</goal></goals>
             <configuration>
