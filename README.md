@@ -4,6 +4,7 @@ Sample projects to demonstrate project CI/CD features of the [`project-build-plu
 ## Prerequisites for all examples
 - Install a [Maven runtime](https://maven.apache.org/install.html).
 - Download and unpack this branch as [ZIP](https://github.com/axonivy/project-build-examples/archive/master.zip) (or clone it with git).
+- Firefox
 
 ## compile-test
 Simple multi module build with an ivy project and extra projects to test it.
@@ -15,6 +16,14 @@ Simple multi module build with an ivy project and extra projects to test it.
 ### run integration-tests
 - Open a command line and navigate into the unpacked `compile-test` folder.
 - Run `mvn clean verify` to build the ivy project, run its unit test and web integration tests.
+
+## web-test
+Simple ivy project, which demonstrate how you can write selenium tests.
+Our [primeui-tester](https://github.com/ivy-supplements/primeui-tester) is used to for all web tests.
+
+### run web-tests
+- Open a command line and navigate into the unpacked `web-test` folder.
+- Run `mvn clean verify` to build the ivy project, run its web integration tests.
 
 ## deploy
 Set of projects that demonstrate [deployment scenarios](deploy) to an Axon.ivy Engine.
