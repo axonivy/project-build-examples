@@ -14,13 +14,75 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+  <properties>
+    <test.application>Order</test.application>
+  </properties>
+  
   <build>
+    <testSourceDirectory>src_test</testSourceDirectory>
+    <testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
+    
     <plugins>
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
         <version>8.0.0</version>
         <extensions>true</extensions>
+        <executions>
+          <execution>
+            <id>start.test.engine</id>
+            <phase>pre-integration-test</phase>
+            <goals><goal>start-test-engine</goal></goals>
+          </execution>
+          
+          <execution>
+            <id>deploy-test-application</id>
+            <phase>pre-integration-test</phase>
+            <goals><goal>deploy-to-engine</goal></goals>
+            <configuration>
+              <deployFile>../order/target/order-${project.version}.iar</deployFile>
+              <deployToEngineApplication>${test.application}</deployToEngineApplication>
+              <skipDeploy>${maven.test.skip}</skipDeploy>
+            </configuration>
+          </execution>
+          
+          <execution>
+            <id>stop.test.engine</id>
+            <phase>post-integration-test</phase>
+            <goals><goal>stop-test-engine</goal></goals>
+          </execution>
+        </executions>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M3</version>
+        <executions>
+          <execution>
+            <id>default-test</id>
+            <configuration>
+              <skip>true</skip>
+            </configuration>
+          </execution>
+          <execution>
+            <id>web.tests</id>
+            <phase>integration-test</phase>
+            <goals><goal>test</goal></goals>
+            <configuration>
+              <includes>
+                <include>**/WebTest*.java</include>
+              </includes>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <argLine>
+            -Dtest.engine.url=${test.engine.url}
+            -Dtest.engine.app=${test.application}
+          </argLine>
+        </configuration>
       </plugin>
     </plugins>
   </build>
