@@ -6,7 +6,18 @@
   <artifactId>order-web-test</artifactId>
   <version>9.1.0-SNAPSHOT</version>
   <packaging>iar</packaging>
+  
+  <properties>
+    <test.application>Order</test.application>
+  </properties>
+  
   <dependencies>
+    <dependency>
+      <groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
+      <artifactId>order</artifactId>
+      <version>[9.1.0-SNAPSHOT,)</version>
+      <type>iar</type>
+    </dependency>
     <dependency>
       <groupId>com.axonivy.ivy.supplements</groupId>
       <artifactId>primeui-tester</artifactId>
@@ -14,25 +25,20 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
-  <repositories>
-		<repository>
-			<id>central.snapshots</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-			<snapshots>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</repository>
-	</repositories>
   
-  <properties>
-    <test.application>Order</test.application>
-  </properties>
+  <repositories>
+    <repository>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+      <id>central.snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </repository>
+  </repositories>
   
   <build>
     <testSourceDirectory>src_test</testSourceDirectory>
     <testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
-    
     <plugins>
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
@@ -43,30 +49,32 @@
           <execution>
             <id>start.test.engine</id>
             <phase>pre-integration-test</phase>
-            <goals><goal>start-test-engine</goal></goals>
+            <goals>
+              <goal>start-test-engine</goal>
+            </goals>
           </execution>
-          
           <execution>
             <id>deploy-test-application</id>
             <phase>pre-integration-test</phase>
-            <goals><goal>deploy-to-engine</goal></goals>
+            <goals>
+              <goal>deploy-to-engine</goal>
+            </goals>
             <configuration>
               <deployFile>../order/target/order-${project.version}.iar</deployFile>
               <deployToEngineApplication>${test.application}</deployToEngineApplication>
               <skipDeploy>${maven.test.skip}</skipDeploy>
             </configuration>
           </execution>
-          
           <execution>
             <id>stop.test.engine</id>
             <phase>post-integration-test</phase>
-            <goals><goal>stop-test-engine</goal></goals>
+            <goals>
+              <goal>stop-test-engine</goal>
+            </goals>
           </execution>
         </executions>
       </plugin>
-      
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M4</version>
         <executions>
@@ -79,7 +87,9 @@
           <execution>
             <id>selenium.web.tests</id>
             <phase>integration-test</phase>
-            <goals><goal>test</goal></goals>
+            <goals>
+              <goal>test</goal>
+            </goals>
             <configuration>
               <includes>
                 <include>**/WebTest*.java</include>
@@ -88,10 +98,8 @@
           </execution>
         </executions>
         <configuration>
-          <argLine>
-            -Dtest.engine.url=${test.engine.url}
-            -Dtest.engine.app=${test.application}
-          </argLine>
+          <argLine>-Dtest.engine.url=${test.engine.url}
+            -Dtest.engine.app=${test.application}</argLine>
         </configuration>
       </plugin>
     </plugins>
