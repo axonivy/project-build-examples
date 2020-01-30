@@ -11,7 +11,7 @@
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
-        <version>8.0.0</version>
+        <version>8.0.1</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>
