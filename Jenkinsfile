@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'axonivy/build-container:web-firefox-1.0'
+      image 'axonivy/build-container:web-1.0'
     }
   }
 
