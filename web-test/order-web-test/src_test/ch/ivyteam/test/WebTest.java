@@ -19,8 +19,7 @@ public class WebTest
   @Test
   void myFirstWebTest()
   {
-    //If e.g your start process url looks as follows:
-    //http://localhost:8081/ivy/pro/designer/order/16FF0CCD2C4FE02D/start.ivp
+    //Start your engine and copy the process start link.
     //You can use the EngineUrl Util to start the process:
     open(EngineUrl.process() + "/order/16FF0CCD2C4FE02D/start.ivp");
     

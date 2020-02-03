@@ -63,7 +63,7 @@
               <goal>deploy-to-engine</goal>
             </goals>
             <configuration>
-              <deployFile>../crm/target/crm-${project.version}.iar</deployFile>
+              <deployFile>${ch.ivyteam.ivy.project.demo.ci:crm:iar}</deployFile>
               <deployToEngineApplication>${test.application}</deployToEngineApplication>
               <skipDeploy>${maven.test.skip}</skipDeploy>
             </configuration>
@@ -96,6 +96,18 @@
                 -Dtest.engine.app=${test.application}
               </argLine>
             </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.10</version>
+        <executions>
+          <execution>
+            <id>share.dependencies.as.property.for.iar.deployment</id>
+            <goals>
+              <goal>properties</goal>
+            </goals>
           </execution>
         </executions>
       </plugin>

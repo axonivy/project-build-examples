@@ -13,7 +13,7 @@ import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 import com.axonivy.ivy.supplements.primeui.tester.widget.SelectOneMenu;
 import com.codeborne.selenide.*;
 
-@IvySelenide(headless = false)
+@IvySelenide
 public class WebTestOrder
 {
   
