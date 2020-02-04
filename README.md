@@ -7,23 +7,7 @@ Sample projects to demonstrate project CI/CD features of the [`project-build-plu
 - Firefox
 
 ## compile-test
-Simple multi module build with an ivy project and extra projects to test it.
-
-### compile and run unit tests
-- Open a command line and navigate into the unpacked `compile-test` folder.
-- Run `mvn clean package` to build the ivy project and run its unit tests.
-
-### run integration-tests
-- Open a command line and navigate into the unpacked `compile-test` folder.
-- Run `mvn clean verify` to build the ivy project, run its unit test and web integration tests.
-
-## web-test
-Simple ivy project, which demonstrate how you can write selenium tests.
-Our [primeui-tester](https://github.com/ivy-supplements/primeui-tester) is used to for all web tests.
-
-### run web-tests
-- Open a command line and navigate into the unpacked `web-test` folder.
-- Run `mvn clean verify` to build the ivy project, run its web integration tests.
+Simple multi module build with an [ivy project and extra projects](compile-test) to test it.
 
 ## deploy
 Set of projects that demonstrate [deployment scenarios](deploy) to an Axon.ivy Engine.
