@@ -7,10 +7,14 @@
   xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
   <ui:composition template="/layouts/basic-8.xhtml">
-    <ui:define name="title">CustomerRegistrationForm</ui:define>
+    <ui:define name="title">WelcomeNewCustomer</ui:define>
     <ui:define name="content">
-      <h3>New Customer</h3>
-      
+
+      <h3>
+      This is an <a href="https://developer.axonivy.com/doc/latest/designer-guide/user-interface/user-dialogs.html#html-dialogs">Html Dialog</a> 
+      implemented with JSF and <a href="http://primefaces.org/">Primefaces</a> as widget library
+      </h3>
+
       <h:form id="form">
         <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank"
           columnClasses="ui-g-12 ui-md-3 ui-lg-2, 
@@ -21,18 +25,14 @@
             <p:messages></p:messages>
           </f:facet>
           
-          
-          <p:outputLabel for="firstname" value="Firstname"/>
-          <p:inputText id="firstname" value="#{data.customer.firstname}"/>
-          
-          <p:outputLabel for="lastname" value="Lastname"/>
-          <p:inputText id="lastname" value="#{data.customer.lastname}"/>
+          <h:outputText value="Welcome" />
+          <h:outputText id="newCustomer" value="#{data.newCustomer.firstname} #{data.newCustomer.lastname}" />
           
           <br />
-          <p:commandButton id="submit" actionListener="#{logic.close}" value="Register" update="form" icon="ui-icon-check" />
+          <p:commandButton actionListener="#{logic.close}" value="Close" update="form" icon="ui-icon-close" />
         </p:panelGrid>
       </h:form>
-      
+
     </ui:define>
   </ui:composition>
 </h:body>

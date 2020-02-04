@@ -1,6 +1,8 @@
 pipeline {
   agent {
-    dockerfile true
+    docker {
+      image 'axonivy/build-container:web-1.0'
+    }
   }
 
   options {
@@ -22,7 +24,7 @@ pipeline {
       steps {
           script {
             def mavenParameters = "-Divy.engine.list.url=${params.engineListUrl} " +
-              "-Divy.engine.version=[6.1.1,]"
+              "-Divy.engine.version=[8.0.0,]"
 
             maven cmd: "clean install " + mavenParameters
 
