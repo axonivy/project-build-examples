@@ -13,7 +13,11 @@
 			<h3>New Customer</h3>
 			
 			<h:form id="form">
-				<h:panelGrid columns="2">
+				<p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank"
+          columnClasses="ui-g-12 ui-md-3 ui-lg-2, 
+            ui-g-12 ui-md-9 ui-lg-4, 
+            ui-g-12 ui-md-3 ui-lg-2, 
+            ui-g-12 ui-md-9 ui-lg-4">
 					<f:facet name="header">
 						<p:messages></p:messages>
 					</f:facet>
@@ -26,8 +30,8 @@
 					<p:inputText id="lastname" value="#{data.customer.lastname}"/>
 					
 					<br />
-					<p:commandButton actionListener="#{logic.close}" value="Register" update="form" icon="ui-icon-check" />
-				</h:panelGrid>
+					<p:commandButton id="submit" actionListener="#{logic.close}" value="Register" update="form" icon="ui-icon-check" />
+				</p:panelGrid>
 			</h:form>
 			
 		</ui:define>

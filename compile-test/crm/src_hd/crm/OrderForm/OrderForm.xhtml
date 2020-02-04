@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:body>
+	<ui:composition template="/layouts/basic-8.xhtml">
+		<ui:define name="title">OrderForm</ui:define>
+		<ui:define name="content">
+
+			<h3>
+			This is an simple order form. 
+			Run the integration tests to see magic!
+			</h3>
+
+			<h:form id="form">
+				<p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank"
+					columnClasses="ui-g-12 ui-md-3 ui-lg-2, 
+						ui-g-12 ui-md-9 ui-lg-4, 
+						ui-g-12 ui-md-3 ui-lg-2, 
+						ui-g-12 ui-md-9 ui-lg-4">
+
+					<p:outputLabel for="product" value="Product"/>
+					<p:selectOneMenu id="product" value="#{data.product}" converter="ivy.ListItem" style="width:100%;">
+					  <f:selectItems value="#{data.availableProducts}" var="product" itemValue="#{product}" itemLabel="#{product.name}" />
+					  <p:ajax event="valueChange" listener="#{logic.updatePrice}" update="@form" />
+					</p:selectOneMenu>
+					
+					<p:outputLabel for="amount" value="Amount "/>
+					<p:inputNumber id="amount" value="#{data.product.amount}" minValue="1" maxValue="100"/>
+					
+					<p:outputLabel for="price" value="Single Price" />
+					<h:outputText id="price" value="#{data.product.singlePrice}"/>
+					
+					<p:commandButton id="addProduct" actionListener="#{logic.addProduct}" value="Add" update="@form:orderTable" icon="ui-icon-add"/>
+
+					<br />
+				</p:panelGrid>
+				<hr />
+				<p:dataTable id="orderTable" var="product" value="#{data.order}">
+          <p:column headerText="Product">
+            <h:outputText value="#{product.name}"/>
+          </p:column>
+          <p:column headerText="Amount">
+            <h:outputText value="#{product.amount}"/>
+          </p:column>
+          <p:column headerText="Price">
+            <h:outputText value="#{product.singlePrice * product.amount}"/>
+          </p:column>
+        </p:dataTable>
+			  
+			  <br />
+			  
+			  <p:commandButton actionListener="#{logic.close}" value="Order" update="form" icon="ui-icon-check" />
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

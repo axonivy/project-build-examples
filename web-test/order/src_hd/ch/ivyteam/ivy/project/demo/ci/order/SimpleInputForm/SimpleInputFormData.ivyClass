@@ -1,4 +1,0 @@
-SimpleInputFormData #class
-ch.ivyteam.ivy.project.demo.ci.order.SimpleInputForm #namespace
-input String #field
-input PERSISTENT #fieldModifier

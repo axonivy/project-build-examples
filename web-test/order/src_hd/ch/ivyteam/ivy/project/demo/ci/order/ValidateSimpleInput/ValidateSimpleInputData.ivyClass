@@ -1,4 +1,0 @@
-ValidateSimpleInputData #class
-ch.ivyteam.ivy.project.demo.ci.order.ValidateSimpleInput #namespace
-input String #field
-input PERSISTENT #fieldModifier

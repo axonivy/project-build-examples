@@ -1,0 +1,8 @@
+OrderFormData #class
+crm.OrderForm #namespace
+order java.util.List<crm.Product> #field
+order PERSISTENT #fieldModifier
+product crm.Product #field
+product PERSISTENT #fieldModifier
+availableProducts java.util.List<crm.Product> #field
+availableProducts PERSISTENT #fieldModifier

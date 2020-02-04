@@ -1,8 +1,0 @@
-Product #class
-ch.ivyteam.ivy.project.demo.ci.order #namespace
-name String #field
-name PERSISTENT #fieldModifier
-amount Integer #field
-amount PERSISTENT #fieldModifier
-singlePrice Double #field
-singlePrice PERSISTENT #fieldModifier

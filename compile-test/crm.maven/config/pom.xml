@@ -9,6 +9,18 @@
 		<name>AXON.IVY AG</name>
 	</organization>
 
+	<pluginRepositories>
+		<!-- Snapshot releases are not deployed to maven central. So the repo on 
+			sonatype could be used instead -->
+		<pluginRepository>
+			<id>sonatype</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<snapshots>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<build>
 		<pluginManagement>
 			<plugins>

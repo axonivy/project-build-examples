@@ -15,6 +15,8 @@ cr0 @StartRequest f0 '' #zField
 cr0 @EndTask f1 '' #zField
 cr0 @UserDialog f3 '' #zField
 cr0 @PushWFArc f4 '' #zField
+cr0 @UserDialog f5 '' #zField
+cr0 @PushWFArc f6 '' #zField
 cr0 @PushWFArc f2 '' #zField
 >Proto cr0 cr0 customer #zField
 cr0 f0 outLink register.ivp #txt
@@ -40,7 +42,7 @@ cr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 cr0 f0 @C|.responsibility Everybody #txt
 cr0 f0 81 49 30 30 -30 17 #rect
 cr0 f0 @|StartRequestIcon #fIcon
-cr0 f1 337 49 30 30 0 15 #rect
+cr0 f1 513 49 30 30 0 15 #rect
 cr0 f1 @|EndIcon #fIcon
 cr0 f3 dialogId crm.CustomerRegistrationForm #txt
 cr0 f3 startMethod start() #txt
@@ -65,13 +67,32 @@ cr0 f3 168 42 112 44 -34 -16 #rect
 cr0 f3 @|UserDialogIcon #fIcon
 cr0 f4 expr out #txt
 cr0 f4 111 64 168 64 #arcP
-cr0 f2 expr out #txt
-cr0 f2 280 64 337 64 #arcP
+cr0 f5 dialogId crm.WelcomeNewCustomer #txt
+cr0 f5 startMethod start(crm.Customer) #txt
+cr0 f5 requestActionDecl '<crm.Customer newCustomer> param;' #txt
+cr0 f5 requestMappingAction 'param.newCustomer=in.newCustomer;
+' #txt
+cr0 f5 responseMappingAction 'out=in;
+' #txt
+cr0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>welcome new customer</name>
+    </language>
+</elementInfo>
+' #txt
+cr0 f5 312 42 160 44 -73 -7 #rect
+cr0 f5 @|UserDialogIcon #fIcon
+cr0 f6 expr out #txt
+cr0 f6 280 64 312 64 #arcP
+cr0 f2 472 64 513 64 #arcP
 >Proto cr0 .type crm.Data #txt
 >Proto cr0 .processKind NORMAL #txt
 >Proto cr0 0 0 32 24 18 0 #rect
 >Proto cr0 @|BIcon #fIcon
 cr0 f0 mainOut f4 tail #connect
 cr0 f4 head f3 mainIn #connect
-cr0 f3 mainOut f2 tail #connect
+cr0 f3 mainOut f6 tail #connect
+cr0 f6 head f5 mainIn #connect
+cr0 f5 mainOut f2 tail #connect
 cr0 f2 head f1 mainIn #connect
