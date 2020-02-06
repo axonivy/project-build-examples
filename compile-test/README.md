@@ -1,7 +1,7 @@
 # project-build-examples compile-test
 
 ## run tests with designer
-- Import `crm`, `crm.tests` and `crm.integration.tests` into designer
+- Import `crm`, `crmTests` and `crmIntegrationTests` into designer
 - Right-click in test class -> Run As -> JUnit Test
 
 ![run test](webtesting-run.gif)
