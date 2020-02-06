@@ -35,7 +35,7 @@
 
 	<build>
 		<testSourceDirectory>src_test</testSourceDirectory>
-		<testOutputDirectory>target/testClasses</testOutputDirectory>
+		<testOutputDirectory>target/test-classes</testOutputDirectory>
 		<plugins>
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>

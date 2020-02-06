@@ -25,7 +25,7 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" output="target/testClasses" path="src_test">
+	<classpathentry kind="src" output="target/test-classes" path="src_test">
 		<attributes>
 			<attribute name="test" value="true"/>
 			<attribute name="optional" value="true"/>
