@@ -33,6 +33,7 @@ pipeline {
       }
       post {
         always {
+          recordIssues tools: [mavenConsole()], unstableTotalAll: 1
           junit '**/**/target/surefire-reports/**/*.xml'
         }
       }
