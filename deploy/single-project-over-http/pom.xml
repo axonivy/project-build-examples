@@ -18,9 +18,18 @@
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
-				<version>8.0.5-SNAPSHOT</version>
+				<version>9.1.0-SNAPSHOT</version>
 				<extensions>true</extensions>
 				<executions>
+					<execution>
+						<id>test.engine.download</id>
+						<phase>validate</phase>
+						<goals><goal>installEngine</goal></goals>
+						<configuration>
+							<!-- 9.1.0 has not been released yet, using the nightly build -->
+							<engineDownloadUrl>https://developer.axonivy.com/permalink/nightly/axonivy-engine.zip</engineDownloadUrl>
+						</configuration>
+					</execution>
 					<execution>
 						<id>test.engine.starter</id>
 						<phase>pre-integration-test</phase>
