@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.ivyteam.ivy.project.demo.ci.deploy.application</groupId>
   <artifactId>maven.config</artifactId>
-  <version>8.0.4</version>
+  <version>8.0.5-SNAPSHOT</version>
   <packaging>pom</packaging>
   <organization>
     <name>AXON Ivy AG</name>
@@ -32,7 +32,7 @@
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
-        <version>8.0.4</version>
+        <version>8.0.5-SNAPSHOT</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

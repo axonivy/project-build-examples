@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ch.ivyteam.ivy.project.demo.ci.deploy.application</groupId>
 	<artifactId>application</artifactId>
-	<version>8.0.4</version>
+	<version>8.0.5-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<scm>
@@ -46,7 +46,7 @@
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
-				<version>8.0.4</version>
+				<version>8.0.5-SNAPSHOT</version>
 				<executions>
 					<execution>
 						<id>test.engine.starter</id>

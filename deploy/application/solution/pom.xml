@@ -4,19 +4,19 @@
   <parent>
     <groupId>ch.ivyteam.ivy.project.demo.ci.deploy.application</groupId>
     <artifactId>maven.config</artifactId>
-    <version>8.0.4</version>
+    <version>8.0.5-SNAPSHOT</version>
     <relativePath>../maven/config</relativePath>
   </parent>
   <groupId>ch.ivyteam.ivy.project.demo.ci.deploy.application</groupId>
   <artifactId>solution</artifactId>
-  <version>8.0.4</version>
+  <version>8.0.5-SNAPSHOT</version>
   <packaging>iar</packaging>
   <description>implements a generic solution</description>
   <dependencies>
     <dependency>
       <groupId>ch.ivyteam.ivy.project.demo.ci.deploy.application</groupId>
       <artifactId>base</artifactId>
-      <version>[8.0.4,)</version>
+      <version>[8.0.5-SNAPSHOT,)</version>
       <type>iar</type>
     </dependency>
   </dependencies>
