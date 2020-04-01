@@ -1,20 +1,23 @@
 package ch.ivyteam.integrationtest;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import com.axonivy.ivy.supplements.IvySelenide;
-import com.axonivy.ivy.supplements.engine.EngineUrl;
+import com.axonivy.ivy.webtest.IvyWebTest;
+import com.axonivy.ivy.webtest.engine.EngineUrl;
 
 /**
  * Simple browser-based (selenium) integration test. <br/>
  * Tests the functionality of the Registration
  * <code>crm.CustomerRegistrationForm</code>.
  */
-@IvySelenide
+@IvyWebTest
 public class WebTestRegistrationForm
 {
 
