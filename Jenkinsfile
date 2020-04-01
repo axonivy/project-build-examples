@@ -16,7 +16,7 @@ pipeline {
   parameters {
     string(name: 'engineListUrl',
       description: 'Engine to use for build',
-      defaultValue: 'https://jenkins.ivyteam.io/job/ivy-core_product/job/master/lastSuccessfulBuild/')
+      defaultValue: 'https://jenkins.ivyteam.io/job/ivy-core_product/job/release%252F8.0/lastSuccessfulBuild/')
   }
 
   stages {
@@ -28,11 +28,12 @@ pipeline {
 
             maven cmd: "clean install " + mavenParameters
 
-            maven cmd: "-f deploy/application/pom.xml clean deploy " + mavenParameters
+            maven cmd: "-f deploy/application/pom.xml clean install " + mavenParameters
           }
       }
       post {
         always {
+          recordIssues tools: [mavenConsole()], unstableTotalAll: 1
           junit '**/**/target/surefire-reports/**/*.xml'
         }
       }
