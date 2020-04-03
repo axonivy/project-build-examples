@@ -26,7 +26,7 @@ pipeline {
             def mavenParameters = "-Divy.engine.list.url=${params.engineListUrl} " +
               "-Divy.engine.version=[8.0.0,] "
 
-            def versionCheck = "org.codehaus.mojo:versions-maven-plugin:RELEASE:display-dependency-updates " +
+            def versionCheck = "org.codehaus.mojo:versions-maven-plugin:RELEASE:display-plugin-updates " +
               "| tee -a maven.log"
 
             maven cmd: "clean install " + mavenParameters + versionCheck

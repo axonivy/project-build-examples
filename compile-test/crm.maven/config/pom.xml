@@ -10,7 +10,7 @@
 	</organization>
 
 	<properties>
-		<project.build.plugin.version>9.1.0-SNAPSHOT</project.build.plugin.version>
+		<project.build.plugin.version>8.0.3</project.build.plugin.version>
 	</properties>
 
 	<pluginRepositories>
@@ -41,14 +41,5 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	
-	<dependencies>
-		<!-- Needed to check for newer version with Jenkins pipeline (versions-maven-plugin) -->
-		<dependency>
-			<groupId>com.axonivy.ivy.ci</groupId>
-			<artifactId>project-build-plugin</artifactId>
-			<version>${project.build.plugin.version}</version>
-			<type>pom</type>
-		</dependency>
-	</dependencies>
+
 </project>
