@@ -27,12 +27,13 @@ pipeline {
               "-Divy.engine.version=[8.0.0,] "
 
             def versionCheck = "org.codehaus.mojo:versions-maven-plugin:RELEASE:display-plugin-updates " +
-              "-Dversions.outputFile=versions.log " +
-              "-Dversions.logOutput=false"
+              "| tee -a versions.log"
 
-            maven cmd: "clean install " + mavenParameters + versionCheck
+            maven cmd: "clean install " + mavenParameters
+            maven cmd: versionCheck
 
-            maven cmd: "-f deploy/application/pom.xml clean deploy " + mavenParameters + versionCheck
+            maven cmd: "-f deploy/application/pom.xml clean deploy " + mavenParameters
+            maven cmd: "-f deploy/application/pom.xml" + versionCheck
           }
       }
       post {
