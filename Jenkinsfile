@@ -24,16 +24,20 @@ pipeline {
       steps {
           script {
             def mavenParameters = "-Divy.engine.list.url=${params.engineListUrl} " +
-              "-Divy.engine.version=[8.0.0,]"
+              "-Divy.engine.version=[8.0.0,] "
 
-            maven cmd: "clean install " + mavenParameters
+            def versionCheck = "org.codehaus.mojo:versions-maven-plugin:RELEASE:display-dependency-updates " +
+              "| tee -a maven.log"
 
-            maven cmd: "-f deploy/application/pom.xml clean deploy " + mavenParameters
+            maven cmd: "clean install " + mavenParameters + versionCheck
+
+            maven cmd: "-f deploy/application/pom.xml clean deploy " + mavenParameters + versionCheck
           }
       }
       post {
         always {
           recordIssues tools: [mavenConsole()], unstableTotalAll: 1
+          recordIssues tools: [groovyScript(parserId: 'maven-version-update-parser', pattern: 'maven.log')], unstableTotalAll: 1
           junit '**/**/target/surefire-reports/**/*.xml'
         }
       }
