@@ -27,7 +27,7 @@ pipeline {
               "-Divy.engine.version=[8.0.0,] "
 
             def versionCheck = "org.codehaus.mojo:versions-maven-plugin:RELEASE:display-plugin-updates " +
-              "| tee -a maven.log"
+              "-Dversions.outputFile=versions.log"
 
             maven cmd: "clean install " + mavenParameters + versionCheck
 
@@ -37,8 +37,9 @@ pipeline {
       post {
         always {
           recordIssues tools: [mavenConsole()], unstableTotalAll: 1
-          recordIssues tools: [groovyScript(parserId: 'maven-version-update-parser', pattern: 'maven.log')], unstableTotalAll: 1
+          recordIssues tools: [groovyScript(parserId: 'maven-version-update-parser', pattern: 'versions.log')], unstableTotalAll: 1
           junit '**/**/target/surefire-reports/**/*.xml'
+          archiveArtifacts 'versions.log'
         }
       }
     }
