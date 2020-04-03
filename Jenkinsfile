@@ -27,7 +27,7 @@ pipeline {
               "-Divy.engine.version=[8.0.0,] "
 
             def versionCheck = "org.codehaus.mojo:versions-maven-plugin:RELEASE:display-plugin-updates " +
-              "| tee -a versions.log"
+              "--log-file versions.log"
 
             maven cmd: "clean install " + mavenParameters
             maven cmd: versionCheck
