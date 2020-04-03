@@ -33,7 +33,7 @@ pipeline {
             maven cmd: versionCheck
 
             maven cmd: "-f deploy/application/pom.xml clean deploy " + mavenParameters
-            maven cmd: "-f deploy/application/pom.xml" + versionCheck
+            maven cmd: "-f deploy/application/pom.xml " + versionCheck
           }
       }
       post {
