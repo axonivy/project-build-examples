@@ -27,12 +27,11 @@ pipeline {
               "-Divy.engine.version=[8.0.0,]"
 
             maven cmd: "clean install " + mavenParameters
-
-            maven cmd: "-f deploy/application/pom.xml clean deploy " + mavenParameters
           }
       }
       post {
         always {
+          checkVersions()
           recordIssues tools: [mavenConsole()], unstableTotalAll: 1
           junit '**/**/target/surefire-reports/**/*.xml'
         }
