@@ -33,6 +33,9 @@ pipeline {
       }
       post {
         always {
+          checkVersions recordIssue: false
+          checkVersions cmd: "-f deploy/application/pom.xml"
+
           recordIssues tools: [mavenConsole()], unstableTotalAll: 1
           junit '**/**/target/surefire-reports/**/*.xml'
         }
