@@ -45,8 +45,8 @@
 						<phase>validate</phase>
 						<goals><goal>installEngine</goal></goals>
 						<configuration>
-							<!-- 9.1.0 has not been released yet, using the nightly build -->
-							<engineDownloadUrl>https://developer.axonivy.com/permalink/nightly/axonivy-engine.zip</engineDownloadUrl>
+							<!-- 9.1.0 has not been released yet, using the dev build -->
+							<engineListPageUrl>https://developer.axonivy.com/download/archive/unstable</engineListPageUrl>
 						</configuration>
 					</execution>
 					<execution>
