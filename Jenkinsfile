@@ -26,16 +26,12 @@ pipeline {
             def mavenParameters = "-Divy.engine.list.url=${params.engineListUrl} " +
               "-Divy.engine.version=[8.0.0,]"
 
-            maven cmd: "clean install " + mavenParameters
-
-            maven cmd: "-f deploy/application/pom.xml clean deploy " + mavenParameters
+            maven cmd: "clean verify " + mavenParameters
           }
       }
       post {
         always {
-          checkVersions recordIssue: false
-          checkVersions cmd: "-f deploy/application/pom.xml"
-
+          checkVersions
           recordIssues tools: [mavenConsole()], unstableTotalAll: 1
           junit '**/**/target/surefire-reports/**/*.xml'
         }
