@@ -26,7 +26,7 @@ pipeline {
             def mavenParameters = "-Divy.engine.list.url=${params.engineListUrl} " +
               "-Divy.engine.version=[8.0.0,]"
 
-            maven cmd: "clean verify " + mavenParameters
+            maven cmd: "clean install " + mavenParameters
           }
       }
       post {
