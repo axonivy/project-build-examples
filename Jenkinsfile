@@ -16,7 +16,7 @@ pipeline {
   parameters {
     string(name: 'engineListUrl',
       description: 'Engine to use for build',
-      defaultValue: 'https://jenkins.ivyteam.io/job/ivy-core_product/job/master/lastSuccessfulBuild/')
+      defaultValue: 'https://jenkins.ivyteam.io/job/ivy-core_product/job/feature%252FXIVY-3765_remove-ivy-from-path/lastSuccessfulBuild/')
   }
 
   stages {
@@ -24,7 +24,7 @@ pipeline {
       steps {
           script {
             def mavenParameters = "-Divy.engine.list.url=${params.engineListUrl} " +
-              "-Divy.engine.version=[8.0.0,] -Divy.engine.download.url=https://jenkins.ivyteam.io/job/ivy-core_product/job/feature%252FXIVY-3765_remove-ivy-from-path/lastSuccessfulBuild/artifact/workspace/ch.ivyteam.ivy.server.product/target/products/AxonIvyEngine9.1.0.2004060955_Slim_All_x64.zip"
+              "-Divy.engine.version=[8.0.0,]"
 
             maven cmd: "clean install " + mavenParameters
 
