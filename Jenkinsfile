@@ -31,7 +31,7 @@ pipeline {
       }
       post {
         always {
-          checkVersions
+          checkVersions()
           recordIssues tools: [mavenConsole()], unstableTotalAll: 1
           junit '**/**/target/surefire-reports/**/*.xml'
         }
