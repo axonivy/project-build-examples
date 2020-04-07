@@ -6,15 +6,15 @@ import static com.codeborne.selenide.Selenide.*;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import com.axonivy.ivy.supplements.IvySelenide;
-import com.axonivy.ivy.supplements.engine.EngineUrl;
+import com.axonivy.ivy.webtest.IvyWebTest;
+import com.axonivy.ivy.webtest.engine.EngineUrl;
 
 /**
  * Simple browser-based (selenium) integration test. <br/>
  * Tests the functionality of the Registration
  * <code>crm.CustomerRegistrationForm</code>.
  */
-@IvySelenide
+@IvyWebTest
 public class WebTestRegistrationForm
 {
 
