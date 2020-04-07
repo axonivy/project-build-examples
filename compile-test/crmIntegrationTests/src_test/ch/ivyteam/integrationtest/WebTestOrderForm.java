@@ -42,7 +42,7 @@ public class WebTestOrderForm
   {
     //Start your engine and copy the process start link.
     //You can use the EngineUrl Util to start the order process:
-    open(EngineUrl.process() + "/crm/1700F6B9A99952AD/orderProduct.ivp");
+    open(EngineUrl.createProcessUrl("/crm/1700F6B9A99952AD/orderProduct.ivp"));
   }
 
   @Test
