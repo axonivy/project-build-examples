@@ -6,7 +6,7 @@
 
 ![run test](webtesting-run.gif)
 
-> Maybe disable headless flag on `IvySelenide` annotation
+> Maybe disable headless flag on `IvyWebTest` annotation
 
 ## run tests with maven
 - Open a command line and navigate into the unpacked `compile-test` folder.
@@ -14,4 +14,4 @@
 
 ## dependencies
 
-We use our [primeui-tester](https://github.com/ivy-supplements/primeui-tester) for all web tests.
+We use our [web-tester](https://github.com/ivy-supplements/web-tester) for all web tests.
