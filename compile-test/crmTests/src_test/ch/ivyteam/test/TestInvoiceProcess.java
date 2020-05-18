@@ -92,7 +92,7 @@ public class TestInvoiceProcess
   
   @Test
   @SuppressWarnings("unused")
-  void as(BpmClient bpmClient, @Named("JamesBond") IUser user)
+  void as(BpmClient bpmClient)
   {
     /* Execution with the role everybody */
     ExecutionResult result = bpmClient.start()
@@ -103,7 +103,7 @@ public class TestInvoiceProcess
     /* Execution with a specific user */
     result = bpmClient.start()
             .process(WRITE_INVOICE_START)
-            .as().user(user)
+            .as().user("James Bond")
             .execute();
     
     /* Execution by selecting a specific role */
