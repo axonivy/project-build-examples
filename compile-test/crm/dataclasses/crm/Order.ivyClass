@@ -1,0 +1,8 @@
+Order #class
+crm #namespace
+customerId Number #field
+customerId PERSISTENT #fieldModifier
+total Number #field
+total PERSISTENT #fieldModifier
+valid Boolean #field
+valid PERSISTENT #fieldModifier
