@@ -128,7 +128,7 @@ public class TestInvoiceProcess
   }
   
   @Test
-  void workflow(BpmClient bpmClient, @Named("JamesBond") IUser user)
+  void workflow(BpmClient bpmClient, @Named("James Bond") IUser user)
   {
     BpmElement prepareShipmentStart = INVOICE_PROCESS.elementName("prepareShipment.ivp");
     
@@ -148,11 +148,11 @@ public class TestInvoiceProcess
     assertThat(result.workflow().activeTask().name().startsWith("prepare")).isPresent();
 
     /* Asserting the activator */
-    assertThat(result.workflow().activeTask().activatorUser("JamesBond")).isPresent();
+    assertThat(result.workflow().activeTask().activatorUser("James Bond")).isPresent();
     assertThat(result.workflow().activeTask().activator(user)).isPresent();
 
     /* Asserting the session user */
-    assertThat(result.workflow().session().getSessionUserName()).isEqualTo("JamesBond");
+    assertThat(result.workflow().session().getSessionUserName()).isEqualTo("James Bond");
   }
   
   @Test
