@@ -3,6 +3,7 @@ package ch.ivyteam.crm;
 import java.util.ArrayList;
 import java.util.List;
 
+import ch.ivyteam.ivy.environment.Ivy;
 import crm.Product;
 
 public class OrderUtil {
@@ -10,8 +11,8 @@ public class OrderUtil {
   public static List<Product> getProducts()
   {
     List<Product> products = new ArrayList<>();
-    products.add(initProduct("Table", 375.50));
-    products.add(initProduct("Chair", 89.60));
+    products.add(initProduct(Ivy.cms().co("/Project/Products/Table"), Double.parseDouble(Ivy.var().get("table"))));
+    products.add(initProduct(Ivy.cms().co("/Project/Products/Chair"), Double.parseDouble(Ivy.var().get("chair"))));
     return products;
   }
   
