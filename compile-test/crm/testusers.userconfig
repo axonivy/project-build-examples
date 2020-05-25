@@ -1,2 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<userConfig/>
+<userConfig>
+    <user>
+        <username>James Bond</username>
+        <password>007</password>
+        <role>Agent</role>
+    </user>
+    <user>
+        <username>M</username>
+        <password>TopSecret</password>
+        <role>Head</role>
+    </user>
+</userConfig>
