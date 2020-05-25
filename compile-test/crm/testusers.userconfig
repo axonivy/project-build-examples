@@ -9,5 +9,6 @@
         <username>M</username>
         <password>TopSecret</password>
         <role>Head</role>
+        <role>Agent</role>
     </user>
 </userConfig>

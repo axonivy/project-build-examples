@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.security.IRole;
+import ch.ivyteam.ivy.workflow.IWorkflowSession;
 import crm.Product;
 
 public class OrderUtil
@@ -20,9 +21,8 @@ public class OrderUtil
   
   public static List<Product> getProductsWithClearance()
   {
-    IRole role = Ivy.session().getSessionUser().getRoles().get(1);
     return getProducts().stream()
-            .filter(prod -> ClearanceLevel.getClearance(role) >= prod.getRequiredClearance())
+            .filter(prod -> ClearanceLevel.getClearance() >= prod.getRequiredClearance())
             .collect(Collectors.toList());
   }
   
@@ -39,19 +39,24 @@ public class OrderUtil
   {
     public static int HEAD = 3;
     public static int AGENT = 1;
+    public static int NO_CLEARANCE = 0;
     
-    public static int getClearance(IRole role)
+    public static int getClearance()
     {
-      if ("Head".equals(role.getName()))
+      IRole head = Ivy.request().getApplication().getSecurityContext().findRole("Head");
+      IRole agent = Ivy.request().getApplication().getSecurityContext().findRole("Agent");
+      
+      IWorkflowSession session = Ivy.session();
+      if (session.hasRole(head, false))
       {
         return HEAD;
       }
       
-      if ("Agent".equals(role.getName()))
+      if (session.hasRole(agent, false))
       {
         return AGENT;
       }
-      return 0;
+      return NO_CLEARANCE;
     }
   }
   
