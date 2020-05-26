@@ -6,3 +6,5 @@ amount Integer #field
 amount PERSISTENT #fieldModifier
 singlePrice Double #field
 singlePrice PERSISTENT #fieldModifier
+requiredClearance Integer #field
+requiredClearance PERSISTENT #fieldModifier
