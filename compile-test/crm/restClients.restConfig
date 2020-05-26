@@ -1,18 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<restClients>
-    <restClient>
-        <uuid>ae693d54-a13e-477b-82e6-0faeb165a05d</uuid>
-        <name>openApiService</name>
-        <configuration>
-            <uri>https://petstore.swagger.io/v2</uri>
-            <property>
-                <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
-                <value>false</value>
-                <password>false</password>
-            </property>
-            <feature>
-                <class>ch.ivyteam.ivy.rest.client.mapper.JsonFeature</class>
-            </feature>
-        </configuration>
-    </restClient>
-</restClients>
+<restClients/>
