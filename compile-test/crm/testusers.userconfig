@@ -2,5 +2,13 @@
 <userConfig>
     <user>
         <username>James Bond</username>
+        <password>007</password>
+        <role>Agent</role>
+    </user>
+    <user>
+        <username>M</username>
+        <password>TopSecret</password>
+        <role>Head</role>
+        <role>Agent</role>
     </user>
 </userConfig>

@@ -1,0 +1,3 @@
+co: name={Table} description={} changed={2020-05-19 09:09:22 CEST} changedby={lli} visualorder={0} guid={1722BC2E001E0662} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={1722BC2E00385EA5} datatype={} isdefault={true} langid={en} description={} validfrom={2020-05-19 09:08:11 CEST} validto={} changed={2020-05-19 09:08:11 CEST} changedby={lli} properties={} id={}
+val: guid={1722BC3F51EB37E0} datatype={} isdefault={false} langid={de} description={} validfrom={2020-05-19 09:09:16 CEST} validto={} changed={2020-05-19 09:09:22 CEST} changedby={lli} properties={} id={}
