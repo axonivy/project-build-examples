@@ -42,6 +42,10 @@
 				<artifactId>project-build-plugin</artifactId>
 				<extensions>true</extensions>
 			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M4</version>
+			</plugin>
 		</plugins>
 	</build>
 </project>
