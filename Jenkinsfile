@@ -33,7 +33,7 @@ pipeline {
         always {
           checkVersions()
           recordIssues tools: [mavenConsole()], unstableTotalAll: 1
-          junit '**/**/target/surefire-reports/**/*.xml'
+          junit '**/**/target/*-reports/**/*.xml'
         }
       }
     }

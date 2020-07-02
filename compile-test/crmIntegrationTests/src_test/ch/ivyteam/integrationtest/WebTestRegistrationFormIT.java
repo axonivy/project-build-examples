@@ -15,7 +15,7 @@ import com.axonivy.ivy.webtest.engine.EngineUrl;
  * <code>crm.CustomerRegistrationForm</code>.
  */
 @IvyWebTest
-public class WebTestRegistrationForm
+public class WebTestRegistrationFormIT
 {
 
   @Test
