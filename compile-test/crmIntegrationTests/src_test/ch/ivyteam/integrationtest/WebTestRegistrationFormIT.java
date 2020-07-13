@@ -21,11 +21,8 @@ public class WebTestRegistrationFormIT
   @Test
   public void registerNewCustomer()
   {
-    //You can use the EngineUrl utility to get to the info page of you engine:
-    open(EngineUrl.base());
-    
-    //Search for the process start link and click it
-    $(By.linkText("customer/register.ivp")).shouldBe(visible).click();
+    //You can use the EngineUrl utility to start a proecess:
+    open(EngineUrl.createProcessUrl("15287EC41B05C6C5/register.ivp"));
     
     //Fill in new customer
     $(By.id("form:firstname")).sendKeys("Unit");
