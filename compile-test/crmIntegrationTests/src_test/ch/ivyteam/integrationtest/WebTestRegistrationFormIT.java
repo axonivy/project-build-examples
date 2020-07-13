@@ -22,7 +22,7 @@ public class WebTestRegistrationFormIT
   public void registerNewCustomer()
   {
     //You can use the EngineUrl utility to start a proecess:
-    open(EngineUrl.createProcessUrl("15287EC41B05C6C5/register.ivp"));
+    open(EngineUrl.createProcessUrl("crm/15287EC41B05C6C5/register.ivp"));
     
     //Fill in new customer
     $(By.id("form:firstname")).sendKeys("Unit");
