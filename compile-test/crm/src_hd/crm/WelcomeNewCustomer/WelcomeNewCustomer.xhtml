@@ -9,28 +9,22 @@
   <ui:composition template="/layouts/basic-8.xhtml">
     <ui:define name="title">WelcomeNewCustomer</ui:define>
     <ui:define name="content">
-
-      <h3>
-      This is an <a href="https://developer.axonivy.com/doc/latest/designer-guide/user-interface/user-dialogs.html#html-dialogs">Html Dialog</a> 
-      implemented with JSF and <a href="http://primefaces.org/">Primefaces</a> as widget library
-      </h3>
+      <h3>Welcome</h3>
 
       <h:form id="form">
+        <p:messages />
         <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank"
           columnClasses="ui-g-12 ui-md-3 ui-lg-2, 
             ui-g-12 ui-md-9 ui-lg-4, 
             ui-g-12 ui-md-3 ui-lg-2, 
             ui-g-12 ui-md-9 ui-lg-4">
-          <f:facet name="header">
-            <p:messages></p:messages>
-          </f:facet>
           
-          <h:outputText value="Welcome" />
           <h:outputText id="newCustomer" value="#{data.newCustomer.firstname} #{data.newCustomer.lastname}" />
           
-          <br />
-          <p:commandButton actionListener="#{logic.close}" value="Close" update="form" icon="ui-icon-close" />
         </p:panelGrid>
+        <div class="command-btns">
+          <p:commandButton actionListener="#{logic.close}" value="Close" update="form" icon="ui-icon-close" />
+        </div>
       </h:form>
 
     </ui:define>
