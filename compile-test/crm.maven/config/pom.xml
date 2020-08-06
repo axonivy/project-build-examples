@@ -28,11 +28,7 @@
 					<groupId>com.axonivy.ivy.ci</groupId>
 					<artifactId>project-build-plugin</artifactId>
 					<!-- pre-configure the exact version to use for child projects -->
-					<version>9.1.0-SNAPSHOT</version>
-					<configuration>
-						<!-- 9.1.0 has not been released yet, using the dev build -->
-						<engineListPageUrl>https://developer.axonivy.com/download/archive/unstable</engineListPageUrl>
-					</configuration>
+					<version>9.1.0</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
