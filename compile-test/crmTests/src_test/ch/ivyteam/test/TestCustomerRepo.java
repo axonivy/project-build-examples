@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import ch.ivyteam.crm.CustomerRepo;
+import ch.ivyteam.ivy.environment.AppFixture;
 import ch.ivyteam.ivy.environment.IvyTest;
 import crm.Customer;
 
@@ -14,8 +15,10 @@ import crm.Customer;
 public class TestCustomerRepo {
 
 	@Test
-	public void findCustomerByZip()
+	public void findCustomerByZip(AppFixture fixture)
 	{
+		fixture.environment("test-env");
+		
 		CustomerRepo.persist(newCustomer("Caty", "6300"));
 		CustomerRepo.persist(newCustomer("Reguel", "6210"));
 		CustomerRepo.persist(newCustomer("Reto", "6403"));

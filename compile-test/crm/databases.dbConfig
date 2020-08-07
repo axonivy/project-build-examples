@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <databaseconfigs>
-    <databaseconfig name="exampleDb" url="jdbc:mysql://localhost/acmeCRM" driver="org.gjt.mm.mysql.Driver" user="" password=""/>
+    <databaseconfig name="exampleDb" url="jdbc:mysql://localhost/acmeCRM" driver="org.gjt.mm.mysql.Driver" user="" password="">
+        <environmentConfig environment="test-env" name="exampleDb" url="jdbc:hsqldb:mem:acmeCRM" driver="org.hsqldb.jdbc.JDBCDriver" user="" password=""/>
+    </databaseconfig>
 </databaseconfigs>
