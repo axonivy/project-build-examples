@@ -13,3 +13,9 @@ lastname String #field
 lastname PERSISTENT #fieldModifier
 dateOfBirth Date #field
 dateOfBirth PERSISTENT #fieldModifier
+address String #field
+address PERSISTENT #fieldModifier
+zip String #field
+zip PERSISTENT #fieldModifier
+city String #field
+city PERSISTENT #fieldModifier
