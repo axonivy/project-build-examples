@@ -6,30 +6,30 @@ import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.process.data.persistence.IIvyEntityManager;
 import crm.Customer;
 
-public class CustomerRepo {
+public class CustomerRepo
+{
+  public static Customer persist(Customer newCustomer)
+  {
+    return entityManager().persist(newCustomer);
+  }
 
-	public static Customer persist(Customer newCustomer)
-	{
-		return entityManager().persist(newCustomer);
-	}
-	
-	public static List<Customer> getAll()
-	{
-		return entityManager().findAll(Customer.class);
-	}
-	
-	private static IIvyEntityManager entityManager() 
-	{
-		return Ivy.persistence().get("erp");
-	}
+  public static List<Customer> getAll()
+  {
+    return entityManager().findAll(Customer.class);
+  }
 
-	@SuppressWarnings("unchecked")
-	public static List<Customer> findByZip(String zip)
-	{
-		return (List<Customer>) entityManager().createQuery(
-			"SELECT c FROM Customer c WHERE c.zip = :zip ")
-			.setParameter("zip", zip)
-			.getResultList();
-	}
-	
+  private static IIvyEntityManager entityManager()
+  {
+    return Ivy.persistence().get("erp");
+  }
+
+  @SuppressWarnings("unchecked")
+  public static List<Customer> findByZip(String zip)
+  {
+    return (List<Customer>) entityManager().createQuery(
+            "SELECT c FROM Customer c WHERE c.zip = :zip ")
+            .setParameter("zip", zip)
+            .getResultList();
+  }
+
 }
