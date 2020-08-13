@@ -23,10 +23,9 @@ public class CustomerRepo
     return Ivy.persistence().get("erp");
   }
 
-  @SuppressWarnings("unchecked")
   public static List<Customer> findByZip(String zip)
   {
-    return (List<Customer>) entityManager().createQuery(
+    return entityManager().createQuery(
             "SELECT c FROM Customer c WHERE c.zip = :zip ")
             .setParameter("zip", zip)
             .getResultList();
