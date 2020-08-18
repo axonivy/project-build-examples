@@ -28,7 +28,7 @@ public class CustomerRepo
     return entityManager().createQuery(
             "SELECT c FROM Customer c WHERE c.zip = :zip ")
             .setParameter("zip", zip)
-            .getResultList();
+            .getResults();
   }
 
 }
