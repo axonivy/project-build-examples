@@ -26,6 +26,7 @@ public class TestInvoiceProcess
   
   /* The process start elements */
   private static final BpmElement WRITE_INVOICE_START = INVOICE_PROCESS.elementName("writeInvoice.ivp");
+  private static final BpmElement WRITE_INVOICE = INVOICE_PROCESS.elementName("write invoice");
   private static final BpmElement CHECK_ORDER_START = INVOICE_PROCESS.elementName("checkOrder.ivp");
 
   @Test
@@ -45,6 +46,9 @@ public class TestInvoiceProcess
     Workflow workflow = result.workflow();
     assertThat(workflow.executedTask().getName()).isEqualTo("start write invoice");
     
+    /* Mock the UI part of the UserTask by setting the UI result */
+    bpmClient.mock().uiOf(WRITE_INVOICE).with((params, results) -> results.set("total", 935));
+    
     /* Drive the process further through the UserTask by telling the BpmClient hat it
      * should execute the next task with the role everybody */
     result = bpmClient
@@ -53,10 +57,17 @@ public class TestInvoiceProcess
             .as().everybody()
             .execute();
     
-    /* This time the execution should have ran exactly through the UserTask, the Dialog
-     * of the UserTask and the End element */
+    /* This time the execution should have ran until the end of the process */
     history = result.history();
-    assertThat(history.elementNames()).containsExactly("write invoice", "writeInvoiceDialog()", "endWriteInvoiceDialog");
+    assertThat(history.elementNames()).containsExactly("write invoice", "end");
+    
+    /* Asserting the data of the last execution */
+    Order orderData = result.data().last();
+    assertThat(orderData.getTotal()).isEqualTo(935);
+    
+    /* The process is finished and therefore the workflow case should be done */
+    workflow = result.workflow();
+    assertThat(workflow.activeCase().getState()).isEqualTo(CaseState.DONE);
   }
   
   @Test
@@ -116,6 +127,8 @@ public class TestInvoiceProcess
   @Test
   void start(BpmClient bpmClient)
   {
+    bpmClient.mock().uiOf(WRITE_INVOICE).withNoAction();
+    
     ExecutionResult result = bpmClient
             .start().process(WRITE_INVOICE_START)
             .execute();
@@ -123,6 +136,10 @@ public class TestInvoiceProcess
     /* Execute any active task after the previous result */
     bpmClient.start().anyActiveTask(result).as().everybody().execute();
     
+    result = bpmClient
+            .start().process(WRITE_INVOICE_START)
+            .execute();
+
     /* Execute the desired task */
     bpmClient.start().task(result.workflow().anyActiveTask()).as().everybody().execute();
   }
@@ -214,6 +231,11 @@ public class TestInvoiceProcess
     bpmClient.mock()
             .element(INVOICE_PROCESS.elementName("check order"))
             .with(in -> myOrderData);
+    
+    /* Mocking only the UI part of the element */
+    bpmClient.mock()
+            .uiOf(INVOICE_PROCESS.elementName("check order"))
+            .with((params, results) -> results.set("total", 935));
   }
 
 }
