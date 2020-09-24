@@ -26,19 +26,6 @@
     </dependency>
   </dependencies>
 
-  <repositories>
-    <repository>
-      <id>central.snapshots</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <updatePolicy>always</updatePolicy>
-      </snapshots>
-    </repository>
-  </repositories>
-  
   <build>
     <testSourceDirectory>src_test</testSourceDirectory>
     <testOutputDirectory>target/test-classes</testOutputDirectory>
