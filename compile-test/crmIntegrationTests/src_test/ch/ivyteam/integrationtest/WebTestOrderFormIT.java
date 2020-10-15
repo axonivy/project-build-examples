@@ -26,6 +26,7 @@ import org.openqa.selenium.By;
 import com.axonivy.ivy.webtest.IvyWebTest;
 import com.axonivy.ivy.webtest.engine.EngineUrl;
 import com.axonivy.ivy.webtest.primeui.PrimeUi;
+import com.axonivy.ivy.webtest.primeui.widget.InputNumber;
 import com.axonivy.ivy.webtest.primeui.widget.SelectOneMenu;
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
@@ -62,14 +63,13 @@ public class WebTestOrderFormIT
   void testAmountInputCanOnlyBeNumbersTo100()
   {
     //Test init value of amount
-    $(By.id("form:amount_input")).shouldBe(exactValue("1"));
+    InputNumber inputNumber = PrimeUi.inputNumber(By.id("form:amount"));
+    inputNumber.should(exactValue("1"));
     //Test that only numbers to 100 can be placed into the amount input
-    $(By.id("form:amount_input")).clear();
-    $(By.id("form:amount_input")).sendKeys("100");
-    $(By.id("form:amount_input")).shouldBe(exactValue("100"));
-    $(By.id("form:amount_input")).clear();
-    $(By.id("form:amount_input")).sendKeys("101");
-    $(By.id("form:amount_input")).shouldBe(exactValue("10"));
+    inputNumber.setValue("100");
+    inputNumber.should(exactValue("100"));
+    inputNumber.setValue("101");
+    inputNumber.should(exactValue("10"));
   }
   
   @Test
@@ -185,8 +185,7 @@ public class WebTestOrderFormIT
     //Use Testutil for PrimeFaces SelectOneMenu provided by the primeui-tester
     PrimeUi.selectOne(By.id("form:product")).selectItemByLabel(product);
     //Set amount
-    $(By.id("form:amount_input")).clear();
-    $(By.id("form:amount_input")).sendKeys(String.valueOf(amount));
+    PrimeUi.inputNumber(By.id("form:amount")).setValue(String.valueOf(amount));
     //Add product to order
     $(By.id("form:addProduct")).click();
   }
