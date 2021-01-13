@@ -1,12 +1,8 @@
 pipeline {
-  agent {
-    docker {
-      image 'axonivy/build-container:web-1.0'
-    }
-  }
+  agent any
 
   options {
-    buildDiscarder(logRotator(numToKeepStr: '60', artifactNumToKeepStr: '10'))
+    buildDiscarder(logRotator(numToKeepStr: '30', artifactNumToKeepStr: '3'))
   }
 
   triggers {
@@ -22,17 +18,30 @@ pipeline {
   stages {
     stage('build') {
       steps {
-          script {
-            def mavenParameters = "-Divy.engine.list.url=${params.engineListUrl} " +
-              "-Divy.engine.version=[8.0.0,] -Dmaven.test.failure.ignore=true"
-
-            maven cmd: "clean install " + mavenParameters
-          }
-      }
-      post {
-        always {
-          checkVersions()
-          recordIssues tools: [mavenConsole()], unstableTotalAll: 1
+        script {
+          def random = (new Random()).nextInt(10000000)
+          def networkName = "build-" + random
+          def seleniumName = "selenium-" + random
+          def ivyName = "ivy-" + random
+          sh "docker network create ${networkName}"
+          try {
+            docker.image("selenium/standalone-firefox:3").withRun("-e START_XVFB=false --shm-size=2g --name ${seleniumName} --network ${networkName}") {
+              docker.build('maven').inside("--name ${ivyName} --network ${networkName}") {
+                maven cmd: "clean install " +
+                  "-Divy.engine.list.url=${params.engineListUrl} " +
+                  "-Divy.engine.version=[8.0.0,] " + 
+                  "-Dmaven.test.failure.ignore=true " +
+                  "-Dtest.engine.url=http://${ivyName}:8080 " +
+                  "-Dselenide.remote=http://${seleniumName}:4444/wd/hub "
+                checkVersions()
+              }
+            }
+          } finally {
+            sh "docker network rm ${networkName}"
+          }          
+          recordIssues tools: [mavenConsole()], unstableTotalAll: 1, filters: [
+            excludeMessage('The system property test.engine.url is configured twice!.*')
+          ]
           junit '**/**/target/*-reports/**/*.xml'
         }
       }
