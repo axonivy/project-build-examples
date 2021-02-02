@@ -9,6 +9,10 @@
     <name>AXON.IVY AG</name>
   </organization>
 
+  <properties>
+    <project.build.plugin.version>9.1.0</project.build.plugin.version>
+  </properties>
+
   <pluginRepositories>
     <!-- Snapshot releases are not deployed to maven central. So the repo on 
       sonatype could be used instead -->
@@ -43,7 +47,7 @@
           <groupId>com.axonivy.ivy.ci</groupId>
           <artifactId>project-build-plugin</artifactId>
           <!-- pre-configure the exact version to use for child projects -->
-          <version>9.1.0</version>
+          <version>${project.build.plugin.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>

@@ -13,6 +13,10 @@
 		<module>configViewer</module>
 	</modules>
 
+	<properties>
+		<project.build.plugin.version>9.1.0</project.build.plugin.version>
+	</properties>
+
 	<distributionManagement>
 		<snapshotRepository>
 			<id>repo.axonivy.com</id>
@@ -44,7 +48,7 @@
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
-				<version>9.1.0</version>
+				<version>${project.build.plugin.version}</version>
 				<executions>
 					<execution>
 					<id>test.engine.starter</id> 
