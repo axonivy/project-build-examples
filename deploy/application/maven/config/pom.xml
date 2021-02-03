@@ -13,6 +13,7 @@
 
   <properties>
     <maven.deploy.skip>true</maven.deploy.skip>
+    <project.build.plugin.version>9.1.0</project.build.plugin.version>
   </properties>
 
   <pluginRepositories>
@@ -32,7 +33,7 @@
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
-        <version>9.1.0</version>
+        <version>${project.build.plugin.version}</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>
