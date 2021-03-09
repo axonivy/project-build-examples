@@ -1,0 +1,14 @@
+# Conversion log for project 'deploy-single' from version 72000 to 92000
+# Created on 09.03.2021 11:26:49
+09.03.2021 11:26:49 : Info      : Changing Java project facet to use Java 11
+09.03.2021 11:26:49 : New Task  : Migrate User Dialog interface descriptors
+09.03.2021 11:26:49 : Info      : Updated UserDialog interface of crm.CustomerRegistrationForm
+09.03.2021 11:26:49 : New Task  : Remove Primefaces Mobile taglib entries
+09.03.2021 11:26:49 : Info      : Removing Primefaces Mobile taglib entry in file '/deploy-single/src_hd/crm/CustomerRegistrationForm/CustomerRegistrationForm.xhtml'
+09.03.2021 11:26:49 : Info      : Removing Primefaces Mobile taglib entry in file '/deploy-single/webContent/layouts/includes/footer.xhtml'
+09.03.2021 11:26:49 : New Task  : Store process MOD files in latest version 9.2.0
+09.03.2021 11:26:49 : New Task  : Migrate Global Variables to variables.yaml
+09.03.2021 11:26:49 : Info      : no global variables found. nothing to convert.
+09.03.2021 11:26:49 : Info      : deleted folder config/GlobalVariables
+09.03.2021 11:26:49 : New Task  : Update project version to actual version 92000.
+09.03.2021 11:26:49 : New Task  : Finished conversion of project deploy-single.
