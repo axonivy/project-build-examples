@@ -3,7 +3,7 @@ package crm.CustomerRegistrationForm;
 /**
  */
 @SuppressWarnings("all")
-@javax.annotation.Generated(comments="This is the java file of the ivy data class CustomerRegistrationFormData", value={"ch.ivyteam.ivy.scripting.streamInOut.IvyScriptJavaClassBuilder"})
+@javax.annotation.processing.Generated(comments="This is the java file of the ivy data class CustomerRegistrationFormData", value={"ch.ivyteam.ivy.scripting.streamInOut.IvyScriptJavaClassBuilder"})
 public class CustomerRegistrationFormData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */

@@ -3,7 +3,7 @@ package crm;
 /**
  */
 @SuppressWarnings("all")
-@javax.annotation.Generated(comments="This is the java file of the ivy data class Customer", value={"ch.ivyteam.ivy.scripting.streamInOut.IvyScriptJavaClassBuilder"})
+@javax.annotation.processing.Generated(comments="This is the java file of the ivy data class Customer", value={"ch.ivyteam.ivy.scripting.streamInOut.IvyScriptJavaClassBuilder"})
 @javax.persistence.Entity
 @javax.persistence.Table(name="Customer")
 public class Customer extends ch.ivyteam.ivy.scripting.objects.CompositeObject

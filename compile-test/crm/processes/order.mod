@@ -1,5 +1,5 @@
 [Ivy]
-1700F6B9A99952AD 7.5.0 #module
+1700F6B9A99952AD 9.2.0 #module
 >Proto >Proto Collection #zClass
 or0 order Big #zClass
 or0 B #cInfo
@@ -29,9 +29,7 @@ or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 or0 f0 @C|.responsibility Everybody #txt
 or0 f0 81 49 30 30 -54 26 #rect
-or0 f0 @|StartRequestIcon #fIcon
 or0 f1 337 49 30 30 0 15 #rect
-or0 f1 @|EndIcon #fIcon
 or0 f3 dialogId crm.OrderForm #txt
 or0 f3 startMethod start() #txt
 or0 f3 requestActionDecl '<> param;' #txt
@@ -46,7 +44,6 @@ or0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 f3 168 42 112 44 -47 -7 #rect
-or0 f3 @|UserDialogIcon #fIcon
 or0 f4 111 64 168 64 #arcP
 or0 f2 280 64 337 64 #arcP
 >Proto or0 .type crm.Data #txt

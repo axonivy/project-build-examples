@@ -1,5 +1,5 @@
 [Ivy]
-15287EC41B05C6C5 7.5.0 #module
+15287EC41B05C6C5 9.2.0 #module
 >Proto >Proto Collection #zClass
 cr0 customer Big #zClass
 cr0 B #cInfo
@@ -41,9 +41,7 @@ cr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 cr0 f0 @C|.responsibility Everybody #txt
 cr0 f0 81 49 30 30 -30 17 #rect
-cr0 f0 @|StartRequestIcon #fIcon
 cr0 f1 513 49 30 30 0 15 #rect
-cr0 f1 @|EndIcon #fIcon
 cr0 f3 dialogId crm.CustomerRegistrationForm #txt
 cr0 f3 startMethod start() #txt
 cr0 f3 requestActionDecl '<> param;' #txt
@@ -64,7 +62,6 @@ customer</name>
 </elementInfo>
 ' #txt
 cr0 f3 168 42 112 44 -34 -16 #rect
-cr0 f3 @|UserDialogIcon #fIcon
 cr0 f4 expr out #txt
 cr0 f4 111 64 168 64 #arcP
 cr0 f5 dialogId crm.WelcomeNewCustomer #txt
@@ -82,7 +79,6 @@ cr0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 cr0 f5 312 42 160 44 -73 -7 #rect
-cr0 f5 @|UserDialogIcon #fIcon
 cr0 f6 expr out #txt
 cr0 f6 280 64 312 64 #arcP
 cr0 f2 472 64 513 64 #arcP

@@ -1,5 +1,5 @@
 [Ivy]
-1720E35BB7789886 7.5.0 #module
+1720E35BB7789886 9.2.0 #module
 >Proto >Proto Collection #zClass
 ie0 invoice Big #zClass
 ie0 B #cInfo
@@ -42,7 +42,6 @@ ie0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 ie0 f0 @C|.responsibility Everybody #txt
 ie0 f0 81 49 30 30 -23 18 #rect
-ie0 f0 @|StartRequestIcon #fIcon
 ie0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -51,7 +50,6 @@ ie0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ie0 f1 337 49 30 30 -10 17 #rect
-ie0 f1 @|EndIcon #fIcon
 ie0 f2 dialogId crm.InvoiceForm #txt
 ie0 f2 startMethod start() #txt
 ie0 f2 requestActionDecl '<> param;' #txt
@@ -69,7 +67,6 @@ ie0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ie0 f2 168 42 112 44 -38 -7 #rect
-ie0 f2 @|UserTaskIcon #fIcon
 ie0 f3 111 64 168 64 #arcP
 ie0 f4 280 64 337 64 #arcP
 ie0 f5 outLink checkOrder.ivp #txt
@@ -87,7 +84,6 @@ ie0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 ie0 f5 @C|.responsibility Everybody #txt
 ie0 f5 81 177 30 30 -25 17 #rect
-ie0 f5 @|StartRequestIcon #fIcon
 ie0 f6 dialogId crm.CheckOrderForm #txt
 ie0 f6 startMethod start(Boolean) #txt
 ie0 f6 requestActionDecl '<Boolean valid> param;' #txt
@@ -101,13 +97,10 @@ ie0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ie0 f6 168 170 112 44 -37 -7 #rect
-ie0 f6 @|UserDialogIcon #fIcon
 ie0 f7 337 177 30 30 0 15 #rect
-ie0 f7 @|EndIcon #fIcon
 ie0 f8 111 192 168 192 #arcP
 ie0 f9 280 192 337 192 #arcP
 ie0 f12 337 305 30 30 0 15 #rect
-ie0 f12 @|EndIcon #fIcon
 ie0 f10 outLink prepareShipment.ivp #txt
 ie0 f10 inParamDecl '<> param;' #txt
 ie0 f10 requestEnabled true #txt
@@ -124,7 +117,6 @@ ie0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 ie0 f10 @C|.responsibility Everybody #txt
 ie0 f10 81 305 30 30 -25 17 #rect
-ie0 f10 @|StartRequestIcon #fIcon
 ie0 f13 111 320 160 320 #arcP
 ie0 f11 dialogId crm.ShipmentForm #txt
 ie0 f11 startMethod start() #txt
@@ -142,7 +134,6 @@ ie0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ie0 f11 160 298 128 44 -56 -7 #rect
-ie0 f11 @|UserTaskIcon #fIcon
 ie0 f14 288 320 337 320 #arcP
 >Proto ie0 .type crm.Order #txt
 >Proto ie0 .processKind NORMAL #txt
