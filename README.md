@@ -10,4 +10,4 @@ Sample projects to demonstrate project CI/CD features of the [`project-build-plu
 Simple multi module build with an [ivy project and extra projects](compile-test) to test it.
 
 ## deploy
-Set of projects that demonstrate [deployment scenarios](deploy) to an Axon.ivy Engine.
+Set of projects that demonstrate [deployment scenarios](deploy) to an Axon Ivy Engine.

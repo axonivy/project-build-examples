@@ -49,8 +49,8 @@
 							<deployServerId>axonivy.engine</deployServerId> 
 							
 							<!-- 
-							The url that is used to communicate with the remote Axon.ivy Engine. You can replace 'localhost' with the name of the machine 
-							your Axon.ivy Engine runs on
+							The url that is used to communicate with the remote Axon Ivy Engine. You can replace 'localhost' with the name of the machine 
+							your Axon Ivy Engine runs on
 							-->
 							<deployEngineUrl>http://localhost:8080/ivy</deployEngineUrl>
 							<deployToEngineApplication>MyApplication</deployToEngineApplication>

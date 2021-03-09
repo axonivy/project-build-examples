@@ -1,7 +1,7 @@
 # Deploy a full Application ZIP
-`requires project-build-plugin 7.2.0 and Axon.ivy Engine 7.2.0 RC or newer` 
+`requires project-build-plugin 7.2.0 and Axon Ivy Engine 7.2.0 RC or newer` 
 
-This build example demonstrates how a full ivy application (based on one single sub-project) can be built and deployed to a running Axon.ivy Engine.
+This build example demonstrates how a full ivy application (based on one single sub-project) can be built and deployed to a running Axon Ivy Engine.
 The example will provide an app.yaml file. With this file you can override application specific configurations. 
 For more information about the configurations consult the engine guide: https://developer.axonivy.com/doc/7.2.latest/EngineGuideHtml/configuration.html#configuration-file-ref-app-yaml
 The overridden configs can be seen in the configViewer user dialog or the adminUI.
@@ -63,7 +63,7 @@ In addition the assembly.xml will add a app.yaml file to the application zip fol
 </moduleSets>
 ```
 
-Via the deploy-to-engine goal it deploys this zip with all projects to a running Axon.ivy engine.
+Via the deploy-to-engine goal it deploys this zip with all projects to a running Axon Ivy Engine.
 ```xml
 <plugin>
   <groupId>com.axonivy.ivy.ci</groupId>

@@ -1,7 +1,7 @@
 # Deploy a full Application ZIP
-`requires project-build-plugin 7.1.0 and Axon.ivy Engine 7.1.0 RC or newer` 
+`requires project-build-plugin 7.1.0 and Axon Ivy Engine 7.1.0 RC or newer` 
 
-This build example demonstrates how a full ivy application (based on multiple sub-projects) can be built and deployed to a running Axon.ivy Engine.
+This build example demonstrates how a full ivy application (based on multiple sub-projects) can be built and deployed to a running Axon Ivy Engine.
 
 By running `mvn clean install` you will see how:
 1. three ivy projects are built as ivy archive (IAR).
@@ -56,7 +56,7 @@ The content of the application zip is defined in the [assembly.xml](assembly.xml
 </moduleSets>
 ```
 
-Via the deploy-to-engine goal it deploys this zip with all projects to a running Axon.ivy engine.
+Via the deploy-to-engine goal it deploys this zip with all projects to a running Axon Ivy Engine.
 ```xml
 <plugin>
   <groupId>com.axonivy.ivy.ci</groupId>
