@@ -11,7 +11,7 @@
 		<server>
 			<id>axonivy.engine</id>
 			<!-- 
-			User name and password used to authenticate to the remote Axon.ivy Engine 
+			User name and password used to authenticate to the remote Axon Ivy Engine 
 			-->
 			<username>admin</username>
 			<password>admin</password>

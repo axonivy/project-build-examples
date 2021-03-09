@@ -20,7 +20,7 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>repo.axonivy.com</id>
-			<name>AXON Ivy Repository</name>
+			<name>Axon Ivy Repository</name>
 			<url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
 		</snapshotRepository>
     </distributionManagement>
