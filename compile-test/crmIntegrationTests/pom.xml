@@ -4,7 +4,7 @@
   <parent>
     <groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
     <artifactId>crm.maven.config</artifactId>
-    <version>9.1.0-SNAPSHOT</version>
+    <version>9.3.0-SNAPSHOT</version>
     <relativePath>../crm.maven/config</relativePath>
   </parent>
 
@@ -15,13 +15,13 @@
     <dependency>
       <groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
       <artifactId>crm</artifactId>
-      <version>[9.1.0-SNAPSHOT,)</version>
+      <version>[9.3.0-SNAPSHOT,)</version>
       <type>iar</type>
     </dependency>
     <dependency>
       <groupId>com.axonivy.ivy.webtest</groupId>
       <artifactId>web-tester</artifactId>
-      <version>9.2.0-SNAPSHOT</version>
+      <version>9.2.1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
