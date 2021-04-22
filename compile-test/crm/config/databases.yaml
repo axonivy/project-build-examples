@@ -1,0 +1,5 @@
+Databases:
+  exampleDb:
+    Url: jdbc:mysql://localhost/acmeCRM
+    Driver: org.gjt.mm.mysql.Driver
+    UserName: ''

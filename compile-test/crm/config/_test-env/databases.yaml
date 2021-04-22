@@ -1,0 +1,5 @@
+Databases:
+  exampleDb:
+    Url: jdbc:hsqldb:mem:acmeCRM
+    Driver: org.hsqldb.jdbc.JDBCDriver
+    UserName: ''

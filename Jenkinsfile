@@ -29,7 +29,7 @@ pipeline {
               docker.build('maven').inside("--name ${ivyName} --network ${networkName}") {
                 maven cmd: "clean install " +
                   "-Divy.engine.list.url=${params.engineListUrl} " +
-                  "-Divy.engine.version=[8.0.0,] " + 
+                  "-Divy.engine.version=[9.3.0,] " + 
                   "-Dmaven.test.failure.ignore=true " +
                   "-Dtest.engine.url=http://${ivyName}:8080 " +
                   "-Dselenide.remote=http://${seleniumName}:4444/wd/hub "
