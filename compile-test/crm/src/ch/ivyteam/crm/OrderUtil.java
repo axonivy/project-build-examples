@@ -18,14 +18,14 @@ public class OrderUtil
     products.add(initProduct(Ivy.cms().co("/Project/Products/Chair"), Double.parseDouble(Ivy.var().get("chair")), ClearanceLevel.AGENT));
     return products;
   }
-  
+
   public static List<Product> getProductsWithClearance()
   {
     return getProducts().stream()
             .filter(prod -> ClearanceLevel.getClearance() >= prod.getRequiredClearance())
             .collect(Collectors.toList());
   }
-  
+
   private static Product initProduct(String name, double price, int clearance)
   {
     Product product = new Product();
@@ -34,24 +34,24 @@ public class OrderUtil
     product.setRequiredClearance(clearance);
     return product;
   }
-  
+
   public static class ClearanceLevel
   {
     public static int HEAD = 3;
     public static int AGENT = 1;
     public static int NO_CLEARANCE = 0;
-    
+
     public static int getClearance()
     {
-      IRole head = Ivy.request().getApplication().getSecurityContext().findRole("Head");
-      IRole agent = Ivy.request().getApplication().getSecurityContext().findRole("Agent");
-      
+      IRole head = Ivy.request().getApplication().getSecurityContext().roles().find("Head");
+      IRole agent = Ivy.request().getApplication().getSecurityContext().roles().find("Agent");
+
       IWorkflowSession session = Ivy.session();
       if (session.hasRole(head, false))
       {
         return HEAD;
       }
-      
+
       if (session.hasRole(agent, false))
       {
         return AGENT;
@@ -59,5 +59,5 @@ public class OrderUtil
       return NO_CLEARANCE;
     }
   }
-  
+
 }
