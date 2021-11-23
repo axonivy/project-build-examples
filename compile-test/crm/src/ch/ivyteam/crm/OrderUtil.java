@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import ch.ivyteam.ivy.environment.Ivy;
-import ch.ivyteam.ivy.security.IRole;
-import ch.ivyteam.ivy.workflow.IWorkflowSession;
 import crm.Product;
 
 public class OrderUtil
@@ -43,16 +41,11 @@ public class OrderUtil
 
     public static int getClearance()
     {
-      IRole head = Ivy.request().getApplication().getSecurityContext().roles().find("Head");
-      IRole agent = Ivy.request().getApplication().getSecurityContext().roles().find("Agent");
-
-      IWorkflowSession session = Ivy.session();
-      if (session.hasRole(head, false))
+      if (Ivy.session().has().role("Head"))
       {
         return HEAD;
       }
-
-      if (session.hasRole(agent, false))
+      if (Ivy.session().has().role("Agent"))
       {
         return AGENT;
       }
