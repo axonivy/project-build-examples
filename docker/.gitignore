@@ -1,0 +1,11 @@
+# Java
+**/*.class
+
+# Mac
+.DS_Store
+
+# Maven
+**/log/
+**/target/
+**/classes/
+**/src_dataClasses/
