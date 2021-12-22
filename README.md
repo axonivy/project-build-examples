@@ -11,3 +11,6 @@ Simple multi module build with an [ivy project and extra projects](compile-test)
 
 ## deploy
 Set of projects that demonstrate [deployment scenarios](deploy) to an Axon Ivy Engine.
+
+## docker
+Shows how a full ivy application (based on multiple sub-projects) can be built and packed into an application specific [Docker image](docker).
