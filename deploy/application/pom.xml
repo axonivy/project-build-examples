@@ -13,10 +13,11 @@
 		<module>base</module>
 		<module>solution</module>
 		<module>customer</module>
+		<module>maven/config</module>
 	</modules>
 
 	<properties>
-		<project.build.plugin.version>9.3.0-SNAPSHOT</project.build.plugin.version>
+		<project.build.plugin.version>9.3.1</project.build.plugin.version>
 	</properties>
 
 	<distributionManagement>

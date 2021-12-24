@@ -12,6 +12,8 @@
 	<modules>
 		<module>compile-test</module>
 		<module>deploy/application</module>
+		<module>deploy/single-project</module>
+		<module>deploy/single-project-over-http</module>
 	</modules>
 	
 </project>
