@@ -1,0 +1,19 @@
+# deploy.option.yaml
+# Example of a deployment options file using YAML format.
+# See http://axonivy.github.io/project-build-plugin/release/deploy-to-engine-mojo.html for
+# more information about deployment options parameters.
+# All parameters are set to their default values and listed in [brackets].
+
+# Flag indicating if project test users should be deployed to the engine.
+deployTestUsers: false           # [false], true
+
+# Defines how project deployment should affect engine configuration.
+configuration:
+  overwrite: false               # [false], true
+  cleanup: DISABLED              # [DISABLED], REMOVE_UNUSED, REMOVE_ALL
+
+# Deployment target settings.
+target:
+  version: AUTO                  # [AUTO], RELEASED, (version values, e.g. 2.5 or (2.0,3.0])
+  state: ACTIVE_AND_RELEASED     # [ACTIVE_AND_RELEASED], ACTIVE, INACTIVE
+  fileFormat: AUTO               # [AUTO], PACKED, EXPANDED
