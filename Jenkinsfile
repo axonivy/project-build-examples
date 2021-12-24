@@ -22,18 +22,17 @@ pipeline {
           def random = (new Random()).nextInt(10000000)
           def networkName = "build-" + random
           def seleniumName = "selenium-" + random
-          def ivyName = "ivy-" + random
-		  def groupDocker = sh returnStdout:true, script:'getent group docker | cut -d: -f3'
+          def groupDocker = sh returnStdout:true, script:'getent group docker | cut -d: -f3'
           groupDocker = groupDocker.trim();
           sh "docker network create ${networkName}"
-		  try {
+          try {
             docker.image("selenium/standalone-firefox:3").withRun("-e START_XVFB=false --shm-size=2g --name ${seleniumName} --network ${networkName} -v /var/run/docker.sock:/var/run/docker.sock --group-add ${groupDocker}") {
-              docker.build('maven').inside("--name ${ivyName} --network ${networkName} -v /var/run/docker.sock:/var/run/docker.sock -e DOCKER_HOST=unix:///var/run/docker.sock --group-add ${groupDocker}") {
+              docker.build('maven').inside("--network ${networkName} -v /var/run/docker.sock:/var/run/docker.sock -e DOCKER_HOST=unix:///var/run/docker.sock --group-add ${groupDocker}") {
                 maven cmd: "clean install " +
+                  "--settings deploy/single-project-over-http/settings.xml " +
                   "-Divy.engine.list.url=${params.engineListUrl} " +
-                  "-Divy.engine.version=[9.3.0,] " + 
+                  "-Divy.engine.version=[9.4.0,] " + 
                   "-Dmaven.test.failure.ignore=true " +
-                  "-Dtest.engine.url=http://${ivyName}:8080 " +
                   "-Dselenide.remote=http://${seleniumName}:4444/wd/hub "
                 checkVersions()
               }
