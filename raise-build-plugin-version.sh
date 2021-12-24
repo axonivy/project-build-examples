@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Updates project-build-plugin versions in all pom.xml files
+
 # Update project-build-plugin version in reactor POM and all modules POMs 
 mvn --batch-mode versions:set-property versions:commit -Dproperty=project.build.plugin.version -DnewVersion=${1} -DprocessAllModules -DallowSnapshots=true
 mvn -f deploy/single-project/pom.xml --batch-mode versions:set-property versions:commit -Dproperty=project.build.plugin.version -DnewVersion=${1} -DprocessAllModules -DallowSnapshots=true
@@ -9,3 +10,4 @@ mvn -f deploy/single-project-over-http/pom.xml --batch-mode versions:set-propert
 # Update project-build-plugin version in parent POMs
 mvn -f compile-test/crm.maven/config/pom.xml --batch-mode versions:set-property versions:commit -Dproperty=project.build.plugin.version -DnewVersion=${1} -DallowSnapshots=true
 mvn -f deploy/application/maven/config/pom.xml --batch-mode versions:set-property versions:commit -Dproperty=project.build.plugin.version -DnewVersion=${1} -DallowSnapshots=true
+mvn -f docker/maven/config/pom.xml --batch-mode versions:set-property versions:commit -Dproperty=project.build.plugin.version -DnewVersion=${1} -DallowSnapshots=true

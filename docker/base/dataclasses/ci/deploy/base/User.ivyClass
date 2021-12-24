@@ -1,0 +1,15 @@
+User #class
+true #isEntity
+ci.deploy.base #namespace
+CI_USER #dbTableName
+id Integer #field
+id Identifier #fieldComment
+id PERSISTENT #fieldModifier
+id ID #fieldModifier
+id GENERATED #fieldModifier
+firstname String #field
+firstname PERSISTENT #fieldModifier
+lastname String #field
+lastname PERSISTENT #fieldModifier
+description String #field
+description PERSISTENT #fieldModifier
