@@ -9,7 +9,6 @@
 		<module>crm</module>
 		<module>crmTests</module>
 		<module>crmIntegrationTests</module>
-		<module>crm.maven/config</module>
 	</modules>
 	
 </project>
