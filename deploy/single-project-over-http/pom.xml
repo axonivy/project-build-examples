@@ -1,69 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
-	<artifactId>deploy-single-over-http</artifactId>
-	<version>9.1.0-SNAPSHOT</version>
-	<packaging>iar</packaging>
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
+  <artifactId>deploy-single-over-http</artifactId>
+  <version>9.3.0-SNAPSHOT</version>
+  <packaging>iar</packaging>
 
-	<properties>
-		<!-- Skip maven artifact deployment -->
-		<maven.deploy.skip>true</maven.deploy.skip>
-		<project.build.plugin.version>9.1.0</project.build.plugin.version>
-	</properties>
+  <properties>
+    <!-- Skip maven artifact deployment -->
+    <maven.deploy.skip>true</maven.deploy.skip>
+    <project.build.plugin.version>9.3.1</project.build.plugin.version>
+  </properties>
+  <pluginRepositories>
+    <!-- 
+    Releases of our project-build-plugin are available over maven central. 
+    However, *-SNAPSHOT release are not. Therefore, we configure this sonatype 
+    repository where *-SNAPSHOT releases of the project-build-plugin are available.
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>com.axonivy.ivy.ci</groupId>
-				<artifactId>project-build-plugin</artifactId>
-				<version>${project.build.plugin.version}</version>
-				<extensions>true</extensions>
-				<executions>
-					<execution>
-						<id>test.engine.download</id>
-						<phase>validate</phase>
-						<goals><goal>installEngine</goal></goals>
-					</execution>
-					<execution>
-						<id>test.engine.starter</id>
-						<phase>pre-integration-test</phase>
-						<goals><goal>start-test-engine</goal></goals>
-					</execution>
-					<execution>
-						<id>deploy.to.development.server</id>
-						<phase>pre-integration-test</phase>
-						<goals>
-							<goal>deploy-to-engine</goal>
-						</goals>
-						<configuration>
-							<deployFile>${project.build.directory}/${project.artifactId}-${project.version}.iar</deployFile>
-							<deployMethod>HTTP</deployMethod>
-							
-							<!-- 
-							References the server with id 'axonivy.engine' configured in the file 'settings.xml'.
-							The user name and password that is used to authenticate to the remote engine are configured under that server configuration.
-							-->
-							<deployServerId>axonivy.engine</deployServerId> 
-							
-							<!-- 
-							The url that is used to communicate with the remote Axon Ivy Engine. You can replace 'localhost' with the name of the machine 
-							your Axon Ivy Engine runs on
-							-->
-							<deployEngineUrl>http://localhost:8080/ivy</deployEngineUrl>
-							<deployToEngineApplication>MyApplication</deployToEngineApplication>
-						</configuration>
-					</execution>
-					<execution>
-						<id>test.engine.stopper</id>
-						<phase>post-integration-test</phase>
-						<goals><goal>stop-test-engine</goal></goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+    We strongly recommend that you do not use *-SNAPSHOT releases for productive environments!  
+
+    If you do not use *-SNAPSHOT release you can remove this configuration 
+    -->
+    <pluginRepository>
+      <id>central.snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.axonivy.ivy.ci</groupId>
+        <artifactId>project-build-plugin</artifactId>
+        <version>${project.build.plugin.version}</version>
+        <extensions>true</extensions>
+        <executions>
+          <execution>
+            <id>test.engine.download</id>
+            <phase>validate</phase>
+            <goals><goal>installEngine</goal></goals>
+          </execution>
+          <execution>
+            <id>test.engine.starter</id>
+            <phase>pre-integration-test</phase>
+            <goals><goal>start-test-engine</goal></goals>
+          </execution>
+          <execution>
+            <id>deploy.to.development.server</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>deploy-to-engine</goal>
+            </goals>
+            <configuration>
+              <deployFile>${project.build.directory}/${project.artifactId}-${project.version}.iar</deployFile>
+              <deployMethod>HTTP</deployMethod>
+              
+              <!-- 
+              References the server with id 'axonivy.engine' configured in the file 'settings.xml'.
+              The user name and password that is used to authenticate to the remote engine are configured under that server configuration.
+              -->
+              <deployServerId>axonivy.engine</deployServerId> 
+              
+              <!-- 
+              The url that is used to communicate with the remote Axon Ivy Engine. 
+                    You can replace '${test.engine.url}' with the corresponding url of the machine your Axon Ivy Engine runs on. 
+                    E.g. 'http://ivy.yourcompany.com/' or 'http://ivy.yourcompany.com:8080/'  
+                    -->              
+              <deployEngineUrl>${test.engine.url}</deployEngineUrl>
+              <deployToEngineApplication>MyApplication</deployToEngineApplication>
+            </configuration>
+          </execution>
+          <execution>
+            <id>test.engine.stopper</id>
+            <phase>post-integration-test</phase>
+            <goals><goal>stop-test-engine</goal></goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

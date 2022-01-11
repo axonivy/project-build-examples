@@ -1,89 +1,93 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>ch.ivyteam.ivy.project.demo.ci.deploy.application</groupId>
-	<artifactId>application</artifactId>
-	<version>9.3.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>ch.ivyteam.ivy.project.demo.ci.deploy.application</groupId>
+    <artifactId>maven.config</artifactId>
+    <version>9.3.0-SNAPSHOT</version>
+    <relativePath>maven/config</relativePath>
+    </parent>
+  
+  <groupId>ch.ivyteam.ivy.project.demo.ci.deploy.application</groupId>
+  <artifactId>application</artifactId>
+  <version>9.3.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
-	<scm>
-		<connection>scm:git:git@github.com:axonivy/project-build-examples.git</connection>
-	</scm>
+  <scm>
+    <connection>scm:git:git@github.com:axonivy/project-build-examples.git</connection>
+  </scm>
 
-	<modules>
-		<module>base</module>
-		<module>solution</module>
-		<module>customer</module>
-	</modules>
+  <modules>
+    <module>base</module>
+    <module>solution</module>
+    <module>customer</module>
+  </modules>
 
-	<properties>
-		<project.build.plugin.version>9.3.0-SNAPSHOT</project.build.plugin.version>
-	</properties>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>repo.axonivy.com</id>
+      <name>Axon Ivy Repository</name>
+      <url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
+    </snapshotRepository>
+  </distributionManagement>
 
-	<distributionManagement>
-		<snapshotRepository>
-			<id>repo.axonivy.com</id>
-			<name>Axon Ivy Repository</name>
-			<url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
-		</snapshotRepository>
-    </distributionManagement>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <descriptors>
+            <descriptor>assembly.xml</descriptor>
+          </descriptors>
+          <appendAssemblyId>false</appendAssemblyId>
+        </configuration>
+        <executions>
+          <execution>
+            <id>create.app</id>
+            <goals><goal>single</goal></goals>
+            <phase>generate-resources</phase>
+          </execution>
+        </executions>
+      </plugin>
 
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>3.1.0</version>
-				<configuration>
-					<descriptors>
-						<descriptor>assembly.xml</descriptor>
-					</descriptors>
-					<appendAssemblyId>false</appendAssemblyId>
-				</configuration>
-				<executions>
-					<execution>
-						<id>create.app</id>
-						<goals><goal>single</goal></goals>
-						<phase>generate-resources</phase>
-					</execution>
-				</executions>
-			</plugin>
+      <plugin>
+        <groupId>com.axonivy.ivy.ci</groupId>
+        <artifactId>project-build-plugin</artifactId>
+        <version>${project.build.plugin.version}</version>
+          <extensions>true</extensions>
+        <executions>
+          <execution>
+            <id>test.engine.starter</id>
+            <phase>pre-integration-test</phase>
+            <goals><goal>start-test-engine</goal></goals>
+          </execution>
+          <execution>
+            <id>test.app.deploy</id>
+            <phase>pre-integration-test</phase>
+            <goals><goal>deploy-to-engine</goal></goals>
+            <configuration>
+              <deployFile>${project.build.directory}/${project.artifactId}-${project.version}.zip</deployFile>
+              <deployToEngineApplication>MyApplication</deployToEngineApplication>
 
-			<plugin>
-				<groupId>com.axonivy.ivy.ci</groupId>
-				<artifactId>project-build-plugin</artifactId>
-				<version>${project.build.plugin.version}</version>
-				<executions>
-					<execution>
-						<id>test.engine.starter</id>
-						<phase>pre-integration-test</phase>
-						<goals><goal>start-test-engine</goal></goals>
-					</execution>
-					<execution>
-						<id>test.app.deploy</id>
-						<phase>pre-integration-test</phase>
-						<goals><goal>deploy-to-engine</goal></goals>
-						<configuration>
-							<deployFile>${project.build.directory}/${project.artifactId}-${project.version}.zip</deployFile>
-							<deployToEngineApplication>MyApplication</deployToEngineApplication>
-
-							<!-- <deployOptionsFile>${basedir}/deploy.options.yaml</deployOptionsFile> -->
-							<!-- The following parameters can instead be configured in a yaml file like above.
-							     Comment out the below parameters and uncomment the deployOptionsFile parameter
-							     if you want to use the yaml file instead.
-							     If the deployOptionsFile is configured, the parameters get ignored (no merge). -->
-							<deployTestUsers>false</deployTestUsers>
-							<deployConfigOverwrite>false</deployConfigOverwrite>
-							<deployConfigCleanup>DISABLED</deployConfigCleanup>
-							<deployTargetVersion>AUTO</deployTargetVersion>
-							<deployTargetState>ACTIVE_AND_RELEASED</deployTargetState>
-						</configuration>
-					</execution>
-					<execution>
-						<id>test.engine.stopper</id>
-						<phase>post-integration-test</phase>
-						<goals><goal>stop-test-engine</goal></goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+              <!-- <deployOptionsFile>${basedir}/deploy.options.yaml</deployOptionsFile> -->
+              <!-- The following parameters can instead be configured in a yaml file like above.
+                 Comment out the below parameters and uncomment the deployOptionsFile parameter
+                 if you want to use the yaml file instead.
+                 If the deployOptionsFile is configured, the parameters get ignored (no merge). -->
+              <deployTestUsers>false</deployTestUsers>
+              <deployConfigOverwrite>false</deployConfigOverwrite>
+              <deployConfigCleanup>DISABLED</deployConfigCleanup>
+              <deployTargetVersion>AUTO</deployTargetVersion>
+              <deployTargetState>ACTIVE_AND_RELEASED</deployTargetState>
+            </configuration>
+          </execution>
+          <execution>
+            <id>test.engine.stopper</id>
+            <phase>post-integration-test</phase>
+            <goals><goal>stop-test-engine</goal></goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
