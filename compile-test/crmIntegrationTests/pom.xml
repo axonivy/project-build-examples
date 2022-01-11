@@ -8,33 +8,28 @@
     <relativePath>../crm.maven/config</relativePath>
   </parent>
 
+  <groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
   <artifactId>crm.integration.tests</artifactId>
+  <version>9.3.0-SNAPSHOT</version>
   <packaging>iar-integration-test</packaging>
 
   <dependencies>
     <dependency>
       <groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
       <artifactId>crm</artifactId>
-      <version>[9.3.0-SNAPSHOT,)</version>
+      <version>9.3.0-SNAPSHOT</version>
       <type>iar</type>
     </dependency>
     <dependency>
       <groupId>com.axonivy.ivy.webtest</groupId>
       <artifactId>web-tester</artifactId>
-      <version>9.2.0-SNAPSHOT</version>
+      <version>9.2.1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
 
   <build>
     <testSourceDirectory>src_test</testSourceDirectory>
-    <testOutputDirectory>target/test-classes</testOutputDirectory>
-    <plugins>
-      <plugin>
-        <groupId>com.axonivy.ivy.ci</groupId>
-        <artifactId>project-build-plugin</artifactId>
-        <extensions>true</extensions>
-      </plugin>
-    </plugins>
+    <testOutputDirectory>target/test-classes</testOutputDirectory> 
   </build>
 </project>
