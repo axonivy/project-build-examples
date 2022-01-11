@@ -1,4 +1,5 @@
+#Fri Dec 24 11:56:17 CET 2021
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=ci.deploy.base.Data
-ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=ci.deploy.base
-ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=93700
 eclipse.preferences.version=1
+ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=94000
+ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=ci.deploy.base

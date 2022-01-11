@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.ivyteam.ivy.project.demo.ci.deploy.application</groupId>
   <artifactId>maven.config</artifactId>
-  <version>9.1.0-SNAPSHOT</version>
+  <version>9.4.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <organization>
     <name>Axon Ivy AG</name>
@@ -17,11 +17,21 @@
   </properties>
 
   <pluginRepositories>
-    <!-- Snapshot releases are not deployed to maven central. So the repo on 
-      sonatype could be used instead -->
+    <!-- 
+    Releases of our project-build-plugin are available over maven central. 
+    However, *-SNAPSHOT release are not. Therefore, we configure this sonatype 
+    repository where *-SNAPSHOT releases of the project-build-plugin are available.
+
+    We strongly recommend that you do not use *-SNAPSHOT releases for productive environments!  
+
+    If you do not use *-SNAPSHOT release you can remove this configuration 
+    -->
     <pluginRepository>
-      <id>sonatype</id>
+      <id>central.snapshots</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
       <snapshots>
         <updatePolicy>always</updatePolicy>
       </snapshots>
