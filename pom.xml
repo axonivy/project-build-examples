@@ -1,18 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>ch.ivyteam.ivy.project.demos.ci</groupId>
-	<artifactId>example.modules</artifactId>
-	<version>9.3.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ch.ivyteam.ivy.project.demos.ci</groupId>
+  <artifactId>example.modules</artifactId>
+  <version>9.4.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
-	<scm>
-		<connection>scm:git:git@github.com:axonivy/project-build-examples.git</connection>
-	</scm>
+  <scm>
+    <connection>scm:git:git@github.com:axonivy/project-build-examples.git</connection>
+  </scm>
 
-	<modules>
-		<module>compile-test</module>
-		<module>deploy/application</module>
-		<module>docker</module>
-	</modules>
-	
+  <modules>
+    <module>compile-test</module>
+    <module>deploy</module>
+    <module>docker</module>
+  </modules>
+
 </project>
