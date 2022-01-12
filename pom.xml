@@ -12,6 +12,7 @@
   <modules>
     <module>compile-test</module>
     <module>deploy</module>
-  </modules>  
+    <module>docker</module>
+  </modules>
 
 </project>

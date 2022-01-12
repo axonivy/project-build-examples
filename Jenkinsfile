@@ -25,10 +25,12 @@ pipeline {
           def ivyName = "ivy-" + random
           def ivyParams = "-Divy.engine.list.url=${params.engineListUrl} " +
                           "-Divy.engine.version=[9.3.0,9.4.0\\) "
+          def groupDocker = sh returnStdout:true, script:'getent group docker | cut -d: -f3'
+          groupDocker = groupDocker.trim();
           sh "docker network create ${networkName}"
           try {
-            docker.image("selenium/standalone-firefox:3").withRun("-e START_XVFB=false --shm-size=2g --name ${seleniumName} --network ${networkName}") {
-              docker.build('maven').inside("--name ${ivyName} --network ${networkName}") {
+            docker.image("selenium/standalone-firefox:3").withRun("-e START_XVFB=false --shm-size=2g --name ${seleniumName} --network ${networkName} -v /var/run/docker.sock:/var/run/docker.sock --group-add ${groupDocker}") {
+              docker.build('maven').inside("--name ${ivyName} --network ${networkName} -v /var/run/docker.sock:/var/run/docker.sock -e DOCKER_HOST=unix:///var/run/docker.sock --group-add ${groupDocker}") {
                 maven cmd: "clean install " +
                   "-Dmaven.test.failure.ignore=true " +
                   "-Dtest.engine.url=http://${ivyName}:8080 " +
