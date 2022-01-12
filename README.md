@@ -6,7 +6,7 @@ You are currently on the master branch. Features shown here might still be under
 
 If you are working with a [LTS](https://dev.axonivy.com/release-cycle) or 
 [LE](https://dev.axonivy.com/release-cycle) version consider to switch 
-to the corresponding [branch](branches).
+to the corresponding [branch](../../branches).
 
 ## Prerequisites for all examples
 - Install a [Maven runtime](https://maven.apache.org/install.html).
