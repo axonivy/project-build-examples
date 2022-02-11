@@ -14,6 +14,7 @@ import crm.Customer;
 @IvyTest
 public class TestCustomerRepo
 {
+  @SuppressWarnings("removal")
   @Test
   public void findCustomerByZip(AppFixture fixture)
   {
