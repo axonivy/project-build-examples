@@ -35,47 +35,48 @@ public class TestOrderUtil
     assertThat(OrderUtil.getProducts()).hasSize(2);
     Product table = OrderUtil.getProducts().get(0);
     Product chair = OrderUtil.getProducts().get(1);
-    
+
     assertThat(table.getName()).isEqualTo("Table");
     assertThat(table.getSinglePrice()).isEqualTo(375.5);
-    
+
     assertThat(chair.getName()).isEqualTo("Chair");
     assertThat(chair.getSinglePrice()).isEqualTo(89.60);
   }
-  
+
   /**
    * This parameterized test uses the AppFixture to set a different
    * ivy environment.
    * @see ch.ivyteam.ivy.environment.AppFixture
    */
+  @SuppressWarnings("removal")
   @Test
   void products_testEnv(AppFixture fixture)
   {
     /* We can switch the used environment with the AppFixture. */
     fixture.environment("test-env");
-    
+
     assertThat(OrderUtil.getProducts()).hasSize(2);
     Product table = OrderUtil.getProducts().get(0);
     Product chair = OrderUtil.getProducts().get(1);
-    
+
     /* The test-env provides different values as global variables. */
     assertThat(table.getSinglePrice()).isEqualTo(500.0);
     assertThat(chair.getSinglePrice()).isEqualTo(50.0);
   }
-  
+
   @Test
   void products_globalVariable(AppFixture fixture)
   {
     /* The AppFixture can also manipulate global variables. */
     fixture.var("table", "799.95");
-    
+
     assertThat(OrderUtil.getProducts()).hasSize(2);
     Product table = OrderUtil.getProducts().get(0);
-    
+
     /* The test-env provides different values for the global variables. */
     assertThat(table.getSinglePrice()).isEqualTo(799.95);
   }
-  
+
   @Test
   void products_langDE()
   {
@@ -86,11 +87,11 @@ public class TestOrderUtil
     try
     {
       Ivy.session().setContentLocale(Locale.GERMAN);
-      
+
       assertThat(OrderUtil.getProducts()).hasSize(2);
       Product table = OrderUtil.getProducts().get(0);
       Product chair = OrderUtil.getProducts().get(1);
-      
+
       assertThat(table.getName()).isEqualTo("Tisch");
       assertThat(chair.getName()).isEqualTo("Stuhl");
     }
@@ -101,14 +102,14 @@ public class TestOrderUtil
       Ivy.session().setContentLocale(defaultLocale);
     }
   }
-  
+
   @Test
   void products_userLogin(AppFixture fixture, @Named("M") IUser user)
   {
     /* Login with a username */
     fixture.loginUser("James Bond");
     var products = OrderUtil.getProductsWithClearance();
-    
+
     /* James Bond can only order chairs */
     assertThat(products).hasSize(1);
     assertThat(products.get(0).getName()).isEqualTo("Chair");
@@ -116,7 +117,7 @@ public class TestOrderUtil
     /* Login with an IUser object that we injected as a parameter */
     fixture.loginUser(user);
     products = OrderUtil.getProductsWithClearance();
-    
+
     /* M can order tables and chairs */
     assertThat(products).hasSize(2);
     assertThat(products.get(0).getName()).isEqualTo("Table");
