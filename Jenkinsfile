@@ -36,7 +36,6 @@ pipeline {
                   "-Dtest.engine.url=http://${ivyName}:8080 " +
                   "-Dselenide.remote=http://${seleniumName}:4444/wd/hub " +
                   ivyParams
-                checkVersions()
               }
             }
           } finally {
