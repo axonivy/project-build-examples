@@ -33,8 +33,7 @@ pipeline {
                   "-Divy.engine.list.url=${params.engineListUrl} " +
                   "-Divy.engine.version=[9.4.0,] " + 
                   "-Dmaven.test.failure.ignore=true " +
-                  "-Dselenide.remote=http://${seleniumName}:4444/wd/hub "
-                checkVersions()
+                  "-Dselenide.remote=http://${seleniumName}:4444/wd/hub "                
               }
             }
           } finally {
