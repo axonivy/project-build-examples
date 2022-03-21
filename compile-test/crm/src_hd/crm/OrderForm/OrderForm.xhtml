@@ -29,7 +29,7 @@
           </p:selectOneMenu>
           
           <p:outputLabel for="amount" value="Amount "/>
-          <p:inputNumber id="amount" value="#{data.product.amount}" minValue="1" maxValue="100" decimalPlaces="0" />
+          <p:inputNumber id="amount" value="#{data.product.amount}" maxValue="100" decimalPlaces="0" />
           
           <p:outputLabel for="price" value="Single Price" />
           <h:outputText id="price" value="#{data.product.singlePrice}"/>
