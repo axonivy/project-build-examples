@@ -33,7 +33,6 @@ pipeline {
                   "-Dmaven.test.failure.ignore=true " +
                   "-Dtest.engine.url=http://${ivyName}:8080/ivy " +
                   "-Dselenide.remote=http://${seleniumName}:4444/wd/hub "
-                checkVersions onlyProjectBuildPluginWithVersion: "8", additionalVersionArgs: "-DallowSnapshots=true"
               }
             }
           } finally {
