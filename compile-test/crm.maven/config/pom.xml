@@ -10,7 +10,7 @@
   </organization>
 
   <properties>
-    <project.build.plugin.version>9.4.0-SNAPSHOT</project.build.plugin.version>
+    <project-build-plugin>9.4.0-SNAPSHOT</project-build-plugin>
   </properties>
 
   <pluginRepositories>
@@ -63,7 +63,7 @@
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
         <!-- pre-configure the exact version to use for child projects -->
-        <version>${project.build.plugin.version}</version>
+        <version>${project-build-plugin}</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

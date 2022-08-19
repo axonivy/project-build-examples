@@ -52,7 +52,7 @@
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
-        <version>${project.build.plugin.version}</version>
+        <version>${project-build-plugin}</version>
         <extensions>true</extensions>
         <executions>
           <execution>
