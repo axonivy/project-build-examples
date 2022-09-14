@@ -13,7 +13,7 @@
 
   <properties>
     <maven.deploy.skip>true</maven.deploy.skip>
-    <project-build-plugin>9.4.2-SNAPSHOT</project-build-plugin>
+    <project-build-plugin>10.0.0-SNAPSHOT</project-build-plugin>
   </properties>
 
   <pluginRepositories>
