@@ -1,5 +1,4 @@
-#Fri Dec 24 14:15:04 CET 2021
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=crm.Data
-eclipse.preferences.version=1
-ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=94000
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=crm
+ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=94005
+eclipse.preferences.version=1
