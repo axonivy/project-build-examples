@@ -12,7 +12,7 @@ pipeline {
   parameters {
     string(name: 'engineListUrl',
       description: 'Engine to use for build',
-      defaultValue: 'https://jenkins.ivyteam.io/job/core_product/job/release%252F8.0/lastSuccessfulBuild/')
+      defaultValue: 'https://product.ivyteam.io')
   }
 
   stages {
@@ -29,7 +29,7 @@ pipeline {
               docker.build('maven').inside("--name ${ivyName} --network ${networkName}") {
                 maven cmd: "clean install " +
                   "-Divy.engine.list.url=${params.engineListUrl} " +
-                  "-Divy.engine.version=[8.0.0,] " + 
+                  "-Divy.engine.version=[8.0.0,8.1.0] " + 
                   "-Dmaven.test.failure.ignore=true " +
                   "-Dtest.engine.url=http://${ivyName}:8080/ivy " +
                   "-Dselenide.remote=http://${seleniumName}:4444/wd/hub "
