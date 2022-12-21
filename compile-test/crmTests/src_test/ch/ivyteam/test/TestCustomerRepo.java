@@ -12,12 +12,11 @@ import ch.ivyteam.ivy.environment.IvyTest;
 import crm.Customer;
 
 @IvyTest
-public class TestCustomerRepo
-{
+public class TestCustomerRepo {
+
   @SuppressWarnings("removal")
   @Test
-  public void findCustomerByZip(AppFixture fixture)
-  {
+  public void findCustomerByZip(AppFixture fixture) {
     fixture.environment("test-env");
 
     CustomerRepo.persist(newCustomer("Caty", "6300"));
@@ -29,8 +28,7 @@ public class TestCustomerRepo
     assertThat(citizensOfSursee.get(0).getFirstname()).isEqualTo("Reguel");
   }
 
-  private static Customer newCustomer(String name, String zip)
-  {
+  private static Customer newCustomer(String name, String zip) {
     Customer customer = new Customer();
     customer.setFirstname(name);
     customer.setZip(zip);

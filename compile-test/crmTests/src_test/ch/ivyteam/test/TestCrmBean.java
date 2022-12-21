@@ -7,12 +7,10 @@ import org.junit.jupiter.api.Test;
 import ch.ivyteam.crm.CrmBean;
 import ch.ivyteam.crm.IssueXivy1571;
 
-public class TestCrmBean
-{
+public class TestCrmBean {
 
   @Test
-  public void accessBeanFromCrmDemo()
-  {
+  public void accessBeanFromCrmDemo() {
     CrmBean bean = new CrmBean();
     bean.setDescription("my simple description");
     assertThat(bean.getDescription()).startsWith("my simple");
@@ -22,8 +20,7 @@ public class TestCrmBean
    * see https://jira.axonivy.com/jira/browse/XIVY-1571
    */
   @Test
-  public void useExternalReferencedLibraryInRequiredProject()
-  {
+  public void useExternalReferencedLibraryInRequiredProject() {
     assertThat(IssueXivy1571.hello()).isEqualTo("Rock'n'Roll");
   }
 }

@@ -15,23 +15,21 @@ import com.axonivy.ivy.webtest.engine.EngineUrl;
  * <code>crm.CustomerRegistrationForm</code>.
  */
 @IvyWebTest
-public class WebTestRegistrationFormIT
-{
+public class WebTestRegistrationFormIT {
 
   @Test
-  public void registerNewCustomer()
-  {
-    //You can use the EngineUrl utility to start a proecess:
+  public void registerNewCustomer() {
+    // You can use the EngineUrl utility to start a proecess:
     open(EngineUrl.createProcessUrl("crm/15287EC41B05C6C5/register.ivp"));
-    
-    //Fill in new customer
+
+    // Fill in new customer
     $(By.id("form:firstname")).sendKeys("Unit");
     $(By.id("form:lastname")).sendKeys("Test");
-    
-    //Check that the submit button is enabled, before click it.
+
+    // Check that the submit button is enabled, before click it.
     $(By.id("form:submit")).shouldBe(enabled).click();
-    
-    //Check that the registration was successful.
+
+    // Check that the registration was successful.
     $(By.id("form:newCustomer")).shouldBe(visible, text("Unit Test"));
   }
 
