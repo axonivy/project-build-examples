@@ -8,7 +8,7 @@
     <relativePath>../crm.maven/config</relativePath>
   </parent>
 
-  <artifactId>crm.integration.tests</artifactId>
+  <artifactId>crmIntegrationTests</artifactId>
   <version>9.4.0-SNAPSHOT</version>
   <packaging>iar-integration-test</packaging>
 

@@ -39,7 +39,7 @@
           <br />
         </p:panelGrid>
         <hr />
-        <p:dataTable id="orderTable" var="product" value="#{data.order}">
+        <p:dataTable id="orderTable" var="product" value="#{data.order}" lazy="false">
           <p:column headerText="Product">
             <h:outputText value="#{product.name}"/>
           </p:column>
