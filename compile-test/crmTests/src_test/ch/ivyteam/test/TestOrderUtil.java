@@ -16,22 +16,20 @@ import ch.ivyteam.ivy.security.IUser;
 import crm.Product;
 
 /**
- * Here we are testing the OrderUtil class which uses the Ivy environment.
- * To be able to test the class with conventional JUnit 5 tests we have to
- * annotate our test class with the @IvyTest annotation.
+ * Here we are testing the OrderUtil class which uses the Ivy environment. To be
+ * able to test the class with conventional JUnit 5 tests we have to annotate
+ * our test class with the @IvyTest annotation.
  * @see ch.ivyteam.crm.OrderUtil
  */
 @IvyTest
-public class TestOrderUtil
-{
+public class TestOrderUtil {
 
   /**
-   * The @IvyTest annotation ensures that the Ivy environment is properly set up.
-   * Without it we wouldn't be able to test the OrderUtil.
+   * The @IvyTest annotation ensures that the Ivy environment is properly set
+   * up. Without it we wouldn't be able to test the OrderUtil.
    */
   @Test
-  void products()
-  {
+  void products() {
     assertThat(OrderUtil.getProducts()).hasSize(2);
     Product table = OrderUtil.getProducts().get(0);
     Product chair = OrderUtil.getProducts().get(1);
@@ -44,14 +42,13 @@ public class TestOrderUtil
   }
 
   /**
-   * This parameterized test uses the AppFixture to set a different
-   * ivy environment.
+   * This parameterized test uses the AppFixture to set a different ivy
+   * environment.
    * @see ch.ivyteam.ivy.environment.AppFixture
    */
   @SuppressWarnings("removal")
   @Test
-  void products_testEnv(AppFixture fixture)
-  {
+  void products_testEnv(AppFixture fixture) {
     /* We can switch the used environment with the AppFixture. */
     fixture.environment("test-env");
 
@@ -65,8 +62,7 @@ public class TestOrderUtil
   }
 
   @Test
-  void products_globalVariable(AppFixture fixture)
-  {
+  void products_globalVariable(AppFixture fixture) {
     /* The AppFixture can also manipulate global variables. */
     fixture.var("table", "799.95");
 
@@ -78,14 +74,14 @@ public class TestOrderUtil
   }
 
   @Test
-  void products_langDE()
-  {
-    /* German users want to see the product descriptions in their native language.
-     * We can test that by switching the Locale on the session.
-     * After the test execution we switch the locale back to its default value. */
+  void products_langDE() {
+    /*
+     * German users want to see the product descriptions in their native
+     * language. We can test that by switching the Locale on the session. After
+     * the test execution we switch the locale back to its default value.
+     */
     Locale defaultLocale = Ivy.session().getContentLocale();
-    try
-    {
+    try {
       Ivy.session().setContentLocale(Locale.GERMAN);
 
       assertThat(OrderUtil.getProducts()).hasSize(2);
@@ -94,18 +90,17 @@ public class TestOrderUtil
 
       assertThat(table.getName()).isEqualTo("Tisch");
       assertThat(chair.getName()).isEqualTo("Stuhl");
-    }
-    finally
-    {
-      /* Regardless of the tests success or failure we revert the content locale
-       * of the session to its default value. */
+    } finally {
+      /*
+       * Regardless of the tests success or failure we revert the content locale
+       * of the session to its default value.
+       */
       Ivy.session().setContentLocale(defaultLocale);
     }
   }
 
   @Test
-  void products_userLogin(AppFixture fixture, @Named("M") IUser user)
-  {
+  void products_userLogin(AppFixture fixture, @Named("M") IUser user) {
     /* Login with a username */
     fixture.loginUser("James Bond");
     var products = OrderUtil.getProductsWithClearance();
