@@ -62,8 +62,8 @@ public class TestOrderUtil {
   }
 
   @Test
-  void products_globalVariable(AppFixture fixture) {
-    /* The AppFixture can also manipulate global variables. */
+  void products_variables(AppFixture fixture) {
+    /* The AppFixture can also manipulate variables. */
     fixture.var("table", "799.95");
 
     assertThat(OrderUtil.getProducts()).hasSize(2);
