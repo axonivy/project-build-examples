@@ -1,0 +1,13 @@
+{
+  "id": 7,
+  "firstname": "Reguel",
+  "lastname": "Wermelinger",
+  "dateOfBirth": {
+    "year": 1984,
+    "month": 10,
+    "day": 18
+  },
+  "address": "Baarerstrasse 12",
+  "zip": "CH-6300",
+  "city": "Zug"
+}
