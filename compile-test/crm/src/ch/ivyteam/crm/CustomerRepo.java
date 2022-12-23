@@ -27,4 +27,11 @@ public class CustomerRepo {
       .getResults();
   }
 
+  public static Customer findByName(String name) {
+    return entityManager().createQuery(
+      "SELECT c FROM Customer c WHERE c.lastname LIKE :name ")
+      .setParameter("name", "%"+name+"%")
+      .getSingleResult();
+  }
+
 }

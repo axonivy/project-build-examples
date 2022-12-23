@@ -22,7 +22,10 @@
         "result" : {
           "params" : [
             { "name" : "customer", "type" : "crm.Customer" }
-          ]
+          ],
+          "map" : {
+            "result.customer" : "in.customer"
+          }
         }
       },
       "visual" : {
@@ -51,7 +54,7 @@
         },
         "statusErrorCode" : "ivy:error:rest:client",
         "responseMapping" : {
-          "out.match" : "result"
+          "out.customer" : "result"
         },
         "resultType" : "crm.Customer"
       },
@@ -59,5 +62,103 @@
         "at" : { "x" : 224, "y" : 64 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f5",
+      "type" : "CallSubStart",
+      "name" : "findErpCustomer(String)",
+      "config" : {
+        "callSignature" : "findErpCustomer",
+        "input" : {
+          "params" : [
+            { "name" : "name", "type" : "String" }
+          ],
+          "map" : {
+            "out.name" : "param.name"
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "match", "type" : "crm.Customer" }
+          ],
+          "map" : {
+            "result.match" : "in.customer"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 208 }
+      },
+      "connect" : { "id" : "f7", "to" : "f6" }
+    }, {
+      "id" : "f8",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 208 }
+      }
+    }, {
+      "id" : "f6",
+      "type" : "Script",
+      "name" : [
+        "JPA DB",
+        "lookup"
+      ],
+      "config" : {
+        "output" : {
+          "code" : [
+            "import ch.ivyteam.crm.CustomerRepo;",
+            "",
+            "out.customer = CustomerRepo.findByName(in.name);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 208 }
+      },
+      "connect" : { "id" : "f9", "to" : "f8" }
+    }, {
+      "id" : "f10",
+      "type" : "CallSubStart",
+      "name" : "store(Customer)",
+      "config" : {
+        "callSignature" : "store",
+        "input" : {
+          "params" : [
+            { "name" : "customer", "type" : "crm.Customer" }
+          ],
+          "map" : {
+            "out.customer" : "param.customer"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 296 }
+      },
+      "connect" : { "id" : "f14", "to" : "f13" }
+    }, {
+      "id" : "f11",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 296 }
+      }
+    }, {
+      "id" : "f13",
+      "type" : "Script",
+      "name" : [
+        "JPA DB",
+        "store"
+      ],
+      "config" : {
+        "output" : {
+          "code" : [
+            "import ch.ivyteam.crm.CustomerRepo;",
+            "",
+            "CustomerRepo.persist(in.customer);"
+          ]
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 296 }
+      },
+      "connect" : { "id" : "f12", "to" : "f11" }
     } ]
 }

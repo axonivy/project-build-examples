@@ -1,4 +1,4 @@
 customerRepoData #class
 util #namespace
 name String #field
-match crm.Customer #field
+customer crm.Customer #field

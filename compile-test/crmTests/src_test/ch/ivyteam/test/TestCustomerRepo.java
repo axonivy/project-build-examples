@@ -14,11 +14,11 @@ import crm.Customer;
 @IvyTest
 public class TestCustomerRepo {
 
-  @SuppressWarnings("removal")
   @Test
   public void findCustomerByZip(AppFixture fixture) {
-    fixture.environment("test-env");
-
+    fixture.config("Databases.exampleDb.Url", "jdbc:hsqldb:mem:acmeCRM");
+    fixture.config("Databases.exampleDb.Driver", "org.hsqldb.jdbc.JDBCDriver");
+    
     CustomerRepo.persist(newCustomer("Caty", "6300"));
     CustomerRepo.persist(newCustomer("Reguel", "6210"));
     CustomerRepo.persist(newCustomer("Reto", "6403"));
