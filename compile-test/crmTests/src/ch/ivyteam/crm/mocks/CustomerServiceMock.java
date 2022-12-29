@@ -46,7 +46,7 @@ public class CustomerServiceMock {
   }
 
   private static String load(String json) {
-    try(InputStream is = CustomerServiceMock.class.getResourceAsStream("json/"+json)) {
+    try (var is = CustomerServiceMock.class.getResourceAsStream("json/"+json)) {
       if (is == null) {
         throw new RuntimeException("The json file '"+json+"' does not exist.");
       }
@@ -55,5 +55,4 @@ public class CustomerServiceMock {
       throw new RuntimeException("Failed to read json "+json, ex);
     }
   }
-
 }

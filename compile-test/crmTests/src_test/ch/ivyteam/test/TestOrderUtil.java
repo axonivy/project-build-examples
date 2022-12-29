@@ -22,7 +22,7 @@ import crm.Product;
  * @see ch.ivyteam.crm.OrderUtil
  */
 @IvyTest
-public class TestOrderUtil {
+class TestOrderUtil {
 
   /**
    * The @IvyTest annotation ensures that the Ivy environment is properly set
@@ -39,26 +39,6 @@ public class TestOrderUtil {
 
     assertThat(chair.getName()).isEqualTo("Chair");
     assertThat(chair.getSinglePrice()).isEqualTo(89.60);
-  }
-
-  /**
-   * This parameterized test uses the AppFixture to set a different ivy
-   * environment.
-   * @see ch.ivyteam.ivy.environment.AppFixture
-   */
-  @SuppressWarnings("removal")
-  @Test
-  void products_testEnv(AppFixture fixture) {
-    /* We can switch the used environment with the AppFixture. */
-    fixture.environment("test-env");
-
-    assertThat(OrderUtil.getProducts()).hasSize(2);
-    Product table = OrderUtil.getProducts().get(0);
-    Product chair = OrderUtil.getProducts().get(1);
-
-    /* The test-env provides different values as global variables. */
-    assertThat(table.getSinglePrice()).isEqualTo(500.0);
-    assertThat(chair.getSinglePrice()).isEqualTo(50.0);
   }
 
   @Test
