@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "15287EC41B05C6C5",
   "config" : {
     "data" : "crm.Data"
@@ -31,8 +31,7 @@
         "customer"
       ],
       "config" : {
-        "dialogId" : "crm.CustomerRegistrationForm",
-        "startMethod" : "start()",
+        "dialog" : "crm.CustomerRegistrationForm:start()",
         "output" : {
           "map" : {
             "out" : "in",
