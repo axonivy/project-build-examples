@@ -1,5 +1,5 @@
 {
-  "format" : "10.0.0",
+  "format" : "11.1.2",
   "id" : "1720E35BB7789886",
   "config" : {
     "data" : "crm.Order"
@@ -41,8 +41,7 @@
       "type" : "UserTask",
       "name" : "write invoice",
       "config" : {
-        "dialogId" : "crm.InvoiceForm",
-        "startMethod" : "start()",
+        "dialog" : "crm.InvoiceForm:start()",
         "output" : {
           "map" : {
             "out" : "in",
@@ -75,8 +74,7 @@
       "type" : "DialogCall",
       "name" : "check order",
       "config" : {
-        "dialogId" : "crm.CheckOrderForm",
-        "startMethod" : "start(Boolean)",
+        "dialog" : "crm.CheckOrderForm:start(Boolean)",
         "call" : {
           "params" : [
             { "name" : "valid", "type" : "Boolean" }
@@ -120,8 +118,7 @@
       "type" : "UserTask",
       "name" : "prepare shipment",
       "config" : {
-        "dialogId" : "crm.ShipmentForm",
-        "startMethod" : "start()",
+        "dialog" : "crm.ShipmentForm:start()",
         "task" : {
           "name" : "prepare shipment",
           "responsible" : {
