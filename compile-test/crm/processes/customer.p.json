@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "15287EC41B05C6C5",
   "config" : {
     "data" : "crm.Data"
@@ -50,9 +50,6 @@
       "config" : {
         "dialog" : "crm.WelcomeNewCustomer:start(crm.Customer)",
         "call" : {
-          "params" : [
-            { "name" : "newCustomer", "type" : "crm.Customer" }
-          ],
           "map" : {
             "param.newCustomer" : "in.newCustomer"
           }

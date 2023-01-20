@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.2",
+  "format" : "11.1.6",
   "id" : "15F259756E827FD8",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -54,10 +54,10 @@
       "id" : "f6",
       "type" : "Script",
       "config" : {
-        "security" : "system",
         "output" : {
           "code" : "ivy.persistence.users.merge(in.user);"
-        }
+        },
+        "sudo" : true
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 160 }
