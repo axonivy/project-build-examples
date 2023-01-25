@@ -14,7 +14,7 @@ import javax.ws.rs.core.Response;
 
 import org.apache.commons.io.IOUtils;
 
-import ch.ivyteam.ivy.rest.client.IvyDefaultJaxRsTemplates;
+import ch.ivyteam.ivy.rest.client.config.IvyDefaultJaxRsTemplates;
 import io.swagger.v3.oas.annotations.Hidden;
 
 /**
