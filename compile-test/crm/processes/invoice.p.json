@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.6",
+  "format" : "11.1.10",
   "id" : "1720E35BB7789886",
   "config" : {
     "data" : "crm.Order"
@@ -42,14 +42,14 @@
       "name" : "write invoice",
       "config" : {
         "dialog" : "crm.InvoiceForm:start()",
+        "task" : {
+          "name" : "write invoice"
+        },
         "output" : {
           "map" : {
             "out" : "in",
             "out.total" : "result.total"
           }
-        },
-        "task" : {
-          "name" : "write invoice"
         }
       },
       "visual" : {
@@ -117,7 +117,6 @@
         "task" : {
           "name" : "prepare shipment",
           "responsible" : {
-            "type" : "ROLE",
             "activator" : "CREATOR"
           }
         }
