@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.10",
+  "format" : "11.1.11",
   "id" : "1720E35BB7789886",
   "config" : {
     "data" : "crm.Order"
@@ -27,7 +27,9 @@
         "at" : { "x" : 96, "y" : 64 },
         "labelOffset" : { "x" : 32, "y" : 38 }
       },
-      "connect" : { "id" : "f3", "to" : "f2" }
+      "connect" : [
+        { "id" : "f3", "to" : "f2" }
+      ]
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
@@ -55,7 +57,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 64 }
       },
-      "connect" : { "id" : "f4", "to" : "f1" }
+      "connect" : [
+        { "id" : "f4", "to" : "f1" }
+      ]
     }, {
       "id" : "f5",
       "type" : "RequestStart",
@@ -68,7 +72,9 @@
         "at" : { "x" : 96, "y" : 192 },
         "labelOffset" : { "x" : 29, "y" : 37 }
       },
-      "connect" : { "id" : "f8", "to" : "f6" }
+      "connect" : [
+        { "id" : "f8", "to" : "f6" }
+      ]
     }, {
       "id" : "f6",
       "type" : "DialogCall",
@@ -79,7 +85,9 @@
       "visual" : {
         "at" : { "x" : 224, "y" : 192 }
       },
-      "connect" : { "id" : "f9", "to" : "f7" }
+      "connect" : [
+        { "id" : "f9", "to" : "f7" }
+      ]
     }, {
       "id" : "f7",
       "type" : "TaskEnd",
@@ -107,7 +115,9 @@
         "at" : { "x" : 96, "y" : 320 },
         "labelOffset" : { "x" : 48, "y" : 37 }
       },
-      "connect" : { "id" : "f13", "to" : "f11" }
+      "connect" : [
+        { "id" : "f13", "to" : "f11" }
+      ]
     }, {
       "id" : "f11",
       "type" : "UserTask",
@@ -125,6 +135,8 @@
         "at" : { "x" : 224, "y" : 320 },
         "size" : { "width" : 128, "height" : 60 }
       },
-      "connect" : { "id" : "f14", "to" : "f12" }
+      "connect" : [
+        { "id" : "f14", "to" : "f12" }
+      ]
     } ]
 }
