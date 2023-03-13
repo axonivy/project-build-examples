@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "1700F7815C4BE70E",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,10 +10,10 @@
       "type" : "HtmlDialogStart",
       "name" : "start(Customer)",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "params" : [
-            { "name" : "newCustomer", "type" : "crm.Customer" }
+            { "name" : "newCustomer", "type" : "crm.Customer", "desc" : "" }
           ],
           "map" : {
             "out.newCustomer" : "param.newCustomer"

@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "18539139926B3105",
   "kind" : "CALLABLE_SUB",
   "config" : {
@@ -10,10 +10,10 @@
       "type" : "CallSubStart",
       "name" : "findCustomer(String)",
       "config" : {
-        "callSignature" : "findCustomer",
+        "signature" : "findCustomer",
         "input" : {
           "params" : [
-            { "name" : "name", "type" : "String" }
+            { "name" : "name", "type" : "String", "desc" : "" }
           ],
           "map" : {
             "out.name" : "param.name"
@@ -21,8 +21,9 @@
         },
         "result" : {
           "params" : [
-            { "name" : "customer", "type" : "crm.Customer" }
-          ]
+            { "name" : "customer", "type" : "crm.Customer", "desc" : "" }
+          ],
+          "map" : { }
         }
       },
       "visual" : {
