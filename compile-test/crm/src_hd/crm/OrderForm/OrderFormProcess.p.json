@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "1700F6E185CAFF13",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,7 +10,7 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "map" : {
             "out.availableProducts" : "ch.ivyteam.crm.OrderUtil.getProducts()"
@@ -26,7 +26,7 @@
         },
         "result" : {
           "params" : [
-            { "name" : "order", "type" : "java.util.List<crm.Product>" }
+            { "name" : "order", "type" : "java.util.List<crm.Product>", "desc" : "" }
           ],
           "map" : {
             "result.order" : "in.order"
