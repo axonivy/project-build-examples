@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "1700F6E185CAFF13",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,7 +10,7 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
           "map" : {
             "out.availableProducts" : "ch.ivyteam.crm.OrderUtil.getProducts()"
@@ -26,13 +26,26 @@
         },
         "result" : {
           "params" : [
-            { "name" : "order", "type" : "java.util.List<crm.Product>" }
+            { "name" : "order", "type" : "java.util.List<crm.Product>", "desc" : "" }
           ],
           "map" : {
             "result.order" : "in.order"
           }
         },
-        "guid" : "16FEC9D104D9804B"
+        "guid" : "16FEC9D104D9804B",
+        "output" : {
+          "map" : {
+            "out.availableProducts" : "ch.ivyteam.crm.OrderUtil.getProducts()"
+          },
+          "code" : [
+            "import crm.Product;",
+            "out.product = new Product();",
+            "Product first = out.availableProducts.get(0);",
+            "out.product.setName(first.getName());",
+            "out.product.setSinglePrice(first.getSinglePrice());",
+            "out.product.setAmount(1);"
+          ]
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },

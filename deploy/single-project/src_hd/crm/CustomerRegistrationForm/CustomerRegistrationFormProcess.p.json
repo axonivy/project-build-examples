@@ -1,5 +1,5 @@
 {
-  "format" : "11.1.11",
+  "format" : "11.1.14",
   "id" : "15287F0481AB10E9",
   "kind" : "HTML_DIALOG",
   "config" : {
@@ -10,19 +10,24 @@
       "type" : "HtmlDialogStart",
       "name" : "start()",
       "config" : {
-        "callSignature" : "start",
+        "signature" : "start",
         "input" : {
+          "map" : { },
           "code" : "out.customer; // init"
         },
         "result" : {
           "params" : [
-            { "name" : "customer", "type" : "crm.Customer" }
+            { "name" : "customer", "type" : "crm.Customer", "desc" : "" }
           ],
           "map" : {
             "result.customer" : "in.customer"
           }
         },
-        "guid" : "15287F04837666F6"
+        "guid" : "15287F04837666F6",
+        "output" : {
+          "map" : { },
+          "code" : "out.customer; // init"
+        }
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 64 },
