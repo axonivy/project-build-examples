@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/11.1.15/schema.json",
+  "$schema" : "https://json-schema.axonivy.com/process/11.1.19/schema.json",
   "id" : "1720E35BB7789886",
   "config" : {
     "data" : "crm.Order"
@@ -9,16 +9,15 @@
       "type" : "RequestStart",
       "name" : "writeInvoice.ivp",
       "config" : {
-        "callSignature" : "writeInvoice",
+        "signature" : "writeInvoice",
         "input" : {
           "params" : [
-            { "name" : "Order", "type" : "crm.Order" }
+            { "name" : "Order", "type" : "crm.Order", "desc" : "" }
           ],
           "map" : {
             "out.valid" : "false"
           }
         },
-        "outLink" : "writeInvoice.ivp",
         "task" : {
           "name" : "start write invoice"
         }
@@ -65,8 +64,7 @@
       "type" : "RequestStart",
       "name" : "checkOrder.ivp",
       "config" : {
-        "callSignature" : "checkOrder",
-        "outLink" : "checkOrder.ivp"
+        "signature" : "checkOrder"
       },
       "visual" : {
         "at" : { "x" : 96, "y" : 192 },
@@ -105,8 +103,7 @@
       "type" : "RequestStart",
       "name" : "prepareShipment.ivp",
       "config" : {
-        "callSignature" : "prepareShipment",
-        "outLink" : "prepareShipment.ivp",
+        "signature" : "prepareShipment",
         "task" : {
           "name" : "start prepare shipment"
         }
