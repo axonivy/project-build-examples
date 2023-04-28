@@ -11,7 +11,7 @@
   <properties>
     <!-- Skip maven artifact deployment -->
     <maven.deploy.skip>true</maven.deploy.skip>
-    <project-build-plugin>10.0.1-SNAPSHOT</project-build-plugin>
+    <project-build-plugin>10.0.7-SNAPSHOT</project-build-plugin>
   </properties>
 
   <pluginRepositories>
