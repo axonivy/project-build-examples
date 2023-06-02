@@ -1,4 +1,4 @@
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=ci.deploy.solution.Data
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=ci.deploy.solution
-ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=111000
+ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=112000
 eclipse.preferences.version=1
