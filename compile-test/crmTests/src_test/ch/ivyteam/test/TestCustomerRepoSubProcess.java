@@ -7,15 +7,14 @@ import org.junit.jupiter.api.Test;
 
 import ch.ivyteam.crm.mocks.CustomerServiceMock;
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
-import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmElement;
 import ch.ivyteam.ivy.bpm.engine.client.element.BpmProcess;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 import ch.ivyteam.ivy.environment.AppFixture;
 import util.customerRepoData;
 
-@IvyProcessTest
-public class TestCustomerRepoSubProcess {
+@IvyProcessTest(enableWebServer = true)
+class TestCustomerRepoSubProcess {
 
   private static final BpmProcess CUSTOMER_REPO = BpmProcess.name("customerRepo"); // see crm:Processes/util
 
@@ -38,12 +37,11 @@ public class TestCustomerRepoSubProcess {
    */
   @Test
   void callSubProcess_findCustomer(BpmClient bpmClient) {
-    ExecutionResult result = bpmClient.start()
-      .subProcess(Start.FIND_CUSTOMER)
-      .withParam("name", "Wermelinger")
-      .execute();
+    var result = bpmClient.start()
+			.subProcess(Start.FIND_CUSTOMER)
+			.withParam("name", "Wermelinger")
+			.execute();
     customerRepoData data = result.data().last();
     assertThat(data.getMatch()).isNotNull();
   }
-
 }
