@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Updates project-build-plugin versions in all pom.xml files
 
 # Update project-build-plugin version in reactor POM and all modules POMs 

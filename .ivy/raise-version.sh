@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Updates all example artifact versions in all pom.xml files
 
