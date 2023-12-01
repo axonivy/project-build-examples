@@ -29,10 +29,10 @@ import com.axonivy.ivy.webtest.primeui.PrimeUi;
 import com.axonivy.ivy.webtest.primeui.widget.InputNumber;
 import com.axonivy.ivy.webtest.primeui.widget.SelectOneMenu;
 import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebElementCondition;
 
 @IvyWebTest
 public class WebTestOrderFormIT {
@@ -149,7 +149,7 @@ public class WebTestOrderFormIT {
 
   /**
    * show possible assertions/conditions which can be tested.
-   * @see SelenideElement#should(Condition...)
+   * @see SelenideElement#should(WebElementCondition...)
    * @see ElementsCollection#shouldBe(CollectionCondition...)
    */
   @Test
@@ -158,7 +158,7 @@ public class WebTestOrderFormIT {
     $(By.id("form:addProduct")).shouldBe(visible, exist);
     $(By.id("form:addProduct")).shouldBe(visible).should(exist);
     // you can create conditions for your need
-    Condition clickable = and("should be clickable", visible, exist);
+    var clickable = and("should be clickable", visible, exist);
     $(By.id("form:addProduct")).shouldBe(clickable);
     // they can be inverted
     $(By.id("notExistingElement")).shouldNotBe(exist);
