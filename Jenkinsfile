@@ -31,7 +31,7 @@ pipeline {
                 maven cmd: "clean install " +
                   "--settings deploy/single-project-over-http/settings.xml " +
                   "-Divy.engine.list.url=${params.engineListUrl} " +
-                  "-Divy.engine.version=[9.4.0,] " + 
+                  "-Divy.engine.version.latest.minor=true " + 
                   "-Dmaven.test.failure.ignore=true " +
                   "-Dselenide.remote=http://${seleniumName}:4444/wd/hub "                
               }
