@@ -39,7 +39,7 @@ pipeline {
           } finally {
             sh "docker network rm ${networkName}"
           }          
-          recordIssues tools: [mavenConsole()], unstableTotalAll: 1, filters: [
+          recordIssues tools: [mavenConsole()], qualityGates: [[threshold: 1, type: 'TOTAL']], filters: [
             excludeMessage('The system property test.engine.url is configured twice!.*')
           ]
           junit '**/**/target/*-reports/**/*.xml'
