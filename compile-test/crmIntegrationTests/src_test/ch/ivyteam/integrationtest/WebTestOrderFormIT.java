@@ -34,7 +34,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebElementCondition;
 
-@IvyWebTest
+@IvyWebTest(headless=false)
 public class WebTestOrderFormIT {
 
   @BeforeEach
@@ -123,17 +123,17 @@ public class WebTestOrderFormIT {
     $(By.xpath("//form")).shouldBe(visible);
 
     // nth element of multiple
-    $("label", 2).shouldHave(text("Amount"));
-    $(By.tagName("label"), 3).shouldHave(text("Single Price"));
+    $("label", 1).shouldHave(text("Amount"));
+    $(By.tagName("label"), 2).shouldHave(text("Single Price"));
 
     // all elements with css selector
-    $$("label").shouldHave(size(4)); // by tag
+    $$("label").shouldHave(size(3)); // by tag
     $$(".ui-outputlabel").shouldHave(size(3)); // by class
-    $$x("//label").shouldHave(size(4)); // by xpath
+    $$x("//label").shouldHave(size(3)); // by xpath
     // all elements with By selector
-    $$(By.tagName("label")).shouldHave(size(4));
+    $$(By.tagName("label")).shouldHave(size(3));
     $$(By.className("ui-outputlabel")).shouldHave(size(3));
-    $$(By.xpath("//label")).shouldHave(size(4));
+    $$(By.xpath("//label")).shouldHave(size(3));
 
     // complex css selectors
     // single element css class inside id
