@@ -14,7 +14,7 @@ services:
       - ivy
      
   ivy:
-    image: "ivy-application:9.4.0-SNAPSHOT"
+    image: "ivy-application:11.3.0-SNAPSHOT"
     volumes:
       - ivy-files:/var/lib/axonivy-engine/files
     deploy:
