@@ -26,7 +26,8 @@ pipeline {
           groupDocker = groupDocker.trim();
           sh "docker network create ${networkName}"
           try {
-            docker.image("selenium/standalone-firefox:4").withRun("-e START_XVFB=false --shm-size=2g --name ${seleniumName} --network ${networkName} -v /var/run/docker.sock:/var/run/docker.sock --group-add ${groupDocker}") {
+            docker.image("selenium/standalone-firefox:4")
+              .withRun("-e START_XVFB=false --shm-size=2g --name ${seleniumName} --network ${networkName} -v /var/run/docker.sock:/var/run/docker.sock --group-add ${groupDocker}") {
               docker.build('maven').inside("--network ${networkName} -v /var/run/docker.sock:/var/run/docker.sock -e DOCKER_HOST=unix:///var/run/docker.sock --group-add ${groupDocker}") {
                 maven cmd: "clean install " +
                   "--settings deploy/single-project-over-http/settings.xml " +
@@ -43,6 +44,9 @@ pipeline {
             excludeMessage('The system property test.engine.url is configured twice!.*')
           ]
           junit '**/**/target/*-reports/**/*.xml'
+
+          archiveArtifacts '**/**/target/testEngineOut.log'
+          archiveArtifacts '**/**/target/failsafe-reports/**/*'
         }
       }
     }

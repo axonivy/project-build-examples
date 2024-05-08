@@ -34,7 +34,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebElementCondition;
 
-@IvyWebTest(headless=false)
+@IvyWebTest(headless=true)
 public class WebTestOrderFormIT {
 
   @BeforeEach
