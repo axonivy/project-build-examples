@@ -74,8 +74,6 @@
                    if you want to use the yaml file instead.
                    If the deployOptionsFile is configured, the parameters get ignored (no merge). -->
               <deployTestUsers>false</deployTestUsers>
-              <deployConfigOverwrite>false</deployConfigOverwrite>
-              <deployConfigCleanup>DISABLED</deployConfigCleanup>
               <deployTargetVersion>AUTO</deployTargetVersion>
               <deployTargetState>ACTIVE_AND_RELEASED</deployTargetState>
             </configuration>
