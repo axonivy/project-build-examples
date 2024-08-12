@@ -1,5 +1,5 @@
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=ch.ivyteam.test.Data
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=ch.ivyteam.test
 ch.ivyteam.ivy.project.preferences\:PRIMEFACES_VERSION=13
-ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=114004
+ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=114005
 eclipse.preferences.version=1

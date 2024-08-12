@@ -1,0 +1,13 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "Data",
+  "namespace" : "crm",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "newCustomer",
+    "type" : "crm.Customer"
+  }, {
+    "name" : "order",
+    "type" : "java.util.List<crm.Product>"
+  } ]
+}
