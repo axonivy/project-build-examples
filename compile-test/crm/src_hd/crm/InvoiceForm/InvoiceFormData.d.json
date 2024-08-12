@@ -1,0 +1,11 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "InvoiceFormData",
+  "namespace" : "crm.InvoiceForm",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "total",
+    "type" : "Number",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

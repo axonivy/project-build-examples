@@ -1,4 +1,0 @@
-WelcomeNewCustomerData #class
-crm.WelcomeNewCustomer #namespace
-newCustomer crm.Customer #field
-newCustomer PERSISTENT #fieldModifier

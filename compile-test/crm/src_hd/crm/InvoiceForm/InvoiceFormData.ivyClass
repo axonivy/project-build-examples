@@ -1,4 +1,0 @@
-InvoiceFormData #class
-crm.InvoiceForm #namespace
-total Number #field
-total PERSISTENT #fieldModifier

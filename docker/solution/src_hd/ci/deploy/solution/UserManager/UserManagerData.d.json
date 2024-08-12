@@ -1,0 +1,15 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "UserManagerData",
+  "namespace" : "ci.deploy.solution.UserManager",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "user",
+    "type" : "ci.deploy.base.User",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "showDescription",
+    "type" : "Boolean",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

@@ -1,0 +1,11 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "WelcomeNewCustomerData",
+  "namespace" : "crm.WelcomeNewCustomer",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "newCustomer",
+    "type" : "crm.Customer",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

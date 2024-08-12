@@ -1,0 +1,19 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "OrderFormData",
+  "namespace" : "crm.OrderForm",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "order",
+    "type" : "java.util.List<crm.Product>",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "product",
+    "type" : "crm.Product",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "availableProducts",
+    "type" : "java.util.List<crm.Product>",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}

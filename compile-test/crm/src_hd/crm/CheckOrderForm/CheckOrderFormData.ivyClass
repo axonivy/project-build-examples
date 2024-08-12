@@ -1,4 +1,0 @@
-CheckOrderFormData #class
-crm.CheckOrderForm #namespace
-valid Boolean #field
-valid PERSISTENT #fieldModifier

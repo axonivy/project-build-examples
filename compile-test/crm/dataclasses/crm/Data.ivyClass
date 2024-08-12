@@ -1,4 +1,0 @@
-Data #class
-crm #namespace
-newCustomer crm.Customer #field
-order java.util.List<crm.Product> #field

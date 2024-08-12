@@ -1,0 +1,23 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/data-class/11.4.0/data-class.json",
+  "simpleName" : "Product",
+  "namespace" : "crm",
+  "isBusinessCaseData" : false,
+  "fields" : [ {
+    "name" : "name",
+    "type" : "String",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "amount",
+    "type" : "Integer",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "singlePrice",
+    "type" : "Double",
+    "modifiers" : [ "PERSISTENT" ]
+  }, {
+    "name" : "requiredClearance",
+    "type" : "Integer",
+    "modifiers" : [ "PERSISTENT" ]
+  } ]
+}
