@@ -1,5 +1,4 @@
 # Create a docker image with a full Application ZIP
-`requires project-build-plugin 9.3.0 and Axon Ivy Engine 9.3.0 or newer` 
 
 ## Prerequisites
 Install [Docker](https://docs.docker.com/) and [Docker Compose](https://docs.docker.com/compose/). 
@@ -72,7 +71,7 @@ Have a look at [image/Dockerfile](image/Dockerfile) to see how the Docker image 
 <plugin>
   <groupId>io.fabric8</groupId>
   <artifactId>docker-maven-plugin</artifactId>
-  <version>0.38.0</version>
+  <version>0.45.1</version>
   <configuration>
 	<images>
 	  <image>
