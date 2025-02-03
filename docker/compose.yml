@@ -1,4 +1,3 @@
-version: '3.7'
 services:  
   loadbalancer:
     image: "dockercloud/haproxy"
@@ -14,14 +13,14 @@ services:
       - ivy
      
   ivy:
-    image: "ivy-application:11.3.0-SNAPSHOT"
+    image: "ivy-application:12.0.0-SNAPSHOT"
     volumes:
-      - ivy-files:/var/lib/axonivy-engine/files
+      - ivy-data:/ivy/data
     deploy:
       replicas: 2
     depends_on:
      - db
-     - elasticsearch
+     - opensearch
     environment:
      # Specifies sticky sessions for the load balancer, using a server cookie value prefix
      # for the client cookie with name JSESSIONID.
@@ -33,14 +32,15 @@ services:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: 1234
 
-  elasticsearch:
-    image: "elasticsearch:7.3.0"
+  opensearch:
+    image: opensearchproject/opensearch:2.18.0
     ports:
-     - "9200:9200"
+     - 9200:9200
     environment:
-      # development mode
-      # Specify elasticsearch to run as single node and not as part of a cluster
-      - "discovery.type=single-node"
+      ES_JAVA_OPTS: '-Xmx512m -Xms512m'
+      discovery.type: single-node
+      OPENSEARCH_INITIAL_ADMIN_PASSWORD: opensearchPassword2024?
+      plugins.security.disabled: true
 
 volumes:
-  ivy-files: 
+  ivy-data: 
