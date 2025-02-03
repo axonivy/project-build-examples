@@ -11,7 +11,7 @@
 
   <properties>
     <project-build-plugin>10.0.17</project-build-plugin>
-    <web.tester.version>10.0.1-SNAPSHOT</web.tester.version>
+    <web.tester.version>10.0.16</web.tester.version>
   </properties>
 
   <pluginRepositories>
