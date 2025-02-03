@@ -1,14 +1,14 @@
 # Base Image contains the Axon Ivy Engine
-FROM axonivy/axonivy-engine:dev
+FROM axonivy/axonivy-engine:12.0
 
 # Add your application to the image
-ADD --chown=ivy:ivy target/ivy-application-12.0.0-SNAPSHOT.zip /var/lib/axonivy-engine/deploy/ivy-application.zip
+ADD --chown=ivy:ivy target/ivy-application-12.0.0-SNAPSHOT.zip /ivy/deploy/ivy-application.zip
 
 # Add your license to the image
-ADD --chown=ivy:ivy image/demo-enterprise-licence.lic /etc/axonivy-engine/enterprise-licence.lic
+ADD --chown=ivy:ivy image/demo-enterprise-licence.lic /ivy/configuration/enterprise-licence.lic
 
 # Add your configuration ivy.yaml to the image
-ADD --chown=ivy:ivy image/ivy.yaml /etc/axonivy-engine/ivy.yaml
+ADD --chown=ivy:ivy image/ivy.yaml /ivy/configuration/ivy.yaml
 
 # Set owner of the files directory
-RUN mkdir -p /var/lib/axonivy-engine/files && chown -R ivy /var/lib/axonivy-engine/files
+RUN mkdir -p /ivy/data && chown -R ivy /ivy/data

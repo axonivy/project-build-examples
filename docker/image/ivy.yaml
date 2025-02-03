@@ -1,13 +1,13 @@
+# yaml-language-server: $schema=https://json-schema.ivyteam.ch/ivy/12.0.6/ivy.json
 SystemDb:
   Driver: org.postgresql.Driver
   Url: jdbc:postgresql://db:5432/AxonIvySystemDatabase
   UserName: admin
-  Password: 1234
-  Autoconvert: false
+  Password: "1234"
 Administrators:
   admin:
     Password: admin
-Elasticsearch:
+SearchEngine:
   ExternalServer:
-    Url: http://elasticsearch:9200
-Data.FilesDirectory: "/var/lib/axonivy-engine/files"
+    Url: http://opensearch:9200
+

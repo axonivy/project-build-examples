@@ -94,5 +94,5 @@ Have a look at [image/Dockerfile](image/Dockerfile) to see how the Docker image 
 </plugin>
 ```
 
-By running `docker-compose up` you can start an infrastructure that contains a loadbalancer, system database, elasticsearch and two Axon Ivy Engine nodes with the deployed ivy-application.
+By running `docker compose up` you can start an infrastructure that contains a loadbalancer, system database, elasticsearch and two Axon Ivy Engine nodes with the deployed ivy-application.
 Open a browser and navigate to [http://localhost](http:localhost) to play with the ivy-application.
