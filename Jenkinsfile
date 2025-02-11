@@ -47,6 +47,7 @@ pipeline {
 
           archiveArtifacts '**/**/target/testEngineOut.log'
           archiveArtifacts '**/**/target/failsafe-reports/**/*'
+          archiveArtifacts artifacts: '**/**/target/selenide/reports/**/*', allowEmptyArchive: true
         }
       }
     }
