@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/process/12.0.0/process.json",
+  "$schema" : "https://json-schema.axonivy.com/process/13.1.2/process.json",
   "id" : "1720E35BB7789886",
   "config" : {
     "data" : "crm.Order"
@@ -124,7 +124,9 @@
         "task" : {
           "name" : "prepare shipment",
           "responsible" : {
-            "activator" : "CREATOR"
+            "roles" : [
+              "CREATOR"
+            ]
           }
         }
       },
