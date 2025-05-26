@@ -164,8 +164,8 @@ public class TestInvoiceProcess {
     assertThat(result.workflow().activeTask().name().startsWith("prepare")).isPresent();
 
     /* Asserting the activator */
-    assertThat(result.workflow().activeTask().activatorUser("James Bond")).isPresent();
-    assertThat(result.workflow().activeTask().activator(user)).isPresent();
+    assertThat(result.workflow().activeTask().responsibleUser("James Bond")).isPresent();
+    assertThat(result.workflow().activeTask().responsible(user)).isPresent();
 
     /* Asserting the session user */
     assertThat(result.workflow().session().getSessionUserName()).isEqualTo("James Bond");
