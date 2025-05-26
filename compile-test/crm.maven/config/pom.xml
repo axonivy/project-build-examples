@@ -10,7 +10,7 @@
   </organization>
 
   <properties>
-    <project-build-plugin>13.1.1-SNAPSHOT</project-build-plugin>
+    <project-build-plugin>13.1.2-SNAPSHOT</project-build-plugin>
     <web.tester.version>13.1.1-SNAPSHOT</web.tester.version>
   </properties>
 
