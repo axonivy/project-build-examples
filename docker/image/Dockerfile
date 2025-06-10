@@ -1,5 +1,5 @@
 # Base Image contains the Axon Ivy Engine
-FROM axonivy/axonivy-engine:12.0
+FROM axonivy/axonivy-engine:13.1
 
 # Add your application to the image
 ADD --chown=ivy:ivy target/ivy-application-13.1.0-SNAPSHOT.zip /ivy/deploy/ivy-application.zip
