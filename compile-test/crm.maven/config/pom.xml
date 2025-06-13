@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>ch.ivyteam.ivy.project.demos.ci</groupId>
+    <artifactId>root.maven.config</artifactId>
+    <version>13.2.0-SNAPSHOT</version>
+    <relativePath>../../../maven/config</relativePath>
+  </parent>
   <groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
   <artifactId>crm.maven.config</artifactId>
   <version>13.2.0-SNAPSHOT</version>
@@ -9,83 +15,13 @@
     <name>Axon Ivy AG</name>
   </organization>
 
-  <properties>
-    <project-build-plugin>13.2.0-SNAPSHOT</project-build-plugin>
-    <web.tester.version>13.2.0-SNAPSHOT</web.tester.version>
-  </properties>
-
-  <pluginRepositories>
-    <!-- 
-    Releases of our project-build-plugin are available over maven central. 
-    However, *-SNAPSHOT release are not. Therefore, we configure this sonatype 
-    repository where *-SNAPSHOT releases of the project-build-plugin are available.
-
-    We strongly recommend that you do not use *-SNAPSHOT releases for productive environments!  
-
-    If you do not use *-SNAPSHOT release you can remove this configuration 
-    -->
-    <pluginRepository>
-      <id>central.sonatype.snapshots</id>
-      <url>https://central.sonatype.com/repository/maven-snapshots</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <updatePolicy>always</updatePolicy>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>  
-
-  <repositories>
-    <!-- 
-    Releases of our web-tester and unit-tester are available over maven central. 
-    However, *-SNAPSHOT release are not. Therefore, we configure this sonatype 
-    repository where *-SNAPSHOT releases of the web-tester and unit-tester are available.
-
-    We strongly recommend that you do not use *-SNAPSHOT releases for productive environments!  
-
-    If you do not use *-SNAPSHOT release you can remove this configuration 
-    -->
-    <repository>
-      <id>central.sonatype.snapshots</id>
-      <url>https://central.sonatype.com/repository/maven-snapshots</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <updatePolicy>always</updatePolicy>
-      </snapshots>
-    </repository>
-  </repositories>  
-
   <build>
     <plugins>
       <plugin>
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
-        <!-- pre-configure the exact version to use for child projects -->
-        <version>${project-build-plugin}</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-install-plugin</artifactId>
-          <version>3.1.4</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>3.3.1</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>3.1.4</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
   </build>
 </project>

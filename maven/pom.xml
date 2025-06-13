@@ -10,6 +10,7 @@
     <module>../compile-test/crm.maven/config</module>
     <module>../deploy/application/maven/config</module>
     <module>../docker/maven/config</module>
+    <module>config</module>
   </modules>
 
 </project>
