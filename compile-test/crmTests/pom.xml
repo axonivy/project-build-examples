@@ -22,6 +22,7 @@
     <dependency>
       <groupId>com.axonivy.ivy.test</groupId>
       <artifactId>unit-tester</artifactId>
+      <version>13.1.1-SNAPSHOT</version>
       <scope>test</scope>
     </dependency>
     <dependency>
