@@ -13,9 +13,6 @@
     <module>compile-test</module>
     <module>deploy</module>
     <module>docker</module>
-    <module>compile-test/crm.maven/config</module>
-    <module>deploy/application/maven/config</module>
-    <module>docker/maven/config</module>
   </modules>
 
 </project>
