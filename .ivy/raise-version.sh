@@ -16,4 +16,4 @@ sed -i -b -E  "s:(^\s\s\s\s<version>)(.*)(<\/version>):\1${1}\3:g" $(find . -nam
 
 # Update artifact version in Dockerfile
 sed -i -b -E  "s:(ivy-application-)([0-9\.]+-SNAPSHOT)(\.zip):\1${1}\3:g" docker/image/Dockerfile
-sed -i -b -E  "s;(ivy-application:)([0-9\.]+-SNAPSHOT);\1${1};g" docker/docker-compose.yml
+sed -i -b -E  "s;(ivy-application:)([0-9\.]+-SNAPSHOT);\1${1};g" docker/compose.yml
