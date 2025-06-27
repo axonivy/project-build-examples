@@ -13,7 +13,7 @@ services:
       - ivy
      
   ivy:
-    image: "ivy-application:13.1.0-SNAPSHOT"
+    image: "ivy-application:13.1.2-SNAPSHOT"
     volumes:
       - ivy-data:/ivy/data
     deploy:
