@@ -2,7 +2,7 @@
 FROM axonivy/axonivy-engine:12.0
 
 # Add your application to the image
-ADD --chown=ivy:ivy target/ivy-application-12.0.8-SNAPSHOT.zip /ivy/deploy/ivy-application.zip
+ADD --chown=ivy:ivy target/ivy-application-12.0.9-SNAPSHOT.zip /ivy/deploy/ivy-application.zip
 
 # Add your license to the image
 ADD --chown=ivy:ivy image/demo-enterprise-licence.lic /ivy/configuration/enterprise-licence.lic

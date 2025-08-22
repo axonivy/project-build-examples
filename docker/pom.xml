@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.ivyteam.ivy.project.demo.ci.docker</groupId>
   <artifactId>ivy-application</artifactId>
-  <version>12.0.8-SNAPSHOT</version>
+  <version>12.0.9-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <scm>
