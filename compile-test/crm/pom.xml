@@ -20,4 +20,23 @@
     </dependency>
   </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.axonivy.ivy.ci</groupId>
+        <artifactId>project-build-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-unpack-libs</id>
+            <configuration>
+              <unpackIncludes>
+                <unpackExclude>lib/*.jar</unpackExclude>
+              </unpackIncludes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
 </project>
