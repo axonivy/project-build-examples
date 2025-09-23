@@ -28,7 +28,7 @@
 					<groupId>com.axonivy.ivy.ci</groupId>
 					<artifactId>project-build-plugin</artifactId>
 					<!-- pre-configure the exact version to use for child projects -->
-					<version>8.0.8-SNAPSHOT</version>
+					<version>8.0.7</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
