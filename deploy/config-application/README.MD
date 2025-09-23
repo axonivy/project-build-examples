@@ -68,7 +68,7 @@ Via the deploy-to-engine goal it deploys this zip with all projects to a running
 <plugin>
   <groupId>com.axonivy.ivy.ci</groupId>
   <artifactId>project-build-plugin</artifactId>
-  <version>8.0.8-SNAPSHOT</version>
+  <version>8.0.7</version>
   <executions>
     <execution>
       <id>deploy.to.staging</id>
