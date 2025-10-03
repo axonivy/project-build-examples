@@ -9,7 +9,7 @@
 	<pluginGroups/>
 	<servers>
 		<server>
-			<id>axonivy.engine</id>
+			<id>project-build-plugin-examples-axonivy.engine</id>
 			<!-- 
 			User name and password used to authenticate to the remote Axon Ivy Engine 
 			-->
