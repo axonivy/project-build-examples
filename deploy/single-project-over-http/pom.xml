@@ -67,7 +67,7 @@
             <configuration>
               <deployFile>${project.build.directory}/${project.artifactId}-${project.version}.iar</deployFile>
               <deployMethod>HTTP</deployMethod>
-              <deployServerId>axonivy.engine</deployServerId>
+              <deployServerId>project-build-plugin-examples-axonivy.engine</deployServerId>
               <deployEngineUrl>${test.engine.url}</deployEngineUrl>
               <deployToEngineApplication>MyApplication</deployToEngineApplication>
             </configuration>
