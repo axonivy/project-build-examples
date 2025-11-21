@@ -34,7 +34,8 @@ pipeline {
                   "-Divy.engine.list.url=${params.engineListUrl} " +
                   "-Divy.engine.version.latest.minor=true " + 
                   "-Dmaven.test.failure.ignore=true " +
-                  "-Dselenide.remote=http://${seleniumName}:4444/wd/hub "                
+                  "-Dselenide.remote=http://${seleniumName}:4444/wd/hub " +
+                  "-P-ivy"
               }
             }
           } finally {
