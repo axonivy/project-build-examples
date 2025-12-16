@@ -6,12 +6,12 @@
   <parent>
     <groupId>ch.ivyteam.ivy.project.demos.ci</groupId>
     <artifactId>root.maven.config</artifactId>
-    <version>13.2.0-SNAPSHOT</version>
+    <version>14.0.0-SNAPSHOT</version>
     <relativePath>../../../maven/config</relativePath>
   </parent>
   <groupId>ch.ivyteam.ivy.project.demo.ci.docker</groupId>
   <artifactId>maven.config</artifactId>
-  <version>13.2.0-SNAPSHOT</version>
+  <version>14.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <organization>
     <name>Axon Ivy AG</name>
