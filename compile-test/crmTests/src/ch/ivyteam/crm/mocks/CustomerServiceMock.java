@@ -1,7 +1,6 @@
 package ch.ivyteam.crm.mocks;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 import javax.annotation.security.PermitAll;
@@ -14,7 +13,6 @@ import javax.ws.rs.core.Response;
 
 import org.apache.commons.io.IOUtils;
 
-import ch.ivyteam.ivy.rest.client.config.IvyDefaultJaxRsTemplates;
 import io.swagger.v3.oas.annotations.Hidden;
 
 /**
@@ -32,7 +30,7 @@ public class CustomerServiceMock {
   static final String PATH_SUFFIX = "mock";
 
   // URI where this mock can be reached: to be referenced in tests that use it!
-  public static final String URI = "{"+IvyDefaultJaxRsTemplates.APP_URL+"}/api/"+PATH_SUFFIX;
+  public static final String URI = "{ivy.app.baseurl}/api/"+PATH_SUFFIX;
 
   @GET
   @Path("customer")
