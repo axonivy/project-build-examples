@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://json-schema.axonivy.com/app/14.0.0/users.json
+Users:
+  - Name: James Bond
+    Password: '007'
+    Roles:
+      - Agent
+  - Name: M
+    Password: TopSecret
+    Roles:
+      - Head
+      - Agent
