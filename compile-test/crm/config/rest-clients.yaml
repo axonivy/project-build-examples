@@ -1,6 +1,7 @@
+# yaml-language-server: $schema=https://json-schema.axonivy.com/config/14.0.0/rest-clients.json
 RestClients:
   customer-service:
     UUID: c1882340-12e9-4b26-87cc-f912d911fbc8
     Url: http://live.customer-erp.ch/v3
     Features:
-    - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
+      - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
