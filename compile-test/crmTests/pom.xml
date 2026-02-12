@@ -4,12 +4,12 @@
   <parent>
     <groupId>ch.ivyteam.ivy.project.demo.ci</groupId>
     <artifactId>crm.maven.config</artifactId>
-    <version>12.0.12-SNAPSHOT</version>
+    <version>12.0.13-SNAPSHOT</version>
     <relativePath>../crm.maven/config</relativePath>
   </parent>
 
   <artifactId>crmTests</artifactId>
-  <version>12.0.12-SNAPSHOT</version>
+  <version>12.0.13-SNAPSHOT</version>
   <packaging>iar</packaging>
 
   <dependencies>
