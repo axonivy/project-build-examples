@@ -1,0 +1,7 @@
+# yaml-language-server: $schema=https://json-schema.axonivy.com/14.0-dev/config/persistence.json
+Persistence:
+  erp:
+    DataSource: exampleDb
+    Properties:
+      hibernate.hbm2ddl.auto: create
+      hibernate.id.new_generator_mappings: 'false'
