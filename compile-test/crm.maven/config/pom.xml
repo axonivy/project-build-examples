@@ -11,7 +11,7 @@
 
   <properties>
     <project-build-plugin>12.0.9-SNAPSHOT</project-build-plugin>
-    <web.tester.version>12.0.3-SNAPSHOT</web.tester.version>
+    <web.tester.version>12.0.4-SNAPSHOT</web.tester.version>
   </properties>
 
   <pluginRepositories>
