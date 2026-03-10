@@ -31,19 +31,4 @@
       <systemPath>${project.basedir}/lib/ExternalLibraryForIssueXivy1571.jar</systemPath>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>com.axonivy.ivy.ci</groupId>
-        <artifactId>project-build-plugin</artifactId>
-        <configuration>
-          <unpackIncludes>
-            <unpackInclude>lib/*.jar</unpackInclude>
-          </unpackIncludes>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-
 </project>
