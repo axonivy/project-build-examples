@@ -41,7 +41,8 @@ pipeline {
             sh "docker network rm ${networkName}"
           }          
           recordIssues tools: [mavenConsole()], qualityGates: [[threshold: 1, type: 'TOTAL']], filters: [
-            excludeMessage('The system property test.engine.url is configured twice!.*')
+            excludeMessage('The system property test.engine.url is configured twice!.*'),
+            excludeMessage('.*should not point at files within the project directory.*')
           ]
           junit '**/**/target/*-reports/**/*.xml'
 
