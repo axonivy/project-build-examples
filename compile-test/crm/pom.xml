@@ -23,6 +23,13 @@
       <artifactId>hibernate-core</artifactId>
       <scope>provided</scope>
     </dependency>
+     <dependency>
+      <groupId>custom</groupId>
+      <artifactId>custom</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/ExternalLibraryForIssueXivy1571.jar</systemPath>
+    </dependency>
   </dependencies>
 
   <build>
