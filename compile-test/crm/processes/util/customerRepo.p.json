@@ -47,7 +47,7 @@
       ],
       "config" : {
         "target" : {
-          "clientId" : "c1882340-12e9-4b26-87cc-f912d911fbc8",
+          "clientId" : "customer-service",
           "path" : "customer",
           "queryParams" : {
             "name" : "in.name"
