@@ -70,6 +70,7 @@
               <goal>deploy-to-engine</goal>
             </goals>
             <configuration>
+              <skipDeploy>${maven.test.skip}</skipDeploy>
               <deployFile>${project.build.directory}/${project.artifactId}-${project.version}.iar</deployFile>
               <deployMethod>HTTP</deployMethod>
               <deployServerId>project-build-plugin-examples-axonivy.engine</deployServerId>
