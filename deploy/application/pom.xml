@@ -65,15 +65,7 @@
             <configuration>
               <deployFile>${project.build.directory}/${project.artifactId}-${project.version}.zip</deployFile>
               <deployToEngineApplication>MyApplication</deployToEngineApplication>
-
-              <!-- <deployOptionsFile>${basedir}/deploy.options.yaml</deployOptionsFile> -->
-              <!-- The following parameters can instead be configured in a yaml file like above.
-                   Comment out the below parameters and uncomment the deployOptionsFile parameter
-                   if you want to use the yaml file instead.
-                   If the deployOptionsFile is configured, the parameters get ignored (no merge). -->
               <deployTestUsers>false</deployTestUsers>
-              <deployTargetVersion>AUTO</deployTargetVersion>
-              <deployTargetState>ACTIVE_AND_RELEASED</deployTargetState>
             </configuration>
           </execution>
           <execution>
