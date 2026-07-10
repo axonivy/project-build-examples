@@ -14,5 +14,6 @@
 
 # Ivy
 **/src_dataClasses/
+**/src_generated/
 
 **/logs/
