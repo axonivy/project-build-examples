@@ -1,0 +1,69 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/process-1.json",
+  "id" : "15287EC41B05C6C5",
+  "config" : {
+    "data" : "crm.Data"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "register.ivp",
+      "config" : {
+        "signature" : "register"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 },
+        "labelOffset" : { "x" : 13, "y" : 37 }
+      },
+      "connect" : [
+        { "id" : "f4", "to" : "f3" }
+      ]
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 528, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "DialogCall",
+      "name" : [
+        "register new",
+        "customer"
+      ],
+      "config" : {
+        "dialog" : "crm.CustomerRegistrationForm:start()",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.newCustomer" : "result.customer"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 64 }
+      },
+      "connect" : [
+        { "id" : "f6", "to" : "f5" }
+      ]
+    }, {
+      "id" : "f5",
+      "type" : "DialogCall",
+      "name" : "welcome new customer",
+      "config" : {
+        "dialog" : "crm.WelcomeNewCustomer:start(crm.Customer)",
+        "call" : {
+          "map" : {
+            "param.newCustomer" : "in.newCustomer"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 392, "y" : 64 },
+        "size" : { "width" : 160 }
+      },
+      "connect" : [
+        { "id" : "f2", "to" : "f1" }
+      ]
+    } ]
+}
