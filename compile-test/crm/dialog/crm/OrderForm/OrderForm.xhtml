@@ -34,7 +34,7 @@
           <p:outputLabel for="price" value="Single Price" />
           <h:outputText id="price" value="#{data.product.singlePrice}"/>
           
-          <p:commandButton id="addProduct" actionListener="#{logic.addProduct}" value="Add" update="@form:orderTable" icon="ui-icon-add"/>
+          <p:commandButton id="addProduct" actionListener="#{logic.addProduct}" value="Add" update="@form:orderTable" icon="ti ti-plus"/>
 
           <br />
         </p:panelGrid>
@@ -53,7 +53,7 @@
         
         <br />
         
-        <p:commandButton actionListener="#{logic.close}" value="Order" update="form" icon="ui-icon-check" />
+        <p:commandButton actionListener="#{logic.close}" value="Order" update="form" icon="ti ti-check" />
       </h:form>
 
     </ui:define>

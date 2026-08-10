@@ -5,6 +5,7 @@ import static com.codeborne.selenide.CollectionCondition.sizeGreaterThanOrEqual;
 import static com.codeborne.selenide.CollectionCondition.sizeLessThanOrEqual;
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.and;
+import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.exactValue;
 import static com.codeborne.selenide.Condition.exist;
@@ -34,7 +35,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebElementCondition;
 
-@IvyWebTest(headless=true)
+@IvyWebTest
 public class WebTestOrderFormIT {
 
   @BeforeEach
@@ -164,8 +165,7 @@ public class WebTestOrderFormIT {
     $(By.id("notExistingElement")).shouldNotBe(exist);
     $(By.id("notExistingElement")).shouldBe(not(exist));
     // they can exist but are hidden
-    $(By.id("form:product_input")).should(exist, not(visible));
-    $(By.id("form:product_input")).shouldBe(hidden);
+    $(By.id("form:product_input")).should(exist, attribute("aria-hidden", "true"));
 
     // conditions on multiple elements
     $$(By.className("ui-outputlabel")).shouldBe(texts("Product", "Amount", "Single Price"));
