@@ -4,9 +4,11 @@
   "namespace" : "ci.deploy.solution.UserManager",
   "fields" : [ {
     "name" : "user",
-    "type" : "ci.deploy.base.User"
+    "type" : "ci.deploy.base.User",
+    "modifiers" : [ ]
   }, {
     "name" : "showDescription",
-    "type" : "Boolean"
+    "type" : "Boolean",
+    "modifiers" : [ ]
   } ]
 }

@@ -4,6 +4,7 @@
   "namespace" : "crm.InvoiceForm",
   "fields" : [ {
     "name" : "total",
-    "type" : "Number"
+    "type" : "Number",
+    "modifiers" : [ ]
   } ]
 }

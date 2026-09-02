@@ -4,6 +4,7 @@
   "namespace" : "crm.WelcomeNewCustomer",
   "fields" : [ {
     "name" : "newCustomer",
-    "type" : "crm.Customer"
+    "type" : "crm.Customer",
+    "modifiers" : [ ]
   } ]
 }

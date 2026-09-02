@@ -4,6 +4,7 @@
   "namespace" : "crm.CheckOrderForm",
   "fields" : [ {
     "name" : "valid",
-    "type" : "Boolean"
+    "type" : "Boolean",
+    "modifiers" : [ ]
   } ]
 }
