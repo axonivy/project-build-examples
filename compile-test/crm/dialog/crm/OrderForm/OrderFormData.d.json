@@ -4,12 +4,15 @@
   "namespace" : "crm.OrderForm",
   "fields" : [ {
     "name" : "order",
-    "type" : "java.util.List<crm.Product>"
+    "type" : "java.util.List<crm.Product>",
+    "modifiers" : [ ]
   }, {
     "name" : "product",
-    "type" : "crm.Product"
+    "type" : "crm.Product",
+    "modifiers" : [ ]
   }, {
     "name" : "availableProducts",
-    "type" : "java.util.List<crm.Product>"
+    "type" : "java.util.List<crm.Product>",
+    "modifiers" : [ ]
   } ]
 }

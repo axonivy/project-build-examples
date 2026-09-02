@@ -4,6 +4,7 @@
   "namespace" : "crm.CustomerRegistrationForm",
   "fields" : [ {
     "name" : "customer",
-    "type" : "crm.Customer"
+    "type" : "crm.Customer",
+    "modifiers" : [ ]
   } ]
 }
